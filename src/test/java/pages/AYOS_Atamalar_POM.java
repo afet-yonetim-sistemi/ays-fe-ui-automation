@@ -11,7 +11,7 @@ public class AYOS_Atamalar_POM extends MyMethods {
     public AYOS_Atamalar_POM() {
         PageFactory.initElements(DriverClass.getDriver(), this); }
 
-    @FindBy(xpath = "(//a[normalize-space()='Assignments'])[1]")
+    @FindBy(xpath = "//a[normalize-space()='Assignments']")
     private WebElement atamalar;
 
     @FindBy(xpath = "//span[@class='anticon anticon-down']//*[name()='svg']")
@@ -19,7 +19,7 @@ public class AYOS_Atamalar_POM extends MyMethods {
 
     @FindBy(xpath = "(//span[normalize-space()='Türkçe'])[1]")
     private WebElement turkceDilSecenegi;
-    @FindBy(xpath = "//span[contains(text(),'Oluştur')]")
+    @FindBy(xpath = "//span[contains(text(),'Create')]")
     private WebElement olusturButonu;
     @FindBy(xpath = "(//input[@id='firstName'])[1]")
     private WebElement ad;
@@ -51,6 +51,14 @@ public class AYOS_Atamalar_POM extends MyMethods {
     @FindBy(css = "button[class='ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-tooltip-open']")
     private WebElement konumGoruntule;
 
+    @FindBy(xpath = "//span[normalize-space()='Google Haritalarda Aç']")
+    private WebElement googleHaritalardaAc;
+
+    @FindBy(xpath = "//span[normalize-space()='Konumu Bilgilerini Kopyala']")
+    private WebElement konumuBilgileriniKopyala;
+
+    @FindBy(xpath = "//span[normalize-space()='Telefonumda Aç']")
+    private WebElement telefonumdaAc;
   //  @FindBy(xpath = "//button[@class=\"ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-btn-dangerous refine-delete-button\"]\n")
   //  private WebElement ;
 
@@ -100,6 +108,17 @@ public class AYOS_Atamalar_POM extends MyMethods {
         return atamayiKaydet;
     }
 
+    public WebElement getAtamayiSil() {
+        return atamayiSil;
+    }
+
+    public WebElement getKonumGoruntule() { return konumGoruntule;}
+
+    public WebElement getGoogleHaritalardaAc() { return googleHaritalardaAc;}
+
+    public WebElement getKonumuBilgileriniKopyala() { return konumuBilgileriniKopyala;}
+
+    public WebElement getTelefonumdaAc() { return telefonumdaAc;}
 
 }
 

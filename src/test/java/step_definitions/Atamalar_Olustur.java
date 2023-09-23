@@ -2,6 +2,7 @@ package step_definitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.AYOS_Atamalar_POM;
@@ -25,8 +26,8 @@ public class Atamalar_Olustur {
 
     @When("atamalar sekmesine tıkla")
     public void atamalarSekmesineTıkla() {
-        ayo.clickMethod(ayo.getDilSecenegi());
-        ayo.clickMethod(ayo.getTurkceDilSecenegi());
+    //    ayo.clickMethod(ayo.getDilSecenegi());
+    //    ayo.clickMethod(ayo.getTurkceDilSecenegi());
         ayo.clickMethod(ayo.getAtamalar());
     }
 
@@ -37,22 +38,22 @@ public class Atamalar_Olustur {
 
     @And("atama formunu doldur")
     public void atamaFormunuDoldur() {
-        ayo.sendKeysMethod(ayo.getAd(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getSoyad(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getAciklama(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getAlanKodu(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getEnlem(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getBoylam(), "ays-admin-1");
+        ayo.sendKeysMethod(ayo.getAd(), "rıfkı");
+        ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
+        ayo.sendKeysMethod(ayo.getAciklama(), "abcdfghh");
+        ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
+        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "");
+        ayo.sendKeysMethod(ayo.getEnlem(), "41");
+        ayo.sendKeysMethod(ayo.getBoylam(), "37");
     }
 
     @And("atama formunu doldururken ad kısmında geçersiz karakterler kullan")
     public void atamaFormunuDoldururkenAdKısmındaGeçersizKarakterlerKullan() {
-        ayo.sendKeysMethod(ayo.getAd(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getSoyad(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getAciklama(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getAlanKodu(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "ays-admin-1");
+        ayo.sendKeysMethod(ayo.getAd(), "?--/-**-8965");
+        ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
+        ayo.sendKeysMethod(ayo.getAciklama(), "huıpvd");
+        ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
+        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "55555555");
         ayo.sendKeysMethod(ayo.getEnlem(), "A123y456S.");
         ayo.sendKeysMethod(ayo.getBoylam(), "ays-admin-1");
     }
@@ -99,5 +100,10 @@ public class Atamalar_Olustur {
         ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "ays-admin-1");
         ayo.sendKeysMethod(ayo.getEnlem(), "A123y456S.");
         ayo.sendKeysMethod(ayo.getBoylam(), "ays-admin-1");
+    }
+
+    @Then("kaydet butonuna tıkla")
+    public void kaydetButonunaTıkla() {
+        ayo.clickMethod(ayo.getAtamayiKaydet());
     }
 }
