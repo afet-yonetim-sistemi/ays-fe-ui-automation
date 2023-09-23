@@ -11,6 +11,9 @@ public class AYOS_Atamalar_POM extends MyMethods {
     public AYOS_Atamalar_POM() {
         PageFactory.initElements(DriverClass.getDriver(), this); }
 
+    @FindBy(xpath = "")
+    private WebElement atamalar;
+
     @FindBy(xpath = "//span[contains(text(),'Oluştur')]")
     private WebElement olusturButonu;
     @FindBy(xpath = "(//input[@id='firstName'])[1]")
@@ -24,6 +27,24 @@ public class AYOS_Atamalar_POM extends MyMethods {
 
     @FindBy(xpath = "(//div[@class='ant-select-selector'])[1]")
     private WebElement alanKodu;
+
+    @FindBy(xpath = "(//input[@type='text'])[4]")
+    private WebElement telefonNumarasi;
+
+    @FindBy(xpath = "//div[@id='coordinates']//input[@id='latitude']")
+    private WebElement enlem;
+
+    @FindBy(xpath = "//div[@id='coordinates']//input[@id='longitude']")
+    private WebElement boylam;
+
+    @FindBy(xpath = "//button[@type='submit']//span[contains(text(),'Kaydet')]")
+    private WebElement atamayiKaydet;
+
+    @FindBy(xpath = "//tbody/tr[2]/td[5]/div[1]/div[3]/button[1]")
+    private WebElement atamayiSil;
+
+    @FindBy(css = "button[class='ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-tooltip-open']")
+    private WebElement konumGoruntule;
 
     @FindBy(xpath = "//button[@class=\"ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-btn-dangerous refine-delete-button\"]\n")
     private WebElement ;
@@ -46,6 +67,23 @@ public class AYOS_Atamalar_POM extends MyMethods {
     public WebElement getAlanKodu() {
         return alanKodu;
     }
+
+    public WebElement getTelefonNumarasi() {
+        return telefonNumarasi;
+    }
+
+    public WebElement getEnlem() {
+        return enlem;
+    }
+
+    public WebElement getBoylam() {
+        return boylam;
+    }
+
+    public WebElement getAtamayiKaydet() {
+        return atamayiKaydet;
+    }
+
 
 }
 

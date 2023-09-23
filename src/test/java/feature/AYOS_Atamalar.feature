@@ -11,14 +11,14 @@ Feature: Atamalar test edilmesi
     Given sisteme giriş yap
     When atamalar sekmesine tıkla
     And oluştur butonuna tıkla
-    And atama formunu doldur
+    And atama formunu doldururken ad kısmında geçersiz karakterler kullan
     Then kaydet butonuna tıkla
 
   Scenario: Geçersiz bir soyad ile atama oluştur
     Given sisteme giriş yap
     When atamalar sekmesine tıkla
     And oluştur butonuna tıkla
-    And atama formunu doldur
+    And atama formunu doldururken soyad kısmında geçersiz karakterler kullan
     Then kaydet butonuna tıkla
 
   Scenario: Geçersiz bir açıklama ile atama oluştur
@@ -45,6 +45,33 @@ Feature: Atamalar test edilmesi
   Scenario: Mevcut atamayı sil
     Given sisteme giriş yap
     When atamalar sekmesine tıkla
-    And oluştur butonuna tıkla
-    And atama formunu doldur
-    Then kaydet butonuna tıkla
+    And en üstteki atama için çöp kutusu butonuna tıkla
+    And sil butonuna tıkla
+    Then başarı mesajını doğrula
+
+  Scenario: Mevcut atamanın konumunu görüntüle
+    Given sisteme giriş yap
+    When atamalar sekmesine tıkla
+    And en üstteki atama için konum işareti butonuna tıkla
+    Then gelen konumun görüntülendiğini doğrula
+
+
+  Scenario: Mevcut atamanın konumunu google haritalarda aç
+    Given sisteme giriş yap
+    When atamalar sekmesine tıkla
+    And en üstteki atama için konum işareti butonuna tıkla
+    Then açılan pencerelerde google haritalarda aç
+
+
+  Scenario: Mevcut atamanın konumunu görüntüle
+    Given sisteme giriş yap
+    When atamalar sekmesine tıkla
+    And en üstteki atama için konum işareti butonuna tıkla
+    Then gelen konumun görüntülendiğini doğrula
+
+  Scenario: Mevcut atamanın konumunu görüntüle
+    Given sisteme giriş yap
+    When atamalar sekmesine tıkla
+    And en üstteki atama için konum işareti butonuna tıkla
+    Then gelen konumun görüntülendiğini doğrula
+
