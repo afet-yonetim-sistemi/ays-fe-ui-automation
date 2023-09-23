@@ -30,9 +30,11 @@ public class AYOS_Atamalar_POM extends MyMethods {
     @FindBy(xpath = "(//input[@id='description'])[1]")
     private WebElement aciklama;
 
-    @FindBy(xpath = "(//div[@class='ant-select-selector'])[1]")
+    @FindBy(xpath = "(//input[@id='phoneNumber_countryCode'])[1]")
     private WebElement alanKodu;
 
+    @FindBy(xpath = "//div[contains(text(),'+90 Türkiye')]")
+    private WebElement turkiyeAlanKodu;
     @FindBy(xpath = "(//input[@type='text'])[4]")
     private WebElement telefonNumarasi;
 
@@ -48,16 +50,18 @@ public class AYOS_Atamalar_POM extends MyMethods {
     @FindBy(xpath = "//tbody/tr[2]/td[5]/div[1]/div[3]/button[1]")
     private WebElement atamayiSil;
 
-    @FindBy(css = "button[class='ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-tooltip-open']")
+    @FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > main:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(5) > div:nth-child(1) > div:nth-child(1)")
     private WebElement konumGoruntule;
 
-    @FindBy(xpath = "//span[normalize-space()='Google Haritalarda Aç']")
+    @FindBy(xpath = "//div[@id='map-container']")
+    private WebElement konumDogrula;
+    @FindBy(xpath = "//span[normalize-space()='Open With Google Maps']")
     private WebElement googleHaritalardaAc;
 
-    @FindBy(xpath = "//span[normalize-space()='Konumu Bilgilerini Kopyala']")
+    @FindBy(xpath = "//span[normalize-space()='Copy The Location Details']")
     private WebElement konumuBilgileriniKopyala;
 
-    @FindBy(xpath = "//span[normalize-space()='Telefonumda Aç']")
+    @FindBy(xpath = "//span[normalize-space()='Open On My Phone']")
     private WebElement telefonumdaAc;
   //  @FindBy(xpath = "//button[@class=\"ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-btn-dangerous refine-delete-button\"]\n")
   //  private WebElement ;
@@ -113,6 +117,8 @@ public class AYOS_Atamalar_POM extends MyMethods {
     }
 
     public WebElement getKonumGoruntule() { return konumGoruntule;}
+
+    public WebElement getKonumDogrula() { return konumDogrula;}
 
     public WebElement getGoogleHaritalardaAc() { return googleHaritalardaAc;}
 

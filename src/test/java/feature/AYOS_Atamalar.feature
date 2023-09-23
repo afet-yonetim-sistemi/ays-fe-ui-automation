@@ -63,15 +63,15 @@ Feature: Atamalar test edilmesi
     Then açılan pencerelerde google haritalarda aç
 
 
-  Scenario: Mevcut atamanın konumunu görüntüle
+  Scenario: Mevcut atamanın konumunun detaylarını kopyala
     Given sisteme giriş yap
     When atamalar sekmesine tıkla
     And en üstteki atama için konum işareti butonuna tıkla
-    Then gelen konumun görüntülendiğini doğrula
+    Then gelen konumun detaylarını kopyala butonuna tıkla
 
-  Scenario: Mevcut atamanın konumunu görüntüle
+  Scenario: Mevcut atamanın konumunu telefonda aç
     Given sisteme giriş yap
     When atamalar sekmesine tıkla
     And en üstteki atama için konum işareti butonuna tıkla
-    Then gelen konumun görüntülendiğini doğrula
+    Then gelen konumu telefonda aç butonuna tıkla
 

@@ -41,7 +41,10 @@ public class Atamalar_Olustur {
         ayo.sendKeysMethod(ayo.getAd(), "rıfkı");
         ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
         ayo.sendKeysMethod(ayo.getAciklama(), "abcdfghh");
-        ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
+        ayo.clickMethod(ayo.getAlanKodu());
+       // ayo.clickMethod(ayo.gettu);
+        //    ayo.clickMethod(ayo.getTurkceDilSecenegi());
+       // ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
         ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "");
         ayo.sendKeysMethod(ayo.getEnlem(), "41");
         ayo.sendKeysMethod(ayo.getBoylam(), "37");
@@ -54,52 +57,52 @@ public class Atamalar_Olustur {
         ayo.sendKeysMethod(ayo.getAciklama(), "huıpvd");
         ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
         ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "55555555");
-        ayo.sendKeysMethod(ayo.getEnlem(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getBoylam(), "ays-admin-1");
+        ayo.sendKeysMethod(ayo.getEnlem(), "35");
+        ayo.sendKeysMethod(ayo.getBoylam(), "36");
     }
 
     @And("atama formunu doldururken soyad kısmında geçersiz karakterler kullan")
     public void atamaFormunuDoldururkenSoyadKısmındaGeçersizKarakterlerKullan() {
-        ayo.sendKeysMethod(ayo.getAd(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getSoyad(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getAciklama(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getAlanKodu(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getEnlem(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getBoylam(), "ays-admin-1");
+        ayo.sendKeysMethod(ayo.getAd(), "rıfkı");
+        ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
+        ayo.sendKeysMethod(ayo.getAciklama(), "abcuqopg");
+        ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
+        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "888888888");
+        ayo.sendKeysMethod(ayo.getEnlem(), "33");
+        ayo.sendKeysMethod(ayo.getBoylam(), "25");
     }
 
     @And("atama formunu doldururken geçersiz bir açıklama yaz")
     public void atamaFormunuDoldururkenGeçersizBirAçıklamaYaz() {
-        ayo.sendKeysMethod(ayo.getAd(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getSoyad(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getAciklama(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getAlanKodu(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getEnlem(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getBoylam(), "ays-admin-1");
+        ayo.sendKeysMethod(ayo.getAd(), "rıfkı");
+        ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
+        ayo.sendKeysMethod(ayo.getAciklama(), "?-/*-+?'!$[}");
+        ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
+        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), " ");
+        ayo.sendKeysMethod(ayo.getEnlem(), "47");
+        ayo.sendKeysMethod(ayo.getBoylam(), "48");
     }
 
     @And("atama formunu doldururken geçersiz bir telefon numarası yaz")
     public void atamaFormunuDoldururkenGeçersizBirTelefonNumarasıYaz() {
-        ayo.sendKeysMethod(ayo.getAd(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getSoyad(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getAciklama(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getAlanKodu(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getEnlem(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getBoylam(), "ays-admin-1");
+        ayo.sendKeysMethod(ayo.getAd(), "rıfkı");
+        ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
+        ayo.sendKeysMethod(ayo.getAciklama(), "acbdyagyqcbm");
+        ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
+        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "16161616");
+        ayo.sendKeysMethod(ayo.getEnlem(), "20");
+        ayo.sendKeysMethod(ayo.getBoylam(), "21");
     }
 
     @And("atama formunu doldururken geçersiz koordinatlar gir")
     public void atamaFormunuDoldururkenGeçersizKoordinatlarGir() {
-        ayo.sendKeysMethod(ayo.getAd(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getSoyad(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getAciklama(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getAlanKodu(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "ays-admin-1");
-        ayo.sendKeysMethod(ayo.getEnlem(), "A123y456S.");
-        ayo.sendKeysMethod(ayo.getBoylam(), "ays-admin-1");
+        ayo.sendKeysMethod(ayo.getAd(), "rıfkı");
+        ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
+        ayo.sendKeysMethod(ayo.getAciklama(), "qwertty");
+        ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
+        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), " ");
+        ayo.sendKeysMethod(ayo.getEnlem(), "8989898989");
+        ayo.sendKeysMethod(ayo.getBoylam(), "8989898989");
     }
 
     @Then("kaydet butonuna tıkla")
