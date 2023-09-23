@@ -30,7 +30,7 @@ public class AYOS_Atamalar_POM extends MyMethods {
     @FindBy(xpath = "(//input[@id='description'])[1]")
     private WebElement aciklama;
 
-    @FindBy(xpath = "(//input[@id='phoneNumber_countryCode'])[1]")
+    @FindBy(xpath = "(//input[@id='phoneNumber_countryCode'])[1]") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
     private WebElement alanKodu;
 
     @FindBy(xpath = "//div[contains(text(),'+90 Türkiye')]")
@@ -63,6 +63,14 @@ public class AYOS_Atamalar_POM extends MyMethods {
 
     @FindBy(xpath = "//span[normalize-space()='Open On My Phone']")
     private WebElement telefonumdaAc;
+
+    @FindBy(xpath = "//div[@id='uniqueDivId']//button[contains(@class, 'refine-edit-button')]")
+    private WebElement duzenle;
+
+    @FindBy(xpath = "//div[@id='uniqueDivId']//button[contains(@class, 'refine-edit-button')]")
+    private WebElement filtrele;
+
+    //body[1]/div[1]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/div[1]/button[1]
   //  @FindBy(xpath = "//button[@class=\"ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-btn-dangerous refine-delete-button\"]\n")
   //  private WebElement ;
 
@@ -125,6 +133,9 @@ public class AYOS_Atamalar_POM extends MyMethods {
     public WebElement getKonumuBilgileriniKopyala() { return konumuBilgileriniKopyala;}
 
     public WebElement getTelefonumdaAc() { return telefonumdaAc;}
+
+    public WebElement getDuzenle() { return duzenle;}
+
 
 }
 
