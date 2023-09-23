@@ -5,12 +5,13 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import utilities.DriverClass;
 
 public class RunnerForParallelTest  extends AbstractTestNGCucumberTests {
 
     @BeforeClass
     @Parameters(value = "browsers")
-    public void beforeClass(String browserName) {DriverClass.setThreadDriverName(browserName);
+    public void beforeClass(String browserName) { DriverClass.setThreadDriverName(browserName);
     }
 
     @AfterClass

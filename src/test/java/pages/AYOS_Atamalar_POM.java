@@ -46,8 +46,8 @@ public class AYOS_Atamalar_POM extends MyMethods {
     @FindBy(css = "button[class='ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-tooltip-open']")
     private WebElement konumGoruntule;
 
-    @FindBy(xpath = "//button[@class=\"ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-btn-dangerous refine-delete-button\"]\n")
-    private WebElement ;
+  //  @FindBy(xpath = "//button[@class=\"ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-btn-dangerous refine-delete-button\"]\n")
+  //  private WebElement ;
 
     public WebElement getOlusturButonu() {
         return olusturButonu;
