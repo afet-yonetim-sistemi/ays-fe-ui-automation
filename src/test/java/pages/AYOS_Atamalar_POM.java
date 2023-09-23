@@ -11,9 +11,14 @@ public class AYOS_Atamalar_POM extends MyMethods {
     public AYOS_Atamalar_POM() {
         PageFactory.initElements(DriverClass.getDriver(), this); }
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "(//a[normalize-space()='Assignments'])[1]")
     private WebElement atamalar;
 
+    @FindBy(xpath = "//span[@class='anticon anticon-down']//*[name()='svg']")
+    private WebElement dilSecenegi;
+
+    @FindBy(xpath = "(//span[normalize-space()='Türkçe'])[1]")
+    private WebElement turkceDilSecenegi;
     @FindBy(xpath = "//span[contains(text(),'Oluştur')]")
     private WebElement olusturButonu;
     @FindBy(xpath = "(//input[@id='firstName'])[1]")
@@ -49,6 +54,17 @@ public class AYOS_Atamalar_POM extends MyMethods {
   //  @FindBy(xpath = "//button[@class=\"ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-btn-dangerous refine-delete-button\"]\n")
   //  private WebElement ;
 
+    public WebElement getAtamalar() {
+        return atamalar;
+    }
+
+    public WebElement getDilSecenegi() {
+        return dilSecenegi;
+    }
+
+    public WebElement getTurkceDilSecenegi() {
+        return turkceDilSecenegi;
+    }
     public WebElement getOlusturButonu() {
         return olusturButonu;
     }

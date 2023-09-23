@@ -25,21 +25,21 @@ Feature: Atamalar test edilmesi
     Given sisteme giriş yap
     When atamalar sekmesine tıkla
     And oluştur butonuna tıkla
-    And atama formunu doldur
+    And atama formunu doldururken geçersiz bir açıklama yaz
     Then kaydet butonuna tıkla
 
   Scenario: Geçersiz bir telefon numarası ile atama oluştur
     Given sisteme giriş yap
     When atamalar sekmesine tıkla
     And oluştur butonuna tıkla
-    And atama formunu doldur
+    And atama formunu doldururken geçersiz bir telefon numarası yaz
     Then kaydet butonuna tıkla
 
   Scenario: Geçersiz koordinaatlar ile atama oluştur
     Given sisteme giriş yap
     When atamalar sekmesine tıkla
     And oluştur butonuna tıkla
-    And atama formunu doldur
+    And atama formunu doldururken geçersiz koordinatlar gir
     Then kaydet butonuna tıkla
 
   Scenario: Mevcut atamayı sil
