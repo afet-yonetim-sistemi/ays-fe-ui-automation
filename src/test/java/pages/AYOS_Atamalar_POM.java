@@ -30,7 +30,7 @@ public class AYOS_Atamalar_POM extends MyMethods {
     @FindBy(xpath = "(//input[@id='description'])[1]")
     private WebElement aciklama;
 
-    @FindBy(xpath = "(//input[@id='phoneNumber_countryCode'])[1]") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
+    @FindBy(xpath = "//div[@class='ant-drawer-selector']") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
     private WebElement alanKodu;
 
     @FindBy(xpath = "//div[contains(text(),'+90 Türkiye')]")
@@ -70,24 +70,26 @@ public class AYOS_Atamalar_POM extends MyMethods {
     @FindBy(xpath = "//button[@class='ant-btn css-8e9jp2 ant-btn-default ant-btn-icon-only refine-show-button']")
     private WebElement goster;
 
+    @FindBy(xpath = "//h4[normalize-space()='Show Assignment']")
+    private WebElement gosterDogrulama;
 
     @FindBy(xpath = "//button[@class='ant-btn css-8e9jp2 ant-btn-default ant-btn-icon-only']")
     private WebElement filtrele;
 
-   // @FindBy(xpath = "")
-   // private WebElement filtrele;
+    @FindBy(xpath = "//div[@class='ant-select-selection-overflow']")
+    private WebElement durumaGoreFiltrele;
 
-   // @FindBy(xpath = "")
-   // private WebElement filtrele;
+    @FindBy(xpath = "//input[@id='phoneNumber_lineNumber']")
+    private WebElement telefonNumarasinaGoreFiltrele;
 
-   // @FindBy(xpath = "")
-   // private WebElement filtrele;
+    @FindBy(xpath = "//input[@id='phoneNumber_countryCode']")
+    private WebElement alanKodunaGoreFiltrele;
 
-   // @FindBy(xpath = "")
-   // private WebElement filtrele;
+    @FindBy(xpath = "//span[normalize-space()='Filter']")
+    private WebElement filtrelemeButonu;
 
-   // @FindBy(xpath = "")
-   // private WebElement filtrele;
+   @FindBy(xpath = "//button[@type='button']//span[contains(text(),'Save')]")
+   private WebElement duzenleKaydetButonu;
     //body[1]/div[1]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/div[1]/button[1]
   //  @FindBy(xpath = "//button[@class=\"ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-btn-dangerous refine-delete-button\"]\n")
   //  private WebElement ;
@@ -156,7 +158,19 @@ public class AYOS_Atamalar_POM extends MyMethods {
 
     public WebElement getGoster() { return goster;}
 
+    public WebElement getGosterDogrulama() { return gosterDogrulama;}
+
     public WebElement getFiltrele() { return filtrele;}
+
+    public WebElement getDurumaGoreFiltrele() { return durumaGoreFiltrele;}
+
+    public WebElement getTelefonNumarasinaGoreFiltrele() { return telefonNumarasinaGoreFiltrele;}
+
+    public WebElement getAlanKodunaGoreFiltrele() { return alanKodunaGoreFiltrele;}
+
+    public WebElement getFiltrelemeButonu() { return filtrelemeButonu;}
+
+    public WebElement getDuzenleKaydetButonu() { return duzenleKaydetButonu;}
 
 }
 

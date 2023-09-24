@@ -2,6 +2,7 @@ package step_definitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.Keys;
 import pages.AYOS_Atamalar_POM;
 
 public class Atamalar_Düzenle {
@@ -14,16 +15,31 @@ public class Atamalar_Düzenle {
 
     @And("atama formunudaki her inputu düzenle")
     public void atamaFormunudakiHerInputuDüzenle() {
-        ayo.sendKeysMethod(ayo.getAd(), "rıfkı");
-        ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
-        ayo.sendKeysMethod(ayo.getAciklama(), "abcdfghh");
+        ayo.getAd().sendKeys(Keys.BACK_SPACE);
+        ayo.sendKeysMethod(ayo.getAd(), "ABCDE");
+
+        ayo.getSoyad().sendKeys(Keys.BACK_SPACE);
+        ayo.sendKeysMethod(ayo.getSoyad(), "ABCDE");
+
+        ayo.getAciklama().sendKeys(Keys.BACK_SPACE);
+        ayo.sendKeysMethod(ayo.getAciklama(), "ABCDE");
+
         ayo.clickMethod(ayo.getAlanKodu());
         // ayo.clickMethod(ayo.gettu);
         //    ayo.clickMethod(ayo.getTurkceDilSecenegi());
         // ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
-        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "");
-        ayo.sendKeysMethod(ayo.getEnlem(), "41");
-        ayo.sendKeysMethod(ayo.getBoylam(), "37");
+
+        ayo.getTelefonNumarasi().sendKeys(Keys.BACK_SPACE);
+        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "ABCDE");
+
+        ayo.getEnlem().sendKeys(Keys.BACK_SPACE);
+        ayo.sendKeysMethod(ayo.getEnlem(), "ABCDE");
+
+        ayo.getBoylam().sendKeys(Keys.BACK_SPACE);
+        ayo.sendKeysMethod(ayo.getBoylam(), "ABCDE");
+
+
+
     }
 
     @Then("düzenleme kaydet butonuna tıkla")
