@@ -30,7 +30,7 @@ public class AYOS_Atamalar_POM extends MyMethods {
     @FindBy(xpath = "(//input[@id='description'])[1]")
     private WebElement aciklama;
 
-    @FindBy(xpath = "//div[@class='ant-drawer-selector']") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
+    @FindBy(xpath = "//div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
     private WebElement alanKodu;
 
     @FindBy(xpath = "//div[contains(text(),'+90 Türkiye')]")
@@ -128,6 +128,10 @@ public class AYOS_Atamalar_POM extends MyMethods {
         return alanKodu;
     }
 
+    public WebElement getTurkiyeAlanKodu() {
+        return turkiyeAlanKodu;
+    }
+
     public WebElement getTelefonNumarasi() {
         return telefonNumarasi;
     }
@@ -151,6 +155,8 @@ public class AYOS_Atamalar_POM extends MyMethods {
     public WebElement getAtamayiSilEminMisiniz() { return atamayiSilEminMisiniz;}
 
     public WebElement getSilBasariMesaji() { return silBasariMesaji;}
+
+    public WebElement getKonumGoruntule() { return konumGoruntule;}
 
     public WebElement getKonumDogrula() { return konumDogrula;}
 

@@ -25,9 +25,7 @@ public class Atamalar_Düzenle {
         ayo.sendKeysMethod(ayo.getAciklama(), "ABCDE");
 
         ayo.clickMethod(ayo.getAlanKodu());
-        // ayo.clickMethod(ayo.gettu);
-        //    ayo.clickMethod(ayo.getTurkceDilSecenegi());
-        // ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
+        ayo.clickMethod(ayo.getTurkiyeAlanKodu());
 
         ayo.getTelefonNumarasi().sendKeys(Keys.BACK_SPACE);
         ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "ABCDE");

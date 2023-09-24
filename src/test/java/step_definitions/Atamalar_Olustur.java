@@ -42,9 +42,7 @@ public class Atamalar_Olustur {
         ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
         ayo.sendKeysMethod(ayo.getAciklama(), "abcdfghh");
         ayo.clickMethod(ayo.getAlanKodu());
-       // ayo.clickMethod(ayo.gettu);
-        //    ayo.clickMethod(ayo.getTurkceDilSecenegi());
-       // ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
+        ayo.clickMethod(ayo.getTurkiyeAlanKodu());
         ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "");
         ayo.sendKeysMethod(ayo.getEnlem(), "41");
         ayo.sendKeysMethod(ayo.getBoylam(), "37");
@@ -55,7 +53,8 @@ public class Atamalar_Olustur {
         ayo.sendKeysMethod(ayo.getAd(), "?--/-**-8965");
         ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
         ayo.sendKeysMethod(ayo.getAciklama(), "huıpvd");
-        ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
+        ayo.clickMethod(ayo.getAlanKodu());
+        ayo.clickMethod(ayo.getTurkiyeAlanKodu());
         ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "55555555");
         ayo.sendKeysMethod(ayo.getEnlem(), "35");
         ayo.sendKeysMethod(ayo.getBoylam(), "36");
@@ -66,7 +65,8 @@ public class Atamalar_Olustur {
         ayo.sendKeysMethod(ayo.getAd(), "rıfkı");
         ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
         ayo.sendKeysMethod(ayo.getAciklama(), "abcuqopg");
-        ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
+        ayo.clickMethod(ayo.getAlanKodu());
+        ayo.clickMethod(ayo.getTurkiyeAlanKodu());
         ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "888888888");
         ayo.sendKeysMethod(ayo.getEnlem(), "33");
         ayo.sendKeysMethod(ayo.getBoylam(), "25");
@@ -77,8 +77,9 @@ public class Atamalar_Olustur {
         ayo.sendKeysMethod(ayo.getAd(), "rıfkı");
         ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
         ayo.sendKeysMethod(ayo.getAciklama(), "?-/*-+?'!$[}");
-        ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
-        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), " ");
+        ayo.clickMethod(ayo.getAlanKodu());
+        ayo.clickMethod(ayo.getTurkiyeAlanKodu());
+        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "55555555");
         ayo.sendKeysMethod(ayo.getEnlem(), "47");
         ayo.sendKeysMethod(ayo.getBoylam(), "48");
     }
@@ -88,8 +89,9 @@ public class Atamalar_Olustur {
         ayo.sendKeysMethod(ayo.getAd(), "rıfkı");
         ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
         ayo.sendKeysMethod(ayo.getAciklama(), "acbdyagyqcbm");
-        ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
-        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "16161616");
+        ayo.clickMethod(ayo.getAlanKodu());
+        ayo.clickMethod(ayo.getTurkiyeAlanKodu());
+        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "161616");
         ayo.sendKeysMethod(ayo.getEnlem(), "20");
         ayo.sendKeysMethod(ayo.getBoylam(), "21");
     }
@@ -99,7 +101,8 @@ public class Atamalar_Olustur {
         ayo.sendKeysMethod(ayo.getAd(), "rıfkı");
         ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
         ayo.sendKeysMethod(ayo.getAciklama(), "qwertty");
-        ayo.sendKeysMethod(ayo.getAlanKodu(), " ");
+        ayo.clickMethod(ayo.getAlanKodu());
+        ayo.clickMethod(ayo.getTurkiyeAlanKodu());
         ayo.sendKeysMethod(ayo.getTelefonNumarasi(), " ");
         ayo.sendKeysMethod(ayo.getEnlem(), "8989898989");
         ayo.sendKeysMethod(ayo.getBoylam(), "8989898989");
