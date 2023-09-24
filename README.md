@@ -4,6 +4,8 @@ This repository contains automated UI tests using the Selenium-Cucumber-TestNG f
 
 ## Project Structure
 
+![Framework Flowchart](https://github.com/afet-yonetim-sistemi/ays-fe-ui-automation/blob/main/AYOS_FLOWCHART.jpg.jpg?raw=true)
+
 
 src: This is the source directory where your test-related code and resources are stored.
 
