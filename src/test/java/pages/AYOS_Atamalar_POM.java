@@ -50,6 +50,10 @@ public class AYOS_Atamalar_POM extends MyMethods {
     @FindBy(xpath = "//tbody/tr[2]/td[5]/div[1]/div[3]/button[1]")
     private WebElement atamayiSil;
 
+    @FindBy(xpath = "//button[contains(@class, 'ant-btn-dangerous')]//span[contains(text(), 'Delete')]")
+    private WebElement atamayiSilEminMisiniz;
+    @FindBy(xpath = "abc")
+    private WebElement silBasariMesaji;
     @FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > main:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(5) > div:nth-child(1) > div:nth-child(1)")
     private WebElement konumGoruntule;
 
@@ -144,7 +148,9 @@ public class AYOS_Atamalar_POM extends MyMethods {
         return atamayiSil;
     }
 
-    public WebElement getKonumGoruntule() { return konumGoruntule;}
+    public WebElement getAtamayiSilEminMisiniz() { return atamayiSilEminMisiniz;}
+
+    public WebElement getSilBasariMesaji() { return silBasariMesaji;}
 
     public WebElement getKonumDogrula() { return konumDogrula;}
 

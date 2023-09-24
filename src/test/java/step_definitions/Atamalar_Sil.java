@@ -15,13 +15,13 @@ public class Atamalar_Sil {
 
     @And("sil butonuna tıkla")
     public void silButonunaTıkla() {
-     // ayo.clickMethod(ayo.getsi);
+     ayo.clickMethod(ayo.getAtamayiSilEminMisiniz());
 
     }
 
     @Then("başarı mesajını doğrula")
     public void başarıMesajınıDoğrula() {
-    //    ayo.waitUntilVisible(ayo.getBasariMesajiDogrula());
-    //    Assert.assertTrue(ayo.getBasariMesajiDogrula().isDisplayed());
+    ayo.waitUntilVisible(ayo.getSilBasariMesaji());
+    Assert.assertTrue(ayo.getSilBasariMesaji().isDisplayed());
     }
 }
