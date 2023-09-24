@@ -9,7 +9,7 @@ public class Atamalar_Filtreleme {
     AYOS_Atamalar_POM ayo =new AYOS_Atamalar_POM();
     @And("filtre simgesine tıkla")
     public void filtreSimgesineTıkla() {
-
+       ayo.clickMethod(ayo.getFiltrele());
     }
 
     @And("durum menüsünden available seçeneğini seç")
@@ -25,6 +25,7 @@ public class Atamalar_Filtreleme {
 
     @Then("filtreleme butonuna tıkla")
     public void filtrelemeButonunaTıkla() {
+       // ayo.clickMethod(ayo.get);
     }
 
 }

@@ -15,7 +15,7 @@ public class Atamalar_Olustur {
     Login_POM gir =new Login_POM();
     @Given("sisteme giriş yap")
     public void sistemeGirişYap() {
-        DriverClass.getDriver().get("https://main.d2aa4zjw6bvfk3.amplifyapp.com/login");
+        DriverClass.getDriver().get("https://test-kurum.afetyonetimsistemi.com/login");
         DriverClass.getDriver().manage().window().maximize();
         gir.sendKeysMethod(gir.getLoginUsername(), "ays-admin-1");
         gir.sendKeysMethod(gir.getLoginPassword(), "A123y456S.");

@@ -11,7 +11,7 @@ public class AYOS_Atamalar_POM extends MyMethods {
     public AYOS_Atamalar_POM() {
         PageFactory.initElements(DriverClass.getDriver(), this); }
 
-    @FindBy(xpath = "//a[normalize-space()='Assignments']")
+    @FindBy(xpath = "//a[text()='Assignments']/ancestor::li[@class='ant-menu-item']")
     private WebElement atamalar;
 
     @FindBy(xpath = "//span[@class='anticon anticon-down']//*[name()='svg']")
@@ -67,9 +67,27 @@ public class AYOS_Atamalar_POM extends MyMethods {
     @FindBy(xpath = "//div[@id='uniqueDivId']//button[contains(@class, 'refine-edit-button')]")
     private WebElement duzenle;
 
-    @FindBy(xpath = "//div[@id='uniqueDivId']//button[contains(@class, 'refine-edit-button')]")
+    @FindBy(xpath = "//button[@class='ant-btn css-8e9jp2 ant-btn-default ant-btn-icon-only refine-show-button']")
+    private WebElement goster;
+
+
+    @FindBy(xpath = "//button[@class='ant-btn css-8e9jp2 ant-btn-default ant-btn-icon-only']")
     private WebElement filtrele;
 
+   // @FindBy(xpath = "")
+   // private WebElement filtrele;
+
+   // @FindBy(xpath = "")
+   // private WebElement filtrele;
+
+   // @FindBy(xpath = "")
+   // private WebElement filtrele;
+
+   // @FindBy(xpath = "")
+   // private WebElement filtrele;
+
+   // @FindBy(xpath = "")
+   // private WebElement filtrele;
     //body[1]/div[1]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/div[1]/button[1]
   //  @FindBy(xpath = "//button[@class=\"ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-btn-dangerous refine-delete-button\"]\n")
   //  private WebElement ;
@@ -136,6 +154,9 @@ public class AYOS_Atamalar_POM extends MyMethods {
 
     public WebElement getDuzenle() { return duzenle;}
 
+    public WebElement getGoster() { return goster;}
+
+    public WebElement getFiltrele() { return filtrele;}
 
 }
 

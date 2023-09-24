@@ -14,7 +14,7 @@ public class Login {
 
     @Given("Ayos sistemine eriş")
     public void ayosSistemineEriş() {
-        DriverClass.getDriver().get("https://main.d2aa4zjw6bvfk3.amplifyapp.com/login");
+        DriverClass.getDriver().get("https://test-kurum.afetyonetimsistemi.com/login");
         DriverClass.getDriver().manage().window().maximize();
     }
 
