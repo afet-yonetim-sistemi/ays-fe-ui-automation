@@ -27,8 +27,8 @@ public class RunnerForCrossBrowserTest extends AbstractTestNGCucumberTests {
     public static void writeExtentReport(){
         ExtentService.getInstance().setSystemInfo("Windows User Name",System.getProperty("user.name"));
         ExtentService.getInstance().setSystemInfo("Time Zone",System.getProperty("user.timezone"));
-        ExtentService.getInstance().setSystemInfo("User Name","Team7");
-        ExtentService.getInstance().setSystemInfo("Application Name","EU");
+        ExtentService.getInstance().setSystemInfo("User Name","QA Team");
+        ExtentService.getInstance().setSystemInfo("Application Name","AYOS");
         ExtentService.getInstance().setSystemInfo("Operating System Info",System.getProperty("os.name"));
         ExtentService.getInstance().setSystemInfo("Department","QA");
     }
