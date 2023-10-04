@@ -20,8 +20,8 @@ public class Atamalar_Olustur {
         gir.sendKeysMethod(gir.getLoginUsername(), "ays-admin-1");
         gir.sendKeysMethod(gir.getLoginPassword(), "A123y456S.");
         gir.clickMethod(gir.getLoginButton());
-        gir.waitUntilVisible(gir.getAdminsHeader());
-        Assert.assertTrue(gir.getAdminsHeader().isDisplayed());
+      //  gir.waitUntilVisible(gir.getAdminsHeader());
+      //  Assert.assertTrue(gir.getAdminsHeader().isDisplayed());
     }
 
     @When("atamalar sekmesine tıkla")

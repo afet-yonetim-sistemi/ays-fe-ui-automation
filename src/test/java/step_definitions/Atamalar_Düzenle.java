@@ -10,7 +10,7 @@ public class Atamalar_Düzenle {
     AYOS_Atamalar_POM ayo =new AYOS_Atamalar_POM();
     @And("düzenleme butonu olan kalem simgesine tıkla")
     public void düzenlemeButonuOlanKalemSimgesineTıkla() {
-        ayo.clickMethod(ayo.getDuzenle());
+        ayo.clickMethod(ayo.getDuzenle().get(0));
     }
 
     @And("atama formunudaki her inputu düzenle")
@@ -28,13 +28,13 @@ public class Atamalar_Düzenle {
         ayo.clickMethod(ayo.getTurkiyeAlanKodu());
 
         ayo.getTelefonNumarasi().sendKeys(Keys.BACK_SPACE);
-        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "ABCDE");
+        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "11");
 
         ayo.getEnlem().sendKeys(Keys.BACK_SPACE);
-        ayo.sendKeysMethod(ayo.getEnlem(), "ABCDE");
+        ayo.sendKeysMethod(ayo.getEnlem(), "1");
 
         ayo.getBoylam().sendKeys(Keys.BACK_SPACE);
-        ayo.sendKeysMethod(ayo.getBoylam(), "ABCDE");
+        ayo.sendKeysMethod(ayo.getBoylam(), "2");
 
 
 

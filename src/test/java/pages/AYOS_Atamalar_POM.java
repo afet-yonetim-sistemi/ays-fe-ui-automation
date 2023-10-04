@@ -6,6 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.DriverClass;
 import utilities.MyMethods;
 
+import java.util.List;
+
 public class AYOS_Atamalar_POM extends MyMethods {
 
     public AYOS_Atamalar_POM() {
@@ -21,40 +23,43 @@ public class AYOS_Atamalar_POM extends MyMethods {
     private WebElement turkceDilSecenegi;
     @FindBy(xpath = "//span[contains(text(),'Create')]")
     private WebElement olusturButonu;
-    @FindBy(xpath = "(//input[@id='firstName'])[1]")
+    @FindBy(xpath = "(//input[@id='firstName'])[2]")
     private WebElement ad;
 
-    @FindBy(xpath = "(//input[@id='lastName'])[1]")
+    //bunlar degistir icin
+
+    //atamalar olusturmak icin ayrica yeni locatorlar olustur
+    @FindBy(xpath = "(//input[@id='lastName'])[2]")
     private WebElement soyad;
 
-    @FindBy(xpath = "(//input[@id='description'])[1]")
+    @FindBy(xpath = "(//input[@id='description'])[2]")
     private WebElement aciklama;
 
-    @FindBy(xpath = "//div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
+    @FindBy(xpath = "(//div[contains(@class, 'ant-select-show-arrow')])[3]") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
     private WebElement alanKodu;
 
-    @FindBy(xpath = "//div[contains(text(),'+90 Türkiye')]")
+    @FindBy(xpath = "//span[text()='90']")
     private WebElement turkiyeAlanKodu;
-    @FindBy(xpath = "(//input[@type='text'])[4]")
+    @FindBy(xpath = "//input[@id='phoneNumber_lineNumber']")
     private WebElement telefonNumarasi;
 
-    @FindBy(xpath = "//div[@id='coordinates']//input[@id='latitude']")
+    @FindBy(xpath = "(//input[@id='latitude'])[2]")
     private WebElement enlem;
 
-    @FindBy(xpath = "//div[@id='coordinates']//input[@id='longitude']")
+    @FindBy(xpath = "(//input[@id='longitude'])[2]")
     private WebElement boylam;
 
-    @FindBy(xpath = "//button[@type='submit']//span[contains(text(),'Kaydet')]")
+    @FindBy(xpath = "(//span[contains(text(),'Save')])[2]")
     private WebElement atamayiKaydet;
 
-    @FindBy(xpath = "//tbody/tr[2]/td[5]/div[1]/div[3]/button[1]")
+    @FindBy(xpath = "(//button[contains(@class,'refine-delete-button')])[1]")
     private WebElement atamayiSil;
 
-    @FindBy(xpath = "//button[contains(@class, 'ant-btn-dangerous')]//span[contains(text(), 'Delete')]")
+    @FindBy(xpath = "(//span[text()='Delete'])[2]")
     private WebElement atamayiSilEminMisiniz;
-    @FindBy(xpath = "abc")
+    @FindBy(xpath = "//div[@class='ant-notification-notice-message']")
     private WebElement silBasariMesaji;
-    @FindBy(css = "body > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > main:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(3) > tr:nth-child(2) > td:nth-child(5) > div:nth-child(1) > div:nth-child(1)")
+    @FindBy(xpath = "(//button[@class='ant-btn css-zvd7y2 ant-btn-default ant-btn-icon-only'])[2]")
     private WebElement konumGoruntule;
 
     @FindBy(xpath = "//div[@id='map-container']")
@@ -68,16 +73,16 @@ public class AYOS_Atamalar_POM extends MyMethods {
     @FindBy(xpath = "//span[normalize-space()='Open On My Phone']")
     private WebElement telefonumdaAc;
 
-    @FindBy(xpath = "//div[@id='uniqueDivId']//button[contains(@class, 'refine-edit-button')]")
-    private WebElement duzenle;
+    @FindBy(css = "button[class='ant-btn css-zvd7y2 ant-btn-default ant-btn-icon-only refine-edit-button']")
+    private List<WebElement> duzenle;
 
-    @FindBy(xpath = "//button[@class='ant-btn css-8e9jp2 ant-btn-default ant-btn-icon-only refine-show-button']")
+    @FindBy(xpath = "(//button[contains(@class,'refine-show-button')])[1]")
     private WebElement goster;
 
     @FindBy(xpath = "//h4[normalize-space()='Show Assignment']")
     private WebElement gosterDogrulama;
 
-    @FindBy(xpath = "//button[@class='ant-btn css-8e9jp2 ant-btn-default ant-btn-icon-only']")
+    @FindBy(xpath = "(//button[@class='ant-btn css-zvd7y2 ant-btn-default ant-btn-icon-only'])[1]")
     private WebElement filtrele;
 
     @FindBy(xpath = "//div[@class='ant-select-selection-overflow']")
@@ -166,7 +171,7 @@ public class AYOS_Atamalar_POM extends MyMethods {
 
     public WebElement getTelefonumdaAc() { return telefonumdaAc;}
 
-    public WebElement getDuzenle() { return duzenle;}
+    public List<WebElement> getDuzenle() {return duzenle;}
 
     public WebElement getGoster() { return goster;}
 
