@@ -30,11 +30,6 @@ public class Atamalar_Düzenle {
         ayo.getTelefonNumarasi().sendKeys(Keys.BACK_SPACE);
         ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "11");
 
-        ayo.getEnlem().sendKeys(Keys.BACK_SPACE);
-        ayo.sendKeysMethod(ayo.getEnlem(), "1");
-
-        ayo.getBoylam().sendKeys(Keys.BACK_SPACE);
-        ayo.sendKeysMethod(ayo.getBoylam(), "2");
 
 
 

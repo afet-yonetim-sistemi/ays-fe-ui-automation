@@ -42,42 +42,30 @@ public class AYOS_Atamalar_POM extends MyMethods {
     @FindBy(xpath = "//input[@id='phoneNumber_lineNumber']")
     private WebElement telefonNumarasi;
 
-    @FindBy(xpath = "(//input[@id='latitude'])[2]")
-    private WebElement enlem;
-
-    @FindBy(xpath = "(//input[@id='longitude'])[2]")
-    private WebElement boylam;
-
     @FindBy(xpath = "(//span[contains(text(),'Save')])[2]")
     private WebElement atamayiKaydet;
 
     //atamalar olusturmak icin ayrica yeni locatorlar olustur
 
-    @FindBy(xpath = "(//input[@id='firstName'])[2]")
+    @FindBy(xpath = "(//input[@id='firstName'])[1]")
     private WebElement adOlustur;
 
-    @FindBy(xpath = "(//input[@id='lastName'])[2]")
+    @FindBy(xpath = "(//input[@id='lastName'])[1]")
     private WebElement soyadOlustur;
 
-    @FindBy(xpath = "(//input[@id='description'])[2]")
-    private WebElement aciklama;
+    @FindBy(xpath = "(//input[@id='description'])[1]")
+    private WebElement aciklamaOlustur;
 
     @FindBy(xpath = "(//div[contains(@class, 'ant-select-show-arrow')])[3]") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
-    private WebElement alanKodu;
+    private WebElement alanKoduOlustur;
 
     @FindBy(xpath = "//span[text()='90']")
-    private WebElement turkiyeAlanKodu;
+    private WebElement turkiyeAlanKoduOlustur;
     @FindBy(xpath = "//input[@id='phoneNumber_lineNumber']")
-    private WebElement telefonNumarasi;
+    private WebElement telefonNumarasiOlustur;
 
-    @FindBy(xpath = "(//input[@id='latitude'])[2]")
-    private WebElement enlem;
-
-    @FindBy(xpath = "(//input[@id='longitude'])[2]")
-    private WebElement boylam;
-
-    @FindBy(xpath = "(//span[contains(text(),'Save')])[2]")
-    private WebElement atamayiKaydet;
+    @FindBy(xpath = "(//span[contains(text(),'Save')])[1]")
+    private WebElement atamayiKaydetOlustur;
 
     @FindBy(xpath = "(//button[contains(@class,'refine-delete-button')])[1]")
     private WebElement atamayiSil;
@@ -215,6 +203,43 @@ public class AYOS_Atamalar_POM extends MyMethods {
     public WebElement getFiltrelemeButonu() { return filtrelemeButonu;}
 
     public WebElement getDuzenleKaydetButonu() { return duzenleKaydetButonu;}
+
+    public WebElement getAdOlustur() {
+        return adOlustur;
+    }
+
+    public WebElement getSoyadOlustur() {
+        return soyadOlustur;
+    }
+
+    public WebElement getAciklamaOlustur() {
+        return aciklamaOlustur;
+    }
+
+    public WebElement getAlanKoduOlustur() {
+        return alanKoduOlustur;
+    }
+
+    public WebElement getTurkiyeAlanKoduOlustur() {
+        return turkiyeAlanKoduOlustur;
+    }
+
+    public WebElement getTelefonNumarasiOlustur() {
+        return telefonNumarasiOlustur;
+    }
+
+    public WebElement getEnlemOlustur() {
+        return enlemOlustur;
+    }
+
+    public WebElement getBoylamOlustur() {
+        return boylamOlustur;
+    }
+
+    public WebElement getAtamayiKaydetOlustur() {
+        return atamayiKaydetOlustur;
+    }
+
 
 }
 

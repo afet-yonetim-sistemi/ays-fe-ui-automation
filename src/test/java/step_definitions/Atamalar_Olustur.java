@@ -38,50 +38,46 @@ public class Atamalar_Olustur {
 
     @And("atama formunu doldur")
     public void atamaFormunuDoldur() {
-        ayo.sendKeysMethod(ayo.getAd(), "rıfkı");
-        ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
-        ayo.sendKeysMethod(ayo.getAciklama(), "abcdfghh");
-        ayo.clickMethod(ayo.getAlanKodu());
-        ayo.clickMethod(ayo.getTurkiyeAlanKodu());
-        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "");
-        ayo.sendKeysMethod(ayo.getEnlem(), "41");
-        ayo.sendKeysMethod(ayo.getBoylam(), "37");
+        ayo.sendKeysMethod(ayo.getAdOlustur(), "rıfkı");
+        ayo.sendKeysMethod(ayo.getSoyadOlustur(), "maraz");
+        ayo.sendKeysMethod(ayo.getAciklamaOlustur(), "abcdfghh");
+        ayo.clickMethod(ayo.getAlanKoduOlustur());
+        ayo.clickMethod(ayo.getTurkiyeAlanKoduOlustur());
+        ayo.sendKeysMethod(ayo.getTelefonNumarasiOlustur(), "");
+
     }
 
     @And("atama formunu doldururken ad kısmında geçersiz karakterler kullan")
     public void atamaFormunuDoldururkenAdKısmındaGeçersizKarakterlerKullan() {
-        ayo.sendKeysMethod(ayo.getAd(), "?--/-**-8965");
-        ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
-        ayo.sendKeysMethod(ayo.getAciklama(), "huıpvd");
-        ayo.clickMethod(ayo.getAlanKodu());
-        ayo.clickMethod(ayo.getTurkiyeAlanKodu());
-        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "55555555");
-        ayo.sendKeysMethod(ayo.getEnlem(), "35");
-        ayo.sendKeysMethod(ayo.getBoylam(), "36");
+        ayo.sendKeysMethod(ayo.getAdOlustur(), "?--/-**-8965");
+        ayo.sendKeysMethod(ayo.getSoyadOlustur(), "maraz");
+        ayo.sendKeysMethod(ayo.getAciklamaOlustur(), "huıpvd");
+        ayo.clickMethod(ayo.getAlanKoduOlustur());
+        ayo.clickMethod(ayo.getTurkiyeAlanKoduOlustur());
+        ayo.sendKeysMethod(ayo.getTelefonNumarasiOlustur(), "55555555");
+
     }
 
     @And("atama formunu doldururken soyad kısmında geçersiz karakterler kullan")
     public void atamaFormunuDoldururkenSoyadKısmındaGeçersizKarakterlerKullan() {
-        ayo.sendKeysMethod(ayo.getAd(), "rıfkı");
-        ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
-        ayo.sendKeysMethod(ayo.getAciklama(), "abcuqopg");
-        ayo.clickMethod(ayo.getAlanKodu());
-        ayo.clickMethod(ayo.getTurkiyeAlanKodu());
-        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "888888888");
-        ayo.sendKeysMethod(ayo.getEnlem(), "33");
-        ayo.sendKeysMethod(ayo.getBoylam(), "25");
+        ayo.sendKeysMethod(ayo.getAdOlustur(), "rıfkı");
+        ayo.sendKeysMethod(ayo.getSoyadOlustur(), "maraz");
+        ayo.sendKeysMethod(ayo.getAciklamaOlustur(), "abcuqopg");
+        ayo.clickMethod(ayo.getAlanKoduOlustur());
+        ayo.clickMethod(ayo.getTurkiyeAlanKoduOlustur());
+        ayo.sendKeysMethod(ayo.getTelefonNumarasiOlustur(), "888888888");
+
     }
 
     @And("atama formunu doldururken geçersiz bir açıklama yaz")
     public void atamaFormunuDoldururkenGeçersizBirAçıklamaYaz() {
-        ayo.sendKeysMethod(ayo.getAd(), "rıfkı");
-        ayo.sendKeysMethod(ayo.getSoyad(), "maraz");
-        ayo.sendKeysMethod(ayo.getAciklama(), "?-/*-+?'!$[}");
-        ayo.clickMethod(ayo.getAlanKodu());
-        ayo.clickMethod(ayo.getTurkiyeAlanKodu());
-        ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "55555555");
-        ayo.sendKeysMethod(ayo.getEnlem(), "47");
-        ayo.sendKeysMethod(ayo.getBoylam(), "48");
+        ayo.sendKeysMethod(ayo.getAdOlustur(), "rıfkı");
+        ayo.sendKeysMethod(ayo.getSoyadOlustur(), "maraz");
+        ayo.sendKeysMethod(ayo.getAciklamaOlustur(), "?-/*-+?'!$[}");
+        ayo.clickMethod(ayo.getAlanKoduOlustur());
+        ayo.clickMethod(ayo.getTurkiyeAlanKoduOlustur());
+        ayo.sendKeysMethod(ayo.getTelefonNumarasiOlustur(), "55555555");
+
     }
 
     @And("atama formunu doldururken geçersiz bir telefon numarası yaz")
@@ -92,8 +88,7 @@ public class Atamalar_Olustur {
         ayo.clickMethod(ayo.getAlanKodu());
         ayo.clickMethod(ayo.getTurkiyeAlanKodu());
         ayo.sendKeysMethod(ayo.getTelefonNumarasi(), "161616");
-        ayo.sendKeysMethod(ayo.getEnlem(), "20");
-        ayo.sendKeysMethod(ayo.getBoylam(), "21");
+
     }
 
     @And("atama formunu doldururken geçersiz koordinatlar gir")
@@ -104,8 +99,7 @@ public class Atamalar_Olustur {
         ayo.clickMethod(ayo.getAlanKodu());
         ayo.clickMethod(ayo.getTurkiyeAlanKodu());
         ayo.sendKeysMethod(ayo.getTelefonNumarasi(), " ");
-        ayo.sendKeysMethod(ayo.getEnlem(), "8989898989");
-        ayo.sendKeysMethod(ayo.getBoylam(), "8989898989");
+
     }
 
     @Then("kaydet butonuna tıkla")
