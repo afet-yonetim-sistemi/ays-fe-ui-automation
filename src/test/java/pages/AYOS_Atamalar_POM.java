@@ -42,6 +42,13 @@ public class AYOS_Atamalar_POM extends MyMethods {
     @FindBy(xpath = "//input[@id='phoneNumber_lineNumber']")
     private WebElement telefonNumarasi;
 
+    @FindBy(xpath = "(//span[contains(text(),'Select Location')])[2]")
+    private WebElement konum;
+
+    @FindBy(xpath = "(//a[@title='Zoom in'])[1]")
+    private WebElement konumYakinlastir;
+    @FindBy(xpath = "(//a[@title='Zoom out'])[1]")
+    private WebElement konumUzaklastir;
     @FindBy(xpath = "(//span[contains(text(),'Save')])[2]")
     private WebElement atamayiKaydet;
 
@@ -63,6 +70,14 @@ public class AYOS_Atamalar_POM extends MyMethods {
     private WebElement turkiyeAlanKoduOlustur;
     @FindBy(xpath = "//input[@id='phoneNumber_lineNumber']")
     private WebElement telefonNumarasiOlustur;
+
+    @FindBy(xpath = "(//span[contains(text(),'Select Location')])[1]")
+    private WebElement konumOlustur;
+
+    @FindBy(xpath = "(//a[@title='Zoom in'])[2]")
+    private WebElement konumYakinlastirOlustur;
+    @FindBy(xpath = "(//a[@title='Zoom out'])[2]")
+    private WebElement konumUzaklastirOlustur;
 
     @FindBy(xpath = "(//span[contains(text(),'Save')])[1]")
     private WebElement atamayiKaydetOlustur;
@@ -118,6 +133,7 @@ public class AYOS_Atamalar_POM extends MyMethods {
   //  @FindBy(xpath = "//button[@class=\"ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-btn-dangerous refine-delete-button\"]\n")
   //  private WebElement ;
 
+
     public WebElement getAtamalar() {
         return atamalar;
     }
@@ -129,9 +145,11 @@ public class AYOS_Atamalar_POM extends MyMethods {
     public WebElement getTurkceDilSecenegi() {
         return turkceDilSecenegi;
     }
+
     public WebElement getOlusturButonu() {
         return olusturButonu;
     }
+
     public WebElement getAd() {
         return ad;
     }
@@ -156,53 +174,21 @@ public class AYOS_Atamalar_POM extends MyMethods {
         return telefonNumarasi;
     }
 
-    public WebElement getEnlem() {
-        return enlem;
+    public WebElement getKonum() {
+        return konum;
     }
 
-    public WebElement getBoylam() {
-        return boylam;
+    public WebElement getKonumYakinlastir() {
+        return konumYakinlastir;
+    }
+
+    public WebElement getKonumUzaklastir() {
+        return konumUzaklastir;
     }
 
     public WebElement getAtamayiKaydet() {
         return atamayiKaydet;
     }
-
-    public WebElement getAtamayiSil() {
-        return atamayiSil;
-    }
-
-    public WebElement getAtamayiSilEminMisiniz() { return atamayiSilEminMisiniz;}
-
-    public WebElement getSilBasariMesaji() { return silBasariMesaji;}
-
-    public WebElement getKonumGoruntule() { return konumGoruntule;}
-
-    public WebElement getKonumDogrula() { return konumDogrula;}
-
-    public WebElement getGoogleHaritalardaAc() { return googleHaritalardaAc;}
-
-    public WebElement getKonumuBilgileriniKopyala() { return konumuBilgileriniKopyala;}
-
-    public WebElement getTelefonumdaAc() { return telefonumdaAc;}
-
-    public List<WebElement> getDuzenle() {return duzenle;}
-
-    public WebElement getGoster() { return goster;}
-
-    public WebElement getGosterDogrulama() { return gosterDogrulama;}
-
-    public WebElement getFiltrele() { return filtrele;}
-
-    public WebElement getDurumaGoreFiltrele() { return durumaGoreFiltrele;}
-
-    public WebElement getTelefonNumarasinaGoreFiltrele() { return telefonNumarasinaGoreFiltrele;}
-
-    public WebElement getAlanKodunaGoreFiltrele() { return alanKodunaGoreFiltrele;}
-
-    public WebElement getFiltrelemeButonu() { return filtrelemeButonu;}
-
-    public WebElement getDuzenleKaydetButonu() { return duzenleKaydetButonu;}
 
     public WebElement getAdOlustur() {
         return adOlustur;
@@ -228,16 +214,88 @@ public class AYOS_Atamalar_POM extends MyMethods {
         return telefonNumarasiOlustur;
     }
 
-    public WebElement getEnlemOlustur() {
-        return enlemOlustur;
+    public WebElement getKonumOlustur() {
+        return konumOlustur;
     }
 
-    public WebElement getBoylamOlustur() {
-        return boylamOlustur;
+    public WebElement getKonumYakinlastirOlustur() {
+        return konumYakinlastirOlustur;
+    }
+
+    public WebElement getKonumUzaklastirOlustur() {
+        return konumUzaklastirOlustur;
     }
 
     public WebElement getAtamayiKaydetOlustur() {
         return atamayiKaydetOlustur;
+    }
+
+    public WebElement getAtamayiSil() {
+        return atamayiSil;
+    }
+
+    public WebElement getAtamayiSilEminMisiniz() {
+        return atamayiSilEminMisiniz;
+    }
+
+    public WebElement getSilBasariMesaji() {
+        return silBasariMesaji;
+    }
+
+    public WebElement getKonumGoruntule() {
+        return konumGoruntule;
+    }
+
+    public WebElement getKonumDogrula() {
+        return konumDogrula;
+    }
+
+    public WebElement getGoogleHaritalardaAc() {
+        return googleHaritalardaAc;
+    }
+
+    public WebElement getKonumuBilgileriniKopyala() {
+        return konumuBilgileriniKopyala;
+    }
+
+    public WebElement getTelefonumdaAc() {
+        return telefonumdaAc;
+    }
+
+    public List<WebElement> getDuzenle() {
+        return duzenle;
+    }
+
+    public WebElement getGoster() {
+        return goster;
+    }
+
+    public WebElement getGosterDogrulama() {
+        return gosterDogrulama;
+    }
+
+    public WebElement getFiltrele() {
+        return filtrele;
+    }
+
+    public WebElement getDurumaGoreFiltrele() {
+        return durumaGoreFiltrele;
+    }
+
+    public WebElement getTelefonNumarasinaGoreFiltrele() {
+        return telefonNumarasinaGoreFiltrele;
+    }
+
+    public WebElement getAlanKodunaGoreFiltrele() {
+        return alanKodunaGoreFiltrele;
+    }
+
+    public WebElement getFiltrelemeButonu() {
+        return filtrelemeButonu;
+    }
+
+    public WebElement getDuzenleKaydetButonu() {
+        return duzenleKaydetButonu;
     }
 
 
