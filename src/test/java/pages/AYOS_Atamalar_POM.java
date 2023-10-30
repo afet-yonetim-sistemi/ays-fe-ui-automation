@@ -23,14 +23,41 @@ public class AYOS_Atamalar_POM extends MyMethods {
     private WebElement turkceDilSecenegi;
     @FindBy(xpath = "//span[contains(text(),'Create')]")
     private WebElement olusturButonu;
+
+    //bunlar degistir icin
     @FindBy(xpath = "(//input[@id='firstName'])[2]")
     private WebElement ad;
 
-    //bunlar degistir icin
-
-    //atamalar olusturmak icin ayrica yeni locatorlar olustur
     @FindBy(xpath = "(//input[@id='lastName'])[2]")
     private WebElement soyad;
+
+    @FindBy(xpath = "(//input[@id='description'])[2]")
+    private WebElement aciklama;
+
+    @FindBy(xpath = "(//div[contains(@class, 'ant-select-show-arrow')])[3]") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
+    private WebElement alanKodu;
+
+    @FindBy(xpath = "//span[text()='90']")
+    private WebElement turkiyeAlanKodu;
+    @FindBy(xpath = "//input[@id='phoneNumber_lineNumber']")
+    private WebElement telefonNumarasi;
+
+    @FindBy(xpath = "(//input[@id='latitude'])[2]")
+    private WebElement enlem;
+
+    @FindBy(xpath = "(//input[@id='longitude'])[2]")
+    private WebElement boylam;
+
+    @FindBy(xpath = "(//span[contains(text(),'Save')])[2]")
+    private WebElement atamayiKaydet;
+
+    //atamalar olusturmak icin ayrica yeni locatorlar olustur
+
+    @FindBy(xpath = "(//input[@id='firstName'])[2]")
+    private WebElement adOlustur;
+
+    @FindBy(xpath = "(//input[@id='lastName'])[2]")
+    private WebElement soyadOlustur;
 
     @FindBy(xpath = "(//input[@id='description'])[2]")
     private WebElement aciklama;
