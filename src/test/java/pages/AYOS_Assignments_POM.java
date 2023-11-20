@@ -138,164 +138,164 @@ public class AYOS_Assignments_POM extends MyMethods {
         return assignments;
     }
 
-    public WebElement getDilSecenegi() {
-        return dilSecenegi;
+    public WebElement getLanguageOption() {
+        return languageOption;
     }
 
-    public WebElement getTurkceDilSecenegi() {
-        return turkceDilSecenegi;
+    public WebElement getTurkishLanguageOption() {
+        return turkishLanguageOption;
     }
 
-    public WebElement getOlusturButonu() {
-        return olusturButonu;
+    public WebElement getCreateButton() {
+        return createButton;
     }
 
-    public WebElement getAd() {
-        return ad;
+    public WebElement getName() {
+        return name;
     }
 
-    public WebElement getSoyad() {
-        return soyad;
+    public WebElement getSurname() {
+        return surname;
     }
 
-    public WebElement getAciklama() {
-        return aciklama;
+    public WebElement getDescription() {
+        return description;
     }
 
-    public WebElement getAlanKodu() {
-        return alanKodu;
+    public WebElement getAreaCode() {
+        return areaCode;
     }
 
-    public WebElement getTurkiyeAlanKodu() {
-        return turkiyeAlanKodu;
+    public WebElement getTurkiyeAreaCode() {
+        return turkiyeAreaCode;
     }
 
-    public WebElement getTelefonNumarasi() {
-        return telefonNumarasi;
+    public WebElement getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public WebElement getKonum() {
-        return konum;
+    public WebElement getLocation() {
+        return location;
     }
 
-    public WebElement getKonumYakinlastir() {
-        return konumYakinlastir;
+    public WebElement getLocationZoomIn() {
+        return locationZoomIn;
     }
 
-    public WebElement getKonumUzaklastir() {
-        return konumUzaklastir;
+    public WebElement getLocationZoomOut() {
+        return locationZoomOut;
     }
 
-    public WebElement getAtamayiKaydet() {
-        return atamayiKaydet;
+    public WebElement getSaveAssignment() {
+        return saveAssignment;
     }
 
-    public WebElement getAdOlustur() {
-        return adOlustur;
+    public WebElement getCreateName() {
+        return createName;
     }
 
-    public WebElement getSoyadOlustur() {
-        return soyadOlustur;
+    public WebElement getCreateSurname() {
+        return createSurname;
     }
 
-    public WebElement getAciklamaOlustur() {
-        return aciklamaOlustur;
+    public WebElement getCreateDescription() {
+        return createDescription;
     }
 
-    public WebElement getAlanKoduOlustur() {
-        return alanKoduOlustur;
+    public WebElement getCreateAreaCode() {
+        return createAreaCode;
     }
 
-    public WebElement getTurkiyeAlanKoduOlustur() {
-        return turkiyeAlanKoduOlustur;
+    public WebElement getCreateTurkiyeAreaCode() {
+        return createTurkiyeAreaCode;
     }
 
-    public WebElement getTelefonNumarasiOlustur() {
-        return telefonNumarasiOlustur;
+    public WebElement getCreatePhoneNumber() {
+        return createPhoneNumber;
     }
 
-    public WebElement getKonumOlustur() {
-        return konumOlustur;
+    public WebElement getCreateLocation() {
+        return createLocation;
     }
 
-    public WebElement getKonumYakinlastirOlustur() {
-        return konumYakinlastirOlustur;
+    public WebElement getCreateLocationZoomIn() {
+        return createLocationZoomIn;
     }
 
-    public WebElement getKonumUzaklastirOlustur() {
-        return konumUzaklastirOlustur;
+    public WebElement getCreateLocationZoomOut() {
+        return createLocationZoomOut;
     }
 
-    public WebElement getAtamayiKaydetOlustur() {
-        return atamayiKaydetOlustur;
+    public WebElement getCreateSaveAssignment() {
+        return createSaveAssignment;
     }
 
-    public WebElement getAtamayiSil() {
-        return atamayiSil;
+    public WebElement getDeleteAssignment() {
+        return deleteAssignment;
     }
 
-    public WebElement getAtamayiSilEminMisiniz() {
-        return atamayiSilEminMisiniz;
+    public WebElement getSureDeleteAssignment() {
+        return sureDeleteAssignment;
     }
 
-    public WebElement getSilBasariMesaji() {
-        return silBasariMesaji;
+    public WebElement getSuccessMessageDelete() {
+        return successMessageDelete;
     }
 
-    public WebElement getKonumGoruntule() {
-        return konumGoruntule;
+    public WebElement getShowLocation() {
+        return showLocation;
     }
 
-    public WebElement getKonumDogrula() {
-        return konumDogrula;
+    public WebElement getValidateLocation() {
+        return validateLocation;
     }
 
-    public WebElement getGoogleHaritalardaAc() {
-        return googleHaritalardaAc;
+    public WebElement getOpenGoogleMaps() {
+        return openGoogleMaps;
     }
 
-    public WebElement getKonumuBilgileriniKopyala() {
-        return konumuBilgileriniKopyala;
+    public WebElement getCopyLocationInfo() {
+        return copyLocationInfo;
     }
 
-    public WebElement getTelefonumdaAc() {
-        return telefonumdaAc;
+    public WebElement getOpenOnMyPhone() {
+        return openOnMyPhone;
     }
 
-    public List<WebElement> getDuzenle() {
-        return duzenle;
+    public List<WebElement> getEdit() {
+        return edit;
     }
 
-    public WebElement getGoster() {
-        return goster;
+    public WebElement getShow() {
+        return show;
     }
 
-    public WebElement getGosterDogrulama() {
-        return gosterDogrulama;
+    public WebElement getValidateShow() {
+        return validateShow;
     }
 
-    public WebElement getFiltrele() {
-        return filtrele;
+    public WebElement getFilter() {
+        return filter;
     }
 
-    public WebElement getDurumaGoreFiltrele() {
-        return durumaGoreFiltrele;
+    public WebElement getFilterBasedOnStatus() {
+        return filterBasedOnStatus;
     }
 
-    public WebElement getTelefonNumarasinaGoreFiltrele() {
-        return telefonNumarasinaGoreFiltrele;
+    public WebElement getFilterBasedOnPhoneNumber() {
+        return filterBasedOnPhoneNumber;
     }
 
-    public WebElement getAlanKodunaGoreFiltrele() {
-        return alanKodunaGoreFiltrele;
+    public WebElement getFilterBasedOnAreaCode() {
+        return filterBasedOnAreaCode;
     }
 
-    public WebElement getFiltrelemeButonu() {
-        return filtrelemeButonu;
+    public WebElement getFilterButton() {
+        return filterButton;
     }
 
-    public WebElement getDuzenleKaydetButonu() {
-        return duzenleKaydetButonu;
+    public WebElement getEditSaveButton() {
+        return editSaveButton;
     }
 
 

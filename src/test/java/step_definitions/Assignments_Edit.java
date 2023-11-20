@@ -15,11 +15,11 @@ public class Assignments_Edit {
 
     @And("atama formunudaki her inputu düzenle")
     public void atamaFormunudakiHerInputuDüzenle() {
-        ayo.getAd().sendKeys(Keys.BACK_SPACE);
-        ayo.sendKeysMethod(ayo.getAd(), "ABCDE");
+        ayo.getName().sendKeys(Keys.BACK_SPACE);
+        ayo.sendKeysMethod(ayo.getName(), "ABCDE");
 
-        ayo.getSoyad().sendKeys(Keys.BACK_SPACE);
-        ayo.sendKeysMethod(ayo.getSoyad(), "ABCDE");
+        ayo.getSurname().sendKeys(Keys.BACK_SPACE);
+        ayo.sendKeysMethod(ayo.getSurname(), "ABCDE");
 
         ayo.getAciklama().sendKeys(Keys.BACK_SPACE);
         ayo.sendKeysMethod(ayo.getAciklama(), "ABCDE");

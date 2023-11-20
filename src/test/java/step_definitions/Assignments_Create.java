@@ -32,7 +32,7 @@ public class Assignments_Create {
 
     @And("oluştur butonuna tıkla")
     public void oluşturButonunaTıkla() {
-        ayo.clickMethod(ayo.getOlusturButonu());
+        ayo.clickMethod(ayo.getCreateButton());
     }
 
     @And("atama formunu doldur")
