@@ -1,7 +1,7 @@
-Feature: Atamalar test edilmesi
+Feature: Testing Assignments
 
-  Scenario: Atama bilgilerini göster
+  Scenario: Display Assignment Information
     Given Log into the system
-    When atamalar sekmesine tıkla
-    And göster butonu olan göz simgesine tıkla
-    Then atama bilgilerinin geldiğini doğrula
+    When Click on the assignments tab
+    And Click on the eye icon with the show button
+    Then Confirm that the assignment information has appeared

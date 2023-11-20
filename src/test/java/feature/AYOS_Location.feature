@@ -1,27 +1,27 @@
-Feature: Atamalar test edilmesi
+Feature: Testing Assignments
 
-  Scenario: Mevcut atamanın konumunu görüntüle
+  Scenario: View the Location of the Current Assignment
     Given Log into the system
-    When atamalar sekmesine tıkla
-    And en üstteki atama için konum işareti butonuna tıkla
-    Then gelen konumun görüntülendiğini doğrula
+    When Click on the assignments tab
+    And Click on the location marker button for the top assignment
+    Then Confirm that the location has been displayed
 
 
-  Scenario: Mevcut atamanın konumunu google haritalarda aç
+  Scenario: Open the Location of the Current Assignment on Google Maps
     Given Log into the system
-    When atamalar sekmesine tıkla
-    And en üstteki atama için konum işareti butonuna tıkla
-    Then açılan pencerelerde google haritalarda aç
+    When Click on the assignments tab
+    And Click on the location marker button for the top assignment
+    Then Open in Google Maps in the popped-up windows
 
 
-  Scenario: Mevcut atamanın konumunun detaylarını kopyala
+  Scenario: Copy the Details of the Current Assignment Location
     Given Log into the system
-    When atamalar sekmesine tıkla
-    And en üstteki atama için konum işareti butonuna tıkla
-    Then gelen konumun detaylarını kopyala butonuna tıkla
+    When Click on the assignments tab
+    And Click on the location marker button for the top assignment
+    Then Click on the copy details of the location button
 
-  Scenario: Mevcut atamanın konumunu telefonda aç
+  Scenario: Open the Location of the Existing Assignment on the Phone
     Given Log into the system
-    When atamalar sekmesine tıkla
-    And en üstteki atama için konum işareti butonuna tıkla
-    Then gelen konumu telefonda aç butonuna tıkla
+    When Click on the assignments tab
+    And Click on the location marker button for the top assignment
+    Then Click on the open location on the phone button

@@ -1,7 +1,7 @@
-Feature: Giriş Fonksiyonu
+Feature: Login Functionality
   @Login
-  Scenario: Geçerli bir kullanıcı adı ve şifre ile giriş yapılmalıdır
-    Given Ayos sistemine eriş
-    When kullanıcı adı ve şifreyi gir
-    And Giriş butonuna tıkla
-    Then Kullanıcı başarıyla giriş yapabilmelidir
+  Scenario: Login with a valid username and password
+    Given Access the AYOS system
+    When Enter the username and password
+    And Click the Login button
+    Then The user should be able to successfully log in
