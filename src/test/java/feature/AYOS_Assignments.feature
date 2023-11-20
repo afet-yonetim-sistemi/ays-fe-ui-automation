@@ -11,36 +11,36 @@ Feature: Testing Assignments
     Given Log into the system
     When Click on the assignments tab
     And Click on the create button
-    And atama formunu doldururken ad kısmında geçersiz karakterler kullan
-    Then kaydet butonuna tıkla
+    And Enter invalid characters in the name field while filling out the assignment form
+    Then Click on the save button
 
-  Scenario: Geçersiz bir soyad ile atama oluştur
+  Scenario: Create an Assignment with an Invalid Last Name
     Given Log into the system
     When Click on the assignments tab
     And Click on the create button
-    And atama formunu doldururken soyad kısmında geçersiz karakterler kullan
-    Then kaydet butonuna tıkla
+    And Enter invalid characters in the last name field while filling out the assignment form
+    Then Click on the save button
 
-  Scenario: Geçersiz bir açıklama ile atama oluştur
+  Scenario: Create an Assignment with an Invalid Description
     Given Log into the system
     When Click on the assignments tab
     And Click on the create button
-    And atama formunu doldururken geçersiz bir açıklama yaz
-    Then kaydet butonuna tıkla
+    And Enter an invalid description while filling out the assignment form
+    Then Click on the save button
 
-  Scenario: Geçersiz bir telefon numarası ile atama oluştur
+  Scenario: Create an Assignment with an Invalid Phone Number
     Given Log into the system
     When Click on the assignments tab
     And Click on the create button
-    And atama formunu doldururken geçersiz bir telefon numarası yaz
-    Then kaydet butonuna tıkla
+    And Enter an invalid phone number while filling out the assignment form
+    Then Click on the save button
 
-  Scenario: Geçersiz koordinaatlar ile atama oluştur
+  Scenario: Create an Assignment with Invalid Coordinates
     Given Log into the system
     When Click on the assignments tab
     And Click on the create button
-    And atama formunu doldururken geçersiz koordinatlar gir
-    Then kaydet butonuna tıkla
+    And Enter invalid coordinates while filling out the assignment form
+    Then Click on the save button
 
   Scenario: Mevcut atamayı sil
     Given Log into the system

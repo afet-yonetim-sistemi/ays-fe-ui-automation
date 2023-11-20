@@ -14,36 +14,36 @@ public class AYOS_Assignments_POM extends MyMethods {
         PageFactory.initElements(DriverClass.getDriver(), this); }
 
     @FindBy(xpath = "//a[text()='Assignments']/ancestor::li[@class='ant-menu-item']")
-    private WebElement atamalar;
+    private WebElement assignments;
 
     @FindBy(xpath = "//span[@class='anticon anticon-down']//*[name()='svg']")
-    private WebElement dilSecenegi;
+    private WebElement languageOption;
 
     @FindBy(xpath = "(//span[normalize-space()='Türkçe'])[1]")
-    private WebElement turkceDilSecenegi;
+    private WebElement turkishLanguageOption;
     @FindBy(xpath = "//span[contains(text(),'Create')]")
-    private WebElement olusturButonu;
+    private WebElement createButton;
 
     //bunlar degistir icin
     @FindBy(xpath = "(//input[@id='firstName'])[2]")
-    private WebElement ad;
+    private WebElement name;
 
     @FindBy(xpath = "(//input[@id='lastName'])[2]")
-    private WebElement soyad;
+    private WebElement surname;
 
     @FindBy(xpath = "(//input[@id='description'])[2]")
-    private WebElement aciklama;
+    private WebElement description;
 
     @FindBy(xpath = "(//div[contains(@class, 'ant-select-show-arrow')])[3]") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
-    private WebElement alanKodu;
+    private WebElement areaCode;
 
     @FindBy(xpath = "//span[text()='90']")
-    private WebElement turkiyeAlanKodu;
+    private WebElement turkiyeAreaCode;
     @FindBy(xpath = "//input[@id='phoneNumber_lineNumber']")
-    private WebElement telefonNumarasi;
+    private WebElement phoneNumber;
 
     @FindBy(xpath = "(//span[contains(text(),'Select Location')])[2]")
-    private WebElement konum;
+    private WebElement location;
 
     @FindBy(xpath = "(//a[@title='Zoom in'])[1]")
     private WebElement konumYakinlastir;
@@ -134,8 +134,8 @@ public class AYOS_Assignments_POM extends MyMethods {
   //  private WebElement ;
 
 
-    public WebElement getAtamalar() {
-        return atamalar;
+    public WebElement getAssignments() {
+        return assignments;
     }
 
     public WebElement getDilSecenegi() {

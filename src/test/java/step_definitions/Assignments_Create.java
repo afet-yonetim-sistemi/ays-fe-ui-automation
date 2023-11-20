@@ -27,7 +27,7 @@ public class Assignments_Create {
     public void atamalarSekmesineTıkla() {
     //    ayo.clickMethod(ayo.getDilSecenegi());
     //    ayo.clickMethod(ayo.getTurkceDilSecenegi());
-        ayo.clickMethod(ayo.getAtamalar());
+        ayo.clickMethod(ayo.getAssignments());
     }
 
     @And("oluştur butonuna tıkla")
