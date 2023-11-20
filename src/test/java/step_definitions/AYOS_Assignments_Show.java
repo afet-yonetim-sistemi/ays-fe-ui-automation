@@ -3,10 +3,10 @@ package step_definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
-import pages.AYOS_Atamalar_POM;
+import pages.AYOS_Assignments_POM;
 
-public class AYOS_Atamalar_Göster {
-    AYOS_Atamalar_POM ayo =new AYOS_Atamalar_POM();
+public class AYOS_Assignments_Show {
+    AYOS_Assignments_POM ayo =new AYOS_Assignments_POM();
     @And("göster butonu olan göz simgesine tıkla")
     public void gösterButonuOlanGözSimgesineTıkla() {
         ayo.clickMethod(ayo.getGoster());

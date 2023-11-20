@@ -3,11 +3,11 @@ package step_definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
-import pages.AYOS_Atamalar_POM;
+import pages.AYOS_Assignments_POM;
 
-public class Atamalar_Sil {
+public class Assignments_Delete {
 
-    AYOS_Atamalar_POM ayo =new AYOS_Atamalar_POM();
+    AYOS_Assignments_POM ayo =new AYOS_Assignments_POM();
     @And("en üstteki atama için çöp kutusu butonuna tıkla")
     public void enÜsttekiAtamaIçinÇöpKutusuButonunaTıkla() {
         ayo.clickMethod(ayo.getAtamayiSil());

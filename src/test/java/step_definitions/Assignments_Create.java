@@ -4,14 +4,13 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.testng.Assert;
-import pages.AYOS_Atamalar_POM;
+import pages.AYOS_Assignments_POM;
 import pages.Login_POM;
 import utilities.DriverClass;
 
-public class Atamalar_Olustur {
+public class Assignments_Create {
 
-    AYOS_Atamalar_POM ayo =new AYOS_Atamalar_POM();
+    AYOS_Assignments_POM ayo =new AYOS_Assignments_POM();
     Login_POM gir =new Login_POM();
     @Given("sisteme giriş yap")
     public void sistemeGirişYap() {

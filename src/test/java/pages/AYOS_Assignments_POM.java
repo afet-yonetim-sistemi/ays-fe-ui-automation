@@ -8,9 +8,9 @@ import utilities.MyMethods;
 
 import java.util.List;
 
-public class AYOS_Atamalar_POM extends MyMethods {
+public class AYOS_Assignments_POM extends MyMethods {
 
-    public AYOS_Atamalar_POM() {
+    public AYOS_Assignments_POM() {
         PageFactory.initElements(DriverClass.getDriver(), this); }
 
     @FindBy(xpath = "//a[text()='Assignments']/ancestor::li[@class='ant-menu-item']")
