@@ -1,44 +1,44 @@
-Feature: Atamalar test edilmesi
+Feature: Testing Assignments
 
-  Scenario: Yeni atama oluştur
+  Scenario: Create a New Assignment
     Given Log into the system
     When Click on the assignments tab
-    And oluştur butonuna tıkla
-    And atama formunu doldur
-    Then kaydet butonuna tıkla
+    And Click on the create button
+    And Fill out the assignment form
+    Then Click on the save button
 
-  Scenario: Geçersiz bir ad ile atama oluştur
+  Scenario: Create an Assignment with an Invalid Name
     Given Log into the system
     When Click on the assignments tab
-    And oluştur butonuna tıkla
+    And Click on the create button
     And atama formunu doldururken ad kısmında geçersiz karakterler kullan
     Then kaydet butonuna tıkla
 
   Scenario: Geçersiz bir soyad ile atama oluştur
     Given Log into the system
     When Click on the assignments tab
-    And oluştur butonuna tıkla
+    And Click on the create button
     And atama formunu doldururken soyad kısmında geçersiz karakterler kullan
     Then kaydet butonuna tıkla
 
   Scenario: Geçersiz bir açıklama ile atama oluştur
     Given Log into the system
     When Click on the assignments tab
-    And oluştur butonuna tıkla
+    And Click on the create button
     And atama formunu doldururken geçersiz bir açıklama yaz
     Then kaydet butonuna tıkla
 
   Scenario: Geçersiz bir telefon numarası ile atama oluştur
     Given Log into the system
     When Click on the assignments tab
-    And oluştur butonuna tıkla
+    And Click on the create button
     And atama formunu doldururken geçersiz bir telefon numarası yaz
     Then kaydet butonuna tıkla
 
   Scenario: Geçersiz koordinaatlar ile atama oluştur
     Given Log into the system
     When Click on the assignments tab
-    And oluştur butonuna tıkla
+    And Click on the create button
     And atama formunu doldururken geçersiz koordinatlar gir
     Then kaydet butonuna tıkla
 

@@ -1,9 +1,9 @@
-Feature: Atamalar test edilmesi
+Feature: Testing Assignments
 
 
-  Scenario: Mevcut atamayı sil
+  Scenario: Delete the Existing Assignment
     Given Log into the system
     When Click on the assignments tab
-    And en üstteki atama için çöp kutusu butonuna tıkla
-    And sil butonuna tıkla
-    Then başarı mesajını doğrula
+    And Click on the trash bin icon for the top assignment
+    And Click on the delete button
+    Then Validate the success message

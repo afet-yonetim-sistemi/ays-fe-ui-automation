@@ -4,7 +4,7 @@ Feature: Testing Assignments
     Given Log into the system
     When Click on the assignments tab
     And Click on the location marker button for the top assignment
-    Then Confirm that the location has been displayed
+    Then Validate that the location has been displayed
 
 
   Scenario: Open the Location of the Current Assignment on Google Maps

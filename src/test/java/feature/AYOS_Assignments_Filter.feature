@@ -1,15 +1,15 @@
 Feature: Testing Assignments
 
-  Scenario: Atamalar için duruma göre filtreleme oluştur
+  Scenario: Create Filtering for Assignments Based on Status
     Given Log into the system
     When Click on the assignments tab
-    And filtre simgesine tıkla
-    And durum menüsünden available seçeneğini seç
-    Then filtreleme butonuna tıkla
+    And Click on the filter icon
+    And Select the available option from the status menu
+    Then Click on the filter button
 
-  Scenario: Atamalar için telefon numarasına göre filtreleme oluştur
+  Scenario: Create Filtering for Assignments Based on Phone Number
     Given Log into the system
     When Click on the assignments tab
-    And filtre simgesine tıkla
-    And telefon numarasına göre filtrele.
-    Then filtreleme butonuna tıkla
+    And Click on the filter icon
+    And Filter by phone number
+    Then Click on the filter button

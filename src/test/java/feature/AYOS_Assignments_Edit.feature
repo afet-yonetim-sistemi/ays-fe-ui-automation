@@ -1,4 +1,4 @@
-Feature: Atamalar test edilmesi
+Feature: Testing Assignments
 
   Scenario: Editing Assignments
     Given Log into the system
