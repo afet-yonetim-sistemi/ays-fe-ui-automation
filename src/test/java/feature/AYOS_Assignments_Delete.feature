@@ -2,7 +2,7 @@ Feature: Atamalar test edilmesi
 
 
   Scenario: Mevcut atamayı sil
-    Given sisteme giriş yap
+    Given Log into the system
     When atamalar sekmesine tıkla
     And en üstteki atama için çöp kutusu butonuna tıkla
     And sil butonuna tıkla
