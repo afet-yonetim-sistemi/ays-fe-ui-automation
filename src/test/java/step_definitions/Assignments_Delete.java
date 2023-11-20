@@ -10,18 +10,18 @@ public class Assignments_Delete {
     AYOS_Assignments_POM ayo =new AYOS_Assignments_POM();
     @And("en üstteki atama için çöp kutusu butonuna tıkla")
     public void enÜsttekiAtamaIçinÇöpKutusuButonunaTıkla() {
-        ayo.clickMethod(ayo.getAtamayiSil());
+        ayo.clickMethod(ayo.getDeleteAssignment());
     }
 
     @And("sil butonuna tıkla")
     public void silButonunaTıkla() {
-     ayo.clickMethod(ayo.getAtamayiSilEminMisiniz());
+     ayo.clickMethod(ayo.getSureDeleteAssignment());
 
     }
 
     @Then("başarı mesajını doğrula")
     public void başarıMesajınıDoğrula() {
-    ayo.waitUntilVisible(ayo.getSilBasariMesaji());
-    Assert.assertTrue(ayo.getSilBasariMesaji().isDisplayed());
+    ayo.waitUntilVisible(ayo.getSuccessMessageDelete());
+    Assert.assertTrue(ayo.getSuccessMessageDelete().isDisplayed());
     }
 }

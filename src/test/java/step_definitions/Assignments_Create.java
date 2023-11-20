@@ -37,72 +37,72 @@ public class Assignments_Create {
 
     @And("atama formunu doldur")
     public void atamaFormunuDoldur() {
-        ayo.sendKeysMethod(ayo.getAdOlustur(), "rıfkı");
-        ayo.sendKeysMethod(ayo.getSoyadOlustur(), "maraz");
-        ayo.sendKeysMethod(ayo.getAciklamaOlustur(), "abcdfghh");
-        ayo.clickMethod(ayo.getAlanKoduOlustur());
-        ayo.clickMethod(ayo.getTurkiyeAlanKoduOlustur());
-        ayo.sendKeysMethod(ayo.getTelefonNumarasiOlustur(), "");
+        ayo.sendKeysMethod(ayo.getCreateName(), "rıfkı");
+        ayo.sendKeysMethod(ayo.getCreateSurname(), "maraz");
+        ayo.sendKeysMethod(ayo.getCreateDescription(), "abcdfghh");
+        ayo.clickMethod(ayo.getCreateAreaCode());
+        ayo.clickMethod(ayo.getCreateTurkiyeAreaCode());
+        ayo.sendKeysMethod(ayo.getCreatePhoneNumber(), "");
 
     }
 
     @And("atama formunu doldururken ad kısmında geçersiz karakterler kullan")
     public void atamaFormunuDoldururkenAdKısmındaGeçersizKarakterlerKullan() {
-        ayo.sendKeysMethod(ayo.getAdOlustur(), "?--/-**-8965");
-        ayo.sendKeysMethod(ayo.getSoyadOlustur(), "maraz");
-        ayo.sendKeysMethod(ayo.getAciklamaOlustur(), "huıpvd");
-        ayo.clickMethod(ayo.getAlanKoduOlustur());
-        ayo.clickMethod(ayo.getTurkiyeAlanKoduOlustur());
-        ayo.sendKeysMethod(ayo.getTelefonNumarasiOlustur(), "55555555");
+        ayo.sendKeysMethod(ayo.getCreateName(), "?--/-**-8965");
+        ayo.sendKeysMethod(ayo.getCreateSurname(), "maraz");
+        ayo.sendKeysMethod(ayo.getCreateDescription(), "huıpvd");
+        ayo.clickMethod(ayo.getCreateAreaCode());
+        ayo.clickMethod(ayo.getCreateTurkiyeAreaCode());
+        ayo.sendKeysMethod(ayo.getCreatePhoneNumber(), "55555555");
 
     }
 
     @And("atama formunu doldururken soyad kısmında geçersiz karakterler kullan")
     public void atamaFormunuDoldururkenSoyadKısmındaGeçersizKarakterlerKullan() {
-        ayo.sendKeysMethod(ayo.getAdOlustur(), "rıfkı");
-        ayo.sendKeysMethod(ayo.getSoyadOlustur(), "maraz");
-        ayo.sendKeysMethod(ayo.getAciklamaOlustur(), "abcuqopg");
-        ayo.clickMethod(ayo.getAlanKoduOlustur());
-        ayo.clickMethod(ayo.getTurkiyeAlanKoduOlustur());
-        ayo.sendKeysMethod(ayo.getTelefonNumarasiOlustur(), "888888888");
+        ayo.sendKeysMethod(ayo.getCreateName(), "rıfkı");
+        ayo.sendKeysMethod(ayo.getCreateSurname(), "maraz");
+        ayo.sendKeysMethod(ayo.getCreateDescription(), "abcuqopg");
+        ayo.clickMethod(ayo.getCreateAreaCode());
+        ayo.clickMethod(ayo.getCreateTurkiyeAreaCode());
+        ayo.sendKeysMethod(ayo.getCreatePhoneNumber(), "888888888");
 
     }
 
     @And("atama formunu doldururken geçersiz bir açıklama yaz")
     public void atamaFormunuDoldururkenGeçersizBirAçıklamaYaz() {
-        ayo.sendKeysMethod(ayo.getAdOlustur(), "rıfkı");
-        ayo.sendKeysMethod(ayo.getSoyadOlustur(), "maraz");
-        ayo.sendKeysMethod(ayo.getAciklamaOlustur(), "?-/*-+?'!$[}");
-        ayo.clickMethod(ayo.getAlanKoduOlustur());
-        ayo.clickMethod(ayo.getTurkiyeAlanKoduOlustur());
-        ayo.sendKeysMethod(ayo.getTelefonNumarasiOlustur(), "55555555");
+        ayo.sendKeysMethod(ayo.getCreateName(), "rıfkı");
+        ayo.sendKeysMethod(ayo.getCreateSurname(), "maraz");
+        ayo.sendKeysMethod(ayo.getCreateDescription(), "?-/*-+?'!$[}");
+        ayo.clickMethod(ayo.getCreateAreaCode());
+        ayo.clickMethod(ayo.getCreateTurkiyeAreaCode());
+        ayo.sendKeysMethod(ayo.getCreatePhoneNumber(), "55555555");
 
     }
 
     @And("atama formunu doldururken geçersiz bir telefon numarası yaz")
     public void atamaFormunuDoldururkenGeçersizBirTelefonNumarasıYaz() {
-        ayo.sendKeysMethod(ayo.getAdOlustur(), "rıfkı");
-        ayo.sendKeysMethod(ayo.getSoyadOlustur(), "maraz");
-        ayo.sendKeysMethod(ayo.getAciklamaOlustur(), "acbdyagyqcbm");
-        ayo.clickMethod(ayo.getAlanKoduOlustur());
-        ayo.clickMethod(ayo.getTurkiyeAlanKoduOlustur());
-        ayo.sendKeysMethod(ayo.getTelefonNumarasiOlustur(), "161616");
+        ayo.sendKeysMethod(ayo.getCreateName(), "rıfkı");
+        ayo.sendKeysMethod(ayo.getCreateSurname(), "maraz");
+        ayo.sendKeysMethod(ayo.getCreateDescription(), "acbdyagyqcbm");
+        ayo.clickMethod(ayo.getCreateAreaCode());
+        ayo.clickMethod(ayo.getCreateTurkiyeAreaCode());
+        ayo.sendKeysMethod(ayo.getCreatePhoneNumber(), "161616");
 
     }
 
     @And("atama formunu doldururken geçersiz koordinatlar gir")
     public void atamaFormunuDoldururkenGeçersizKoordinatlarGir() {
-        ayo.sendKeysMethod(ayo.getAdOlustur(), "rıfkı");
-        ayo.sendKeysMethod(ayo.getSoyadOlustur(), "maraz");
-        ayo.sendKeysMethod(ayo.getAciklamaOlustur(), "qwertty");
-        ayo.clickMethod(ayo.getAlanKoduOlustur());
-        ayo.clickMethod(ayo.getTurkiyeAlanKoduOlustur());
-        ayo.sendKeysMethod(ayo.getTelefonNumarasiOlustur(), " ");
+        ayo.sendKeysMethod(ayo.getCreateName(), "rıfkı");
+        ayo.sendKeysMethod(ayo.getCreateSurname(), "maraz");
+        ayo.sendKeysMethod(ayo.getCreateDescription(), "qwertty");
+        ayo.clickMethod(ayo.getCreateAreaCode());
+        ayo.clickMethod(ayo.getCreateTurkiyeAreaCode());
+        ayo.sendKeysMethod(ayo.getCreatePhoneNumber(), " ");
 
     }
 
     @Then("kaydet butonuna tıkla")
     public void kaydetButonunaTıkla() {
-        ayo.clickMethod(ayo.getAtamayiKaydet());
+        ayo.clickMethod(ayo.getSaveAssignment());
     }
 }

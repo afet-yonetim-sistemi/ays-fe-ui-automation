@@ -10,28 +10,28 @@ public class Assignments_Location {
     AYOS_Assignments_POM ayo =new AYOS_Assignments_POM();
     @And("en üstteki atama için konum işareti butonuna tıkla")
     public void enÜsttekiAtamaIçinKonumIşaretiButonunaTıkla() {
-        ayo.clickMethod(ayo.getKonumGoruntule());
+        ayo.clickMethod(ayo.getShowLocation());
     }
 
     @Then("gelen konumun görüntülendiğini doğrula")
     public void gelenKonumunGörüntülendiğiniDoğrula() {
-        ayo.waitUntilVisible(ayo.getKonumDogrula());
-        Assert.assertTrue(ayo.getKonumDogrula().isDisplayed());
+        ayo.waitUntilVisible(ayo.getValidateLocation());
+        Assert.assertTrue(ayo.getValidateLocation().isDisplayed());
     }
 
     @Then("açılan pencerelerde google haritalarda aç")
     public void açılanPencerelerdeGoogleHaritalardaAç() {
-        ayo.clickMethod(ayo.getGoogleHaritalardaAc());
+        ayo.clickMethod(ayo.getOpenGoogleMaps());
     }
 
     @Then("gelen konumun detaylarını kopyala butonuna tıkla")
     public void gelenKonumunDetaylarınıKopyalaButonunaTıkla() {
-        ayo.clickMethod(ayo.getKonumuBilgileriniKopyala());
+        ayo.clickMethod(ayo.getCopyLocationInfo());
     }
 
     @Then("gelen konumu telefonda aç butonuna tıkla")
     public void gelenKonumuTelefondaAçButonunaTıkla() {
-        ayo.clickMethod(ayo.getTelefonumdaAc());
+        ayo.clickMethod(ayo.getOpenOnMyPhone());
 
     }
 }

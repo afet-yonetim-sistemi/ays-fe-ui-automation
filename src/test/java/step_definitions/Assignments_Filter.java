@@ -9,24 +9,24 @@ public class Assignments_Filter {
     AYOS_Assignments_POM ayo =new AYOS_Assignments_POM();
     @And("filtre simgesine tıkla")
     public void filtreSimgesineTıkla() {
-       ayo.clickMethod(ayo.getFiltrele());
+       ayo.clickMethod(ayo.getFilter());
     }
 
     @And("durum menüsünden available seçeneğini seç")
     public void durumMenüsündenAvailableSeçeneğiniSeç() {
-        ayo.clickMethod(ayo.getDurumaGoreFiltrele());
+        ayo.clickMethod(ayo.getFilterBasedOnStatus());
 
     }
 
     @And("telefon numarasına göre filtrele.")
     public void telefonNumarasınaGöreFiltrele() {
-        ayo.clickMethod(ayo.getTelefonNumarasinaGoreFiltrele());
+        ayo.clickMethod(ayo.getFilterBasedOnPhoneNumber());
 
     }
 
     @Then("filtreleme butonuna tıkla")
     public void filtrelemeButonunaTıkla() {
-       ayo.clickMethod(ayo.getFiltrelemeButonu());
+       ayo.clickMethod(ayo.getFilterButton());
     }
 
 }

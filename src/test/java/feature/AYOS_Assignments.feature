@@ -42,36 +42,36 @@ Feature: Testing Assignments
     And Enter invalid coordinates while filling out the assignment form
     Then Click on the save button
 
-  Scenario: Mevcut atamayı sil
+  Scenario: Delete the Existing Assignment
     Given Log into the system
     When Click on the assignments tab
-    And en üstteki atama için çöp kutusu butonuna tıkla
-    And sil butonuna tıkla
-    Then başarı mesajını doğrula
+    And Click on the trash bin icon for the top assignment
+    And Click on the delete button
+    Then Validate the success message
 
-  Scenario: Mevcut atamanın konumunu görüntüle
+  Scenario: View the Location of the Current Assignment
     Given Log into the system
     When Click on the assignments tab
-    And en üstteki atama için konum işareti butonuna tıkla
-    Then gelen konumun görüntülendiğini doğrula
+    And Click on the location marker button for the top assignment
+    Then Validate that the location has been displayed
 
 
-  Scenario: Mevcut atamanın konumunu google haritalarda aç
+  Scenario: Open the Location of the Current Assignment on Google Maps
     Given Log into the system
     When Click on the assignments tab
-    And en üstteki atama için konum işareti butonuna tıkla
-    Then açılan pencerelerde google haritalarda aç
+    And Click on the location marker button for the top assignment
+    Then Open in Google Maps in the popped-up windows
 
 
-  Scenario: Mevcut atamanın konumunun detaylarını kopyala
+  Scenario: Copy the Details of the Current Assignment Location
     Given Log into the system
     When Click on the assignments tab
-    And en üstteki atama için konum işareti butonuna tıkla
-    Then gelen konumun detaylarını kopyala butonuna tıkla
+    And Click on the location marker button for the top assignment
+    Then Click on the copy details of the location button
 
-  Scenario: Mevcut atamanın konumunu telefonda aç
+  Scenario: Open the Location of the Current Assignment on the Phone
     Given Log into the system
     When Click on the assignments tab
-    And en üstteki atama için konum işareti butonuna tıkla
-    Then gelen konumu telefonda aç butonuna tıkla
+    And Click on the location marker button for the top assignment
+    Then Click on the open location on the phone button
 
