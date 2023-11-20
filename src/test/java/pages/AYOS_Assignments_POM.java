@@ -46,89 +46,89 @@ public class AYOS_Assignments_POM extends MyMethods {
     private WebElement location;
 
     @FindBy(xpath = "(//a[@title='Zoom in'])[1]")
-    private WebElement konumYakinlastir;
+    private WebElement locationZoomIn;
     @FindBy(xpath = "(//a[@title='Zoom out'])[1]")
-    private WebElement konumUzaklastir;
+    private WebElement locationZoomOut;
     @FindBy(xpath = "(//span[contains(text(),'Save')])[2]")
-    private WebElement atamayiKaydet;
+    private WebElement saveAssignment;
 
     //atamalar olusturmak icin ayrica yeni locatorlar olustur
 
     @FindBy(xpath = "(//input[@id='firstName'])[1]")
-    private WebElement adOlustur;
+    private WebElement createName;
 
     @FindBy(xpath = "(//input[@id='lastName'])[1]")
-    private WebElement soyadOlustur;
+    private WebElement createSurname;
 
     @FindBy(xpath = "(//input[@id='description'])[1]")
-    private WebElement aciklamaOlustur;
+    private WebElement createDescription;
 
     @FindBy(xpath = "(//div[contains(@class, 'ant-select-show-arrow')])[3]") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
-    private WebElement alanKoduOlustur;
+    private WebElement createAreaCode;
 
     @FindBy(xpath = "//span[text()='90']")
-    private WebElement turkiyeAlanKoduOlustur;
+    private WebElement createTurkiyeAreaCode;
     @FindBy(xpath = "//input[@id='phoneNumber_lineNumber']")
-    private WebElement telefonNumarasiOlustur;
+    private WebElement createPhoneNumber;
 
     @FindBy(xpath = "(//span[contains(text(),'Select Location')])[1]")
-    private WebElement konumOlustur;
+    private WebElement createLocation;
 
     @FindBy(xpath = "(//a[@title='Zoom in'])[2]")
-    private WebElement konumYakinlastirOlustur;
+    private WebElement createLocationZoomIn;
     @FindBy(xpath = "(//a[@title='Zoom out'])[2]")
-    private WebElement konumUzaklastirOlustur;
+    private WebElement createLocationZoomOut;
 
     @FindBy(xpath = "(//span[contains(text(),'Save')])[1]")
-    private WebElement atamayiKaydetOlustur;
+    private WebElement createSaveAssignment;
 
     @FindBy(xpath = "(//button[contains(@class,'refine-delete-button')])[1]")
-    private WebElement atamayiSil;
+    private WebElement deleteAssignment;
 
     @FindBy(xpath = "(//span[text()='Delete'])[2]")
-    private WebElement atamayiSilEminMisiniz;
+    private WebElement sureDeleteAssignment;
     @FindBy(xpath = "//div[@class='ant-notification-notice-message']")
-    private WebElement silBasariMesaji;
+    private WebElement successMessageDelete;
     @FindBy(xpath = "(//button[@class='ant-btn css-zvd7y2 ant-btn-default ant-btn-icon-only'])[2]")
-    private WebElement konumGoruntule;
+    private WebElement showLocation;
 
     @FindBy(xpath = "//div[@id='map-container']")
-    private WebElement konumDogrula;
+    private WebElement validateLocation;
     @FindBy(xpath = "//span[normalize-space()='Open With Google Maps']")
-    private WebElement googleHaritalardaAc;
+    private WebElement openGoogleMaps;
 
     @FindBy(xpath = "//span[normalize-space()='Copy The Location Details']")
-    private WebElement konumuBilgileriniKopyala;
+    private WebElement copyLocationInfo;
 
     @FindBy(xpath = "//span[normalize-space()='Open On My Phone']")
-    private WebElement telefonumdaAc;
+    private WebElement openOnMyPhone;
 
     @FindBy(css = "button[class='ant-btn css-zvd7y2 ant-btn-default ant-btn-icon-only refine-edit-button']")
-    private List<WebElement> duzenle;
+    private List<WebElement> edit;
 
     @FindBy(xpath = "(//button[contains(@class,'refine-show-button')])[1]")
-    private WebElement goster;
+    private WebElement show;
 
     @FindBy(xpath = "//h4[normalize-space()='Show Assignment']")
-    private WebElement gosterDogrulama;
+    private WebElement validateShow;
 
     @FindBy(xpath = "(//button[@class='ant-btn css-zvd7y2 ant-btn-default ant-btn-icon-only'])[1]")
-    private WebElement filtrele;
+    private WebElement filter;
 
     @FindBy(xpath = "//div[@class='ant-select-selection-overflow']")
-    private WebElement durumaGoreFiltrele;
+    private WebElement filterBasedOnStatus;
 
     @FindBy(xpath = "//input[@id='phoneNumber_lineNumber']")
-    private WebElement telefonNumarasinaGoreFiltrele;
+    private WebElement filterBasedOnPhoneNumber;
 
     @FindBy(xpath = "//input[@id='phoneNumber_countryCode']")
-    private WebElement alanKodunaGoreFiltrele;
+    private WebElement filterBasedOnAreaCode;
 
     @FindBy(xpath = "//span[normalize-space()='Filter']")
-    private WebElement filtrelemeButonu;
+    private WebElement filterButton;
 
    @FindBy(xpath = "//button[@type='button']//span[contains(text(),'Save')]")
-   private WebElement duzenleKaydetButonu;
+   private WebElement editSaveButton;
     //body[1]/div[1]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/div[1]/button[1]
   //  @FindBy(xpath = "//button[@class=\"ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-btn-dangerous refine-delete-button\"]\n")
   //  private WebElement ;
