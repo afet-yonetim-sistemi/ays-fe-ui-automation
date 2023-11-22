@@ -12,8 +12,8 @@ public class Assignments_Create {
 
     AYOS_Assignments_POM ayo =new AYOS_Assignments_POM();
     Login_POM gir =new Login_POM();
-    @Given("sisteme giriş yap")
-    public void sistemeGirişYap() {
+    @Given("Log into the system")
+    public void Log_into_the_system() {
         DriverClass.getDriver().get("https://test-kurum.afetyonetimsistemi.com/login");
         DriverClass.getDriver().manage().window().maximize();
         gir.sendKeysMethod(gir.getLoginUsername(), "ays-admin-1");
@@ -23,20 +23,20 @@ public class Assignments_Create {
       //  Assert.assertTrue(gir.getAdminsHeader().isDisplayed());
     }
 
-    @When("atamalar sekmesine tıkla")
-    public void atamalarSekmesineTıkla() {
+    @When("Click on the assignments tab")
+    public void Click_on_the_assignments_tab() {
     //    ayo.clickMethod(ayo.getDilSecenegi());
     //    ayo.clickMethod(ayo.getTurkceDilSecenegi());
         ayo.clickMethod(ayo.getAssignments());
     }
 
-    @And("oluştur butonuna tıkla")
-    public void oluşturButonunaTıkla() {
+    @And("Click on the create button")
+    public void Click_on_the_create_button() {
         ayo.clickMethod(ayo.getCreateButton());
     }
 
-    @And("atama formunu doldur")
-    public void atamaFormunuDoldur() {
+    @And("Fill out the assignment form")
+    public void Fill_out_the_assignment_form() {
         ayo.sendKeysMethod(ayo.getCreateName(), "rıfkı");
         ayo.sendKeysMethod(ayo.getCreateSurname(), "maraz");
         ayo.sendKeysMethod(ayo.getCreateDescription(), "abcdfghh");
@@ -46,8 +46,8 @@ public class Assignments_Create {
 
     }
 
-    @And("atama formunu doldururken ad kısmında geçersiz karakterler kullan")
-    public void atamaFormunuDoldururkenAdKısmındaGeçersizKarakterlerKullan() {
+    @And("Enter invalid characters in the name field while filling out the assignment form")
+    public void Enter_invalid_characters_in_the_name_field_while_filling_out_the_assignment_form() {
         ayo.sendKeysMethod(ayo.getCreateName(), "?--/-**-8965");
         ayo.sendKeysMethod(ayo.getCreateSurname(), "maraz");
         ayo.sendKeysMethod(ayo.getCreateDescription(), "huıpvd");
@@ -57,8 +57,8 @@ public class Assignments_Create {
 
     }
 
-    @And("atama formunu doldururken soyad kısmında geçersiz karakterler kullan")
-    public void atamaFormunuDoldururkenSoyadKısmındaGeçersizKarakterlerKullan() {
+    @And("Enter invalid characters in the last name field while filling out the assignment form")
+    public void Enter_invalid_characters_in_the_last_name_field_while_filling_out_the_assignment_form() {
         ayo.sendKeysMethod(ayo.getCreateName(), "rıfkı");
         ayo.sendKeysMethod(ayo.getCreateSurname(), "maraz");
         ayo.sendKeysMethod(ayo.getCreateDescription(), "abcuqopg");
@@ -68,8 +68,8 @@ public class Assignments_Create {
 
     }
 
-    @And("atama formunu doldururken geçersiz bir açıklama yaz")
-    public void atamaFormunuDoldururkenGeçersizBirAçıklamaYaz() {
+    @And("Enter an invalid description while filling out the assignment form")
+    public void Enter_an_invalid_description_while_filling_out_the_assignment_form() {
         ayo.sendKeysMethod(ayo.getCreateName(), "rıfkı");
         ayo.sendKeysMethod(ayo.getCreateSurname(), "maraz");
         ayo.sendKeysMethod(ayo.getCreateDescription(), "?-/*-+?'!$[}");
@@ -79,8 +79,8 @@ public class Assignments_Create {
 
     }
 
-    @And("atama formunu doldururken geçersiz bir telefon numarası yaz")
-    public void atamaFormunuDoldururkenGeçersizBirTelefonNumarasıYaz() {
+    @And("Enter an invalid phone number while filling out the assignment form")
+    public void Enter_an_invalid_phone_number_while_filling_out_the_assignment_form() {
         ayo.sendKeysMethod(ayo.getCreateName(), "rıfkı");
         ayo.sendKeysMethod(ayo.getCreateSurname(), "maraz");
         ayo.sendKeysMethod(ayo.getCreateDescription(), "acbdyagyqcbm");
@@ -90,8 +90,8 @@ public class Assignments_Create {
 
     }
 
-    @And("atama formunu doldururken geçersiz koordinatlar gir")
-    public void atamaFormunuDoldururkenGeçersizKoordinatlarGir() {
+    @And("Enter invalid coordinates while filling out the assignment form")
+    public void Enter_invalid_coordinates_while_filling_out_the_assignment_form() {
         ayo.sendKeysMethod(ayo.getCreateName(), "rıfkı");
         ayo.sendKeysMethod(ayo.getCreateSurname(), "maraz");
         ayo.sendKeysMethod(ayo.getCreateDescription(), "qwertty");
@@ -101,8 +101,8 @@ public class Assignments_Create {
 
     }
 
-    @Then("kaydet butonuna tıkla")
-    public void kaydetButonunaTıkla() {
+    @Then("Click on the save button")
+    public void Click_on_the_save_button() {
         ayo.clickMethod(ayo.getSaveAssignment());
     }
 }

@@ -7,25 +7,25 @@ import pages.AYOS_Assignments_POM;
 public class Assignments_Filter {
 
     AYOS_Assignments_POM ayo =new AYOS_Assignments_POM();
-    @And("filtre simgesine tıkla")
-    public void filtreSimgesineTıkla() {
+    @And("Click on the filter icon")
+    public void Click_on_the_filter_icon() {
        ayo.clickMethod(ayo.getFilter());
     }
 
-    @And("durum menüsünden available seçeneğini seç")
-    public void durumMenüsündenAvailableSeçeneğiniSeç() {
+    @And("Select the available option from the status menu")
+    public void Select_the_available_option_from_the_status_menu() {
         ayo.clickMethod(ayo.getFilterBasedOnStatus());
 
     }
 
-    @And("telefon numarasına göre filtrele.")
-    public void telefonNumarasınaGöreFiltrele() {
+    @And("Filter by phone number")
+    public void Filter_by_phone_number() {
         ayo.clickMethod(ayo.getFilterBasedOnPhoneNumber());
 
     }
 
-    @Then("filtreleme butonuna tıkla")
-    public void filtrelemeButonunaTıkla() {
+    @Then("Click on the filter button")
+    public void Click_on_the_filter_button() {
        ayo.clickMethod(ayo.getFilterButton());
     }
 

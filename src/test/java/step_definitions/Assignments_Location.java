@@ -8,29 +8,29 @@ import pages.AYOS_Assignments_POM;
 public class Assignments_Location {
 
     AYOS_Assignments_POM ayo =new AYOS_Assignments_POM();
-    @And("en üstteki atama için konum işareti butonuna tıkla")
-    public void enÜsttekiAtamaIçinKonumIşaretiButonunaTıkla() {
+    @And("Click on the location marker button for the top assignment")
+    public void Click_on_the_location_marker_button_for_the_top_assignment() {
         ayo.clickMethod(ayo.getShowLocation());
     }
 
-    @Then("gelen konumun görüntülendiğini doğrula")
-    public void gelenKonumunGörüntülendiğiniDoğrula() {
+    @Then("Validate that the location has been displayed")
+    public void Validate_that_the_location_has_been_displayed() {
         ayo.waitUntilVisible(ayo.getValidateLocation());
         Assert.assertTrue(ayo.getValidateLocation().isDisplayed());
     }
 
-    @Then("açılan pencerelerde google haritalarda aç")
-    public void açılanPencerelerdeGoogleHaritalardaAç() {
+    @Then("Open in Google Maps in the popped-up windows")
+    public void Open_in_Google_Maps_in_the_popped_up_windows() {
         ayo.clickMethod(ayo.getOpenGoogleMaps());
     }
 
-    @Then("gelen konumun detaylarını kopyala butonuna tıkla")
-    public void gelenKonumunDetaylarınıKopyalaButonunaTıkla() {
+    @Then("Click on the copy details of the location button")
+    public void Click_on_the_copy_details_of_the_location_button() {
         ayo.clickMethod(ayo.getCopyLocationInfo());
     }
 
-    @Then("gelen konumu telefonda aç butonuna tıkla")
-    public void gelenKonumuTelefondaAçButonunaTıkla() {
+    @Then("Click on the open location on the phone button")
+    public void Click_on_the_open_location_on_the_phone_button() {
         ayo.clickMethod(ayo.getOpenOnMyPhone());
 
     }
