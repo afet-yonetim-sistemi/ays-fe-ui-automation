@@ -12,25 +12,25 @@ public class Login {
 
     Login_POM lg =new Login_POM();
 
-    @Given("Ayos sistemine eriş")
-    public void ayosSistemineEriş() {
+    @Given("Access the AYOS system")
+    public void access_the_AYOS_system() {
         DriverClass.getDriver().get("https://test-kurum.afetyonetimsistemi.com/login");
         DriverClass.getDriver().manage().window().maximize();
     }
 
-    @When("kullanıcı adı ve şifreyi gir")
-    public void kullanıcıAdıVeŞifreyiGir() {
+    @When("Enter the username and password")
+    public void enter_the_username_and_password() {
         lg.sendKeysMethod(lg.getLoginUsername(), "ays-admin-1");
         lg.sendKeysMethod(lg.getLoginPassword(), "A123y456S.");
     }
 
-    @And("Giriş butonuna tıkla")
-    public void girişButonunaTıkla() {
+    @And("Click the Login button")
+    public void click_the_Login_button() {
         lg.clickMethod(lg.getLoginButton());
     }
 
-    @Then("Kullanıcı başarıyla giriş yapabilmelidir")
-    public void kullanıcıBaşarıylaGirişYapabilmelidir() {
+    @Then("The user should be able to successfully log in")
+    public void the_user_should_be_able_to_successfully_log_in() {
         lg.waitUntilVisible(lg.getAdminsHeader());
         Assert.assertTrue(lg.getAdminsHeader().isDisplayed());
     }

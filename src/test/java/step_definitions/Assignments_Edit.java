@@ -8,13 +8,13 @@ import pages.AYOS_Assignments_POM;
 public class Assignments_Edit {
 
     AYOS_Assignments_POM ayo =new AYOS_Assignments_POM();
-    @And("düzenleme butonu olan kalem simgesine tıkla")
-    public void düzenlemeButonuOlanKalemSimgesineTıkla() {
+    @And("Click on the pencil icon with the edit button")
+    public void Click_on_the_pencil_icon_with_the_edit_button() {
         ayo.clickMethod(ayo.getEdit().get(0));
     }
 
-    @And("atama formunudaki her inputu düzenle")
-    public void atamaFormunudakiHerInputuDüzenle() {
+    @And("Edit each input in the assignment form")
+    public void Edit_each_input_in_the_assignment_form() {
         ayo.getName().sendKeys(Keys.BACK_SPACE);
         ayo.sendKeysMethod(ayo.getName(), "ABCDE");
 
@@ -35,8 +35,8 @@ public class Assignments_Edit {
 
     }
 
-    @Then("düzenleme kaydet butonuna tıkla")
-    public void düzenlemeKaydetButonunaTıkla() {
+    @Then("Click on the save edit button")
+    public void Click_on_the_save_edit_button() {
         ayo.clickMethod(ayo.getSaveAssignment());
     }
 }

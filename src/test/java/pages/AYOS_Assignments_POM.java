@@ -13,7 +13,8 @@ public class AYOS_Assignments_POM extends MyMethods {
     public AYOS_Assignments_POM() {
         PageFactory.initElements(DriverClass.getDriver(), this); }
 
-    @FindBy(xpath = "//a[text()='Assignments']/ancestor::li[@class='ant-menu-item']")
+    //@FindBy(xpath = "//a[text()='Assignments']/ancestor::li[@class='ant-menu-item']")
+    @FindBy(css = "a[href='/assignments']")
     private WebElement assignments;
 
     @FindBy(xpath = "//span[@class='anticon anticon-down']//*[name()='svg']")

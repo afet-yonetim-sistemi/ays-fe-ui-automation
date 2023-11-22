@@ -11,12 +11,12 @@ public class Hooks {
 
     @Before
     public void beforeScenario(){
-        System.out.println("Senaryo başladı");
+        System.out.println("Scenario started");
     }
 
     @After
     public void afterScenario(Scenario scenario) {
-        System.out.println("Senaryo bitti");
+        System.out.println("Scenario finished");
         if (scenario.isFailed()) {
             final byte[] byteImage = ((TakesScreenshot) DriverClass.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(byteImage, "image/png", scenario.getName());
