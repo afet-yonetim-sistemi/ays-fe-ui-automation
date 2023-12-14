@@ -6,18 +6,20 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.AYOS_Assignments_POM;
 import pages.Login_POM;
+import utilities.ConfigReader;
 import utilities.DriverClass;
+import utilities.MyMethods;
 
-public class Assignments_Create {
+public class Assignments_Create  {
 
     AYOS_Assignments_POM ayo =new AYOS_Assignments_POM();
     Login_POM gir =new Login_POM();
     @Given("Log into the system")
     public void Log_into_the_system() {
-        DriverClass.getDriver().get("https://test-kurum.afetyonetimsistemi.com/login");
+        DriverClass.getDriver().get(ConfigReader.getPropertyValue("url"));
         DriverClass.getDriver().manage().window().maximize();
-        gir.sendKeysMethod(gir.getLoginUsername(), "ays-admin-1");
-        gir.sendKeysMethod(gir.getLoginPassword(), "A123y456S.");
+        gir.sendKeysMethod(gir.getLoginUsername(), ConfigReader.getPropertyValue("username"));
+        gir.sendKeysMethod(gir.getLoginPassword(), ConfigReader.getPropertyValue("password"));
         gir.clickMethod(gir.getLoginButton());
       //  gir.waitUntilVisible(gir.getAdminsHeader());
       //  Assert.assertTrue(gir.getAdminsHeader().isDisplayed());

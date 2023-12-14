@@ -17,12 +17,15 @@ public class DriverClass {
     private static ThreadLocal<String> threadDriverName = new ThreadLocal<>();
 
     private static ThreadLocal<WebDriverWait> threadDriverWait = new ThreadLocal<>();
-
     public static WebDriver getDriver() {
+        ConfigReader.readProperties(Constants.CONFIGURATION_FILEPATH);
+
         if (threadDriver.get()==null) {
 
             if (threadDriverName.get()==null){
-                threadDriverName.set("chrome");
+
+               // threadDriverName.set("chrome");
+                threadDriverName.set(ConfigReader.getPropertyValue("browser"));
             }
 
             switch (threadDriverName.get()) {

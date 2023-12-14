@@ -21,7 +21,7 @@ public class Login_POM extends MyMethods {
     private WebElement loginButton;
 
     //@FindBy(xpath = "//div[@class='ant-page-header-heading-left ']")
-    @FindBy(xpath = "//h1[@class='ant-typography css-11vhgr0']")
+    @FindBy(xpath = "//h1[@class='ant-typography css-14iqjx2']")
     private WebElement adminsHeader;
 
     public WebElement getLoginUsername() {
@@ -39,5 +39,6 @@ public class Login_POM extends MyMethods {
     public WebElement getAdminsHeader() {
         return adminsHeader;
     }
+
 
 }

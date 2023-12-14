@@ -22,7 +22,7 @@ public class AYOS_Assignments_POM extends MyMethods {
 
     @FindBy(xpath = "(//span[normalize-space()='Türkçe'])[1]")
     private WebElement turkishLanguageOption;
-    @FindBy(xpath = "//span[contains(text(),'Create')]")
+    @FindBy(xpath = "//span[contains(text(),'Oluştur')]")
     private WebElement createButton;
 
     //bunlar degistir icin
