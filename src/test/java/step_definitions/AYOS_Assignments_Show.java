@@ -10,6 +10,7 @@ public class AYOS_Assignments_Show {
     @And("Click on the eye icon with the show button")
     public void Click_on_the_eye_icon_with_the_show_button() {
         ayo.clickMethod(ayo.getShow());
+
     }
 
     @Then("Validate that the assignment information has appeared")

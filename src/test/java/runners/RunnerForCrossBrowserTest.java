@@ -6,12 +6,13 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import utilities.DriverClass;
 
 @CucumberOptions(
         tags = "@Login",
-        features = {"src/test/java/features"},
+        features = {"src/test/java/feature"},
         glue = {"step_definitions"},
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
 

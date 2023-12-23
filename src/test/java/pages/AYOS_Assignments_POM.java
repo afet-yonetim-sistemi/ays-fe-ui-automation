@@ -50,7 +50,7 @@ public class AYOS_Assignments_POM extends MyMethods {
     private WebElement locationZoomIn;
     @FindBy(xpath = "(//a[@title='Zoom out'])[1]")
     private WebElement locationZoomOut;
-    @FindBy(xpath = "(//span[contains(text(),'Save')])[2]")
+    @FindBy(xpath = "(//button[@type='submit'])[1]")
     private WebElement saveAssignment;
 
     //atamalar olusturmak icin ayrica yeni locatorlar olustur
@@ -64,12 +64,12 @@ public class AYOS_Assignments_POM extends MyMethods {
     @FindBy(xpath = "(//input[@id='description'])[1]")
     private WebElement createDescription;
 
-    @FindBy(xpath = "(//div[contains(@class, 'ant-select-show-arrow')])[3]") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
+    @FindBy(xpath = "(//div[@class='ant-select-selector'])[2]")
     private WebElement createAreaCode;
 
-    @FindBy(xpath = "//span[text()='90']")
+    @FindBy(xpath = "//div[@title='+90 Türkiye']")
     private WebElement createTurkiyeAreaCode;
-    @FindBy(xpath = "//input[@id='phoneNumber_lineNumber']")
+    @FindBy(xpath = "(//input[@id='phoneNumber_lineNumber'])[1]")//input[@id='phoneNumber_lineNumber']
     private WebElement createPhoneNumber;
 
     @FindBy(xpath = "(//span[contains(text(),'Select Location')])[1]")
@@ -86,31 +86,31 @@ public class AYOS_Assignments_POM extends MyMethods {
     @FindBy(xpath = "(//button[contains(@class,'refine-delete-button')])[1]")
     private WebElement deleteAssignment;
 
-    @FindBy(xpath = "(//span[text()='Delete'])[2]")
+    @FindBy(xpath = "//button[@class='ant-btn css-14iqjx2 ant-btn-default ant-btn-sm ant-btn-dangerous']")////(//span[text()='Delete'])[2]
     private WebElement sureDeleteAssignment;
     @FindBy(xpath = "//div[@class='ant-notification-notice-message']")
     private WebElement successMessageDelete;
-    @FindBy(xpath = "(//button[@class='ant-btn css-zvd7y2 ant-btn-default ant-btn-icon-only'])[2]")
+    @FindBy(xpath = "(//button[@class='ant-btn css-14iqjx2 ant-btn-default ant-btn-icon-only'])[5]")//(//button[@class='ant-btn css-zvd7y2 ant-btn-default ant-btn-icon-only'])[2]
     private WebElement showLocation;
 
     @FindBy(xpath = "//div[@id='map-container']")
     private WebElement validateLocation;
-    @FindBy(xpath = "//span[normalize-space()='Open With Google Maps']")
+    @FindBy(xpath = "(//button[@class='ant-btn css-14iqjx2 ant-btn-default ant-btn-block d-flex undefined'])[1]")//span[normalize-space()='Open With Google Maps']
     private WebElement openGoogleMaps;
 
-    @FindBy(xpath = "//span[normalize-space()='Copy The Location Details']")
+    @FindBy(xpath = "//button[@class='ant-btn css-14iqjx2 ant-btn-default ant-btn-block d-flex btn btn-secondary']")//span[normalize-space()='Copy The Location Details']
     private WebElement copyLocationInfo;
 
-    @FindBy(xpath = "//span[normalize-space()='Open On My Phone']")
+    @FindBy(xpath = "//button[@class='ant-btn css-14iqjx2 ant-btn-default ant-btn-block d-flex btn btn-main']")//span[normalize-space()='Open On My Phone']
     private WebElement openOnMyPhone;
 
     @FindBy(css = "button[class='ant-btn css-zvd7y2 ant-btn-default ant-btn-icon-only refine-edit-button']")
     private List<WebElement> edit;
 
-    @FindBy(xpath = "(//button[contains(@class,'refine-show-button')])[1]")
+    @FindBy(xpath = "(//button[contains(@class,'refine-show-button')])[3]")
     private WebElement show;
 
-    @FindBy(xpath = "//h4[normalize-space()='Show Assignment']")
+    @FindBy(xpath = "//h5[normalize-space()='Show Assignment']")
     private WebElement validateShow;
 
     @FindBy(xpath = "(//button[@class='ant-btn css-zvd7y2 ant-btn-default ant-btn-icon-only'])[1]")

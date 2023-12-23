@@ -24,8 +24,8 @@ public class DriverClass {
 
             if (threadDriverName.get()==null){
 
-               // threadDriverName.set("chrome");
-                threadDriverName.set(ConfigReader.getPropertyValue("browser"));
+                threadDriverName.set("chrome");
+                //threadDriverName.set(ConfigReader.getPropertyValue("browser"));
             }
 
             switch (threadDriverName.get()) {
