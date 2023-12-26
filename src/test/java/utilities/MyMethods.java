@@ -16,7 +16,7 @@ import java.util.Random;
 public class MyMethods {
 
     public WebDriverWait wait = new WebDriverWait(DriverClass.getDriver(), Duration.ofSeconds(60));
-    Actions actions;
+    Actions actions = new Actions(DriverClass.getDriver());
 
     public void sendKeysMethod(WebElement element, String keys) {
         waitUntilVisible(element);
@@ -128,6 +128,10 @@ public class MyMethods {
         email = sb.toString() + "@" + domain;
 
         return email;
+    }
+    public void clickElementWithJavaScript(WebElement element) {
+        JavascriptExecutor executor = (JavascriptExecutor) DriverClass.getDriver();
+        executor.executeScript("arguments[0].click();", element);
     }
 
 
