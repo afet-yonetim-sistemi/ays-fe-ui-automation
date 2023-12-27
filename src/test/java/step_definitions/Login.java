@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import pages.Login_POM;
+import utilities.ConfigurationReader;
 import utilities.DriverClass;
 
 public class Login {
@@ -14,14 +15,14 @@ public class Login {
 
     @Given("Access the AYOS system")
     public void access_the_AYOS_system() {
-        DriverClass.getDriver().get("https://test-kurum.afetyonetimsistemi.com/login");
+        DriverClass.getDriver().get(ConfigurationReader.getProperty("url"));
         DriverClass.getDriver().manage().window().maximize();
     }
 
     @When("Enter the username and password")
     public void enter_the_username_and_password() {
-        lg.sendKeysMethod(lg.getLoginUsername(), "ays-admin-1");
-        lg.sendKeysMethod(lg.getLoginPassword(), "A123y456S.");
+        lg.sendKeysMethod(lg.getLoginUsername(), ConfigurationReader.getProperty("admin1_username"));
+        lg.sendKeysMethod(lg.getLoginPassword(), ConfigurationReader.getProperty("admin1_password"));
     }
 
     @And("Click the Login button")

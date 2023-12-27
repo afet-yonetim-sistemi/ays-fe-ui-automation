@@ -90,10 +90,10 @@ public class AYOS_Assignments_POM extends MyMethods {
     private WebElement sureDeleteAssignment;
     @FindBy(xpath = "//div[@class='ant-notification-notice-message']")
     private WebElement successMessageDelete;
-    @FindBy(xpath = "(//button[@class='ant-btn css-zvd7y2 ant-btn-default ant-btn-icon-only'])[2]")
+    @FindBy(xpath = "(//button[@type='button'])[7]")
     private WebElement showLocation;
 
-    @FindBy(xpath = "//div[@id='map-container']")
+    @FindBy(xpath = "//div[@class='ant-modal-header']")
     private WebElement validateLocation;
     @FindBy(xpath = "//span[normalize-space()='Open With Google Maps']")
     private WebElement openGoogleMaps;

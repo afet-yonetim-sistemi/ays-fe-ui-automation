@@ -13,7 +13,6 @@ Feature: Testing Assignments
     And Click on the location marker button for the top assignment
     Then Open in Google Maps in the popped-up windows
 
-
   Scenario: Copy the Details of the Current Assignment Location
     Given Log into the system
     When Click on the assignments tab

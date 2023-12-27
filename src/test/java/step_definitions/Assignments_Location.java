@@ -10,7 +10,8 @@ public class Assignments_Location {
     AYOS_Assignments_POM ayo =new AYOS_Assignments_POM();
     @And("Click on the location marker button for the top assignment")
     public void Click_on_the_location_marker_button_for_the_top_assignment() {
-        ayo.clickMethod(ayo.getShowLocation());
+        ayo.moveToElement(ayo.getShowLocation());
+        ayo.clickElementWithJavaScript(ayo.getShowLocation());
     }
 
     @Then("Validate that the location has been displayed")

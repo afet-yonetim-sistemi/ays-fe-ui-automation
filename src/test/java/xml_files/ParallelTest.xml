@@ -2,13 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test name="Test with Firefox" >
-        <parameter name="browser" value="firefox"></parameter>
+        <parameter name="browsers" value="firefox"></parameter>
         <classes>
             <class name="runners.RunnerForParallelTest"></class>
         </classes>
     </test>
     <test name="Test with Chrome">
-        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="browsers" value="chrome"></parameter>
         <classes>
             <class name="runners.RunnerForParallelTest"></class>
         </classes>
