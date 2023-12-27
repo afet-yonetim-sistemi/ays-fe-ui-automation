@@ -9,7 +9,8 @@ public class AYOS_Assignments_Show {
     AYOS_Assignments_POM ayo =new AYOS_Assignments_POM();
     @And("Click on the eye icon with the show button")
     public void Click_on_the_eye_icon_with_the_show_button() {
-        ayo.clickMethod(ayo.getShow());
+        ayo.moveToElement(ayo.getShow());
+        ayo.clickElementWithJavaScript(ayo.getShow());
     }
 
     @Then("Validate that the assignment information has appeared")
