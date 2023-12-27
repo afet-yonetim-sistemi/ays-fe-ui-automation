@@ -6,8 +6,6 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.DriverClass;
 import utilities.MyMethods;
 
-import java.util.List;
-
 public class AYOS_Assignments_POM extends MyMethods {
 
     public AYOS_Assignments_POM() {
@@ -22,7 +20,7 @@ public class AYOS_Assignments_POM extends MyMethods {
 
     @FindBy(xpath = "(//span[normalize-space()='Türkçe'])[1]")
     private WebElement turkishLanguageOption;
-    @FindBy(xpath = "//span[contains(text(),'Create')]")
+    @FindBy(xpath = "(//span[.='Create'])[2]")
     private WebElement createButton;
 
     //bunlar degistir icin
@@ -38,9 +36,9 @@ public class AYOS_Assignments_POM extends MyMethods {
     @FindBy(xpath = "(//div[contains(@class, 'ant-select-show-arrow')])[3]") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
     private WebElement areaCode;
 
-    @FindBy(xpath = "//span[text()='90']")
+    @FindBy(xpath = "//div[text()='+90 Türkiye']")
     private WebElement turkiyeAreaCode;
-    @FindBy(xpath = "//input[@id='phoneNumber_lineNumber']")
+    @FindBy(xpath = "(//input[@id='phoneNumber_lineNumber'])[2]")
     private WebElement phoneNumber;
 
     @FindBy(xpath = "(//span[contains(text(),'Select Location')])[2]")
@@ -48,9 +46,10 @@ public class AYOS_Assignments_POM extends MyMethods {
 
     @FindBy(xpath = "(//a[@title='Zoom in'])[1]")
     private WebElement locationZoomIn;
+
     @FindBy(xpath = "(//a[@title='Zoom out'])[1]")
     private WebElement locationZoomOut;
-    @FindBy(xpath = "(//span[contains(text(),'Save')])[2]")
+    @FindBy(xpath = "//span[contains(@class, 'anticon-save')]")
     private WebElement saveAssignment;
 
     //atamalar olusturmak icin ayrica yeni locatorlar olustur
@@ -64,16 +63,23 @@ public class AYOS_Assignments_POM extends MyMethods {
     @FindBy(xpath = "(//input[@id='description'])[1]")
     private WebElement createDescription;
 
-    @FindBy(xpath = "(//div[contains(@class, 'ant-select-show-arrow')])[3]") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
+    @FindBy(xpath = "(//span[@class='ant-select-selection-search'])[2]") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
     private WebElement createAreaCode;
 
-    @FindBy(xpath = "//span[text()='90']")
+    @FindBy(xpath = "//div[text()='+90 Türkiye']")
     private WebElement createTurkiyeAreaCode;
-    @FindBy(xpath = "//input[@id='phoneNumber_lineNumber']")
+    @FindBy(xpath = "(//input[@id= 'phoneNumber_lineNumber'])[1]")
     private WebElement createPhoneNumber;
 
     @FindBy(xpath = "(//span[contains(text(),'Select Location')])[1]")
     private WebElement createLocation;
+    @FindBy(id = "map-container-select-create-assignment")
+    private WebElement createMapSelect;
+
+    @FindBy(xpath = "//img[contains(@class,'leaflet-marker-icon')]")
+    private WebElement createLocationMarkerIcon;
+    @FindBy(xpath = "//span[.='OK']")
+    private WebElement okButton;
 
     @FindBy(xpath = "(//a[@title='Zoom in'])[2]")
     private WebElement createLocationZoomIn;
@@ -104,8 +110,8 @@ public class AYOS_Assignments_POM extends MyMethods {
     @FindBy(xpath = "//span[normalize-space()='Open On My Phone']")
     private WebElement openOnMyPhone;
 
-    @FindBy(css = "button[class='ant-btn css-zvd7y2 ant-btn-default ant-btn-icon-only refine-edit-button']")
-    private List<WebElement> edit;
+    @FindBy(xpath = "//span[@aria-label='edit']")
+    private WebElement edit;
 
     @FindBy(xpath = "(//button[contains(@class,'refine-show-button')])[1]")
     private WebElement show;
@@ -113,19 +119,22 @@ public class AYOS_Assignments_POM extends MyMethods {
     @FindBy(xpath = "//h4[normalize-space()='Show Assignment']")
     private WebElement validateShow;
 
-    @FindBy(xpath = "(//button[@class='ant-btn css-zvd7y2 ant-btn-default ant-btn-icon-only'])[1]")
+    @FindBy(xpath = "(//button[contains(@class, 'ant-btn css-14ryt30')])[4]")
     private WebElement filter;
 
     @FindBy(xpath = "//div[@class='ant-select-selection-overflow']")
     private WebElement filterBasedOnStatus;
 
-    @FindBy(xpath = "//input[@id='phoneNumber_lineNumber']")
+    @FindBy(xpath = "//div[.='Available']")
+    private WebElement availableOption;
+
+    @FindBy(xpath = "(//div[@class='ant-select-selector'])[5]")
     private WebElement filterBasedOnPhoneNumber;
 
-    @FindBy(xpath = "//input[@id='phoneNumber_countryCode']")
+    @FindBy(xpath = "//div[@id='phoneNumber_countryCode_list']")
     private WebElement filterBasedOnAreaCode;
 
-    @FindBy(xpath = "//span[normalize-space()='Filter']")
+    @FindBy(xpath = "//span[.='Filter']")
     private WebElement filterButton;
 
    @FindBy(xpath = "//button[@type='button']//span[contains(text(),'Save')]")
@@ -218,7 +227,15 @@ public class AYOS_Assignments_POM extends MyMethods {
     public WebElement getCreateLocation() {
         return createLocation;
     }
-
+    public WebElement getCreateMapSelect() {
+        return createMapSelect;
+    }
+    public WebElement getCreateLocationMarkerIcon() {
+        return createLocationMarkerIcon;
+    }
+    public WebElement getOkButton() {
+        return okButton;
+    }
     public WebElement getCreateLocationZoomIn() {
         return createLocationZoomIn;
     }
@@ -263,7 +280,7 @@ public class AYOS_Assignments_POM extends MyMethods {
         return openOnMyPhone;
     }
 
-    public List<WebElement> getEdit() {
+    public WebElement getEdit() {
         return edit;
     }
 
@@ -282,6 +299,13 @@ public class AYOS_Assignments_POM extends MyMethods {
     public WebElement getFilterBasedOnStatus() {
         return filterBasedOnStatus;
     }
+    public WebElement getAvailableOption() {
+        return availableOption;
+    }
+
+    public void setAvailableOption(WebElement availableOption) {
+        this.availableOption = availableOption;
+    }
 
     public WebElement getFilterBasedOnPhoneNumber() {
         return filterBasedOnPhoneNumber;
@@ -297,6 +321,22 @@ public class AYOS_Assignments_POM extends MyMethods {
 
     public WebElement getEditSaveButton() {
         return editSaveButton;
+    }
+
+    public void setName(WebElement name) {
+        this.name = name;
+    }
+
+    public void setSurname(WebElement surname) {
+        this.surname = surname;
+    }
+
+    public void setDescription(WebElement description) {
+        this.description = description;
+    }
+
+    public void setPhoneNumber(WebElement phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
 

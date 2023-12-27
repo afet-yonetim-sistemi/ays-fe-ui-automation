@@ -32,7 +32,8 @@ public class Assignments_Create {
 
     @And("Click on the create button")
     public void Click_on_the_create_button() {
-        ayo.clickMethod(ayo.getCreateButton());
+        ayo.moveToElement(ayo.getCreateButton());
+        ayo.clickElementWithJavaScript(ayo.getCreateButton());
     }
 
     @And("Fill out the assignment form")
@@ -42,7 +43,13 @@ public class Assignments_Create {
         ayo.sendKeysMethod(ayo.getCreateDescription(), "abcdfghh");
         ayo.clickMethod(ayo.getCreateAreaCode());
         ayo.clickMethod(ayo.getCreateTurkiyeAreaCode());
-        ayo.sendKeysMethod(ayo.getCreatePhoneNumber(), "");
+        ayo.clickMethod(ayo.getCreatePhoneNumber());
+        ayo.sendKeysMethod(ayo.getCreatePhoneNumber(), "6555555555");
+        ayo.clickMethod(ayo.getCreateLocation());
+        ayo.clickMethod(ayo.getCreateMapSelect());
+        ayo.clickMethod(ayo.getCreateLocationMarkerIcon());
+        ayo.clickMethod(ayo.getOkButton());
+
 
     }
 
