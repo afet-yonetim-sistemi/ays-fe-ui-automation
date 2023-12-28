@@ -12,8 +12,8 @@
     <name>ays-fe-ui-automation</name>
 
     <properties>
-        <maven.compiler.source>19</maven.compiler.source>
-        <maven.compiler.target>19</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <selenium-java.version>4.12.0</selenium-java.version>
@@ -24,6 +24,8 @@
         <mysql-connector-java.version>8.0.32</mysql-connector-java.version>
         <poi.version>5.2.3</poi.version>
         <lombok.version>1.18.20</lombok.version>
+        <log4j-core.version>2.20.0</log4j-core.version>
+        <log4j-api.version>2.20.0</log4j-api.version>
         <maven-surefire-plugin.version>2.9</maven-surefire-plugin.version>
 
     </properties>
@@ -91,6 +93,18 @@
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>${poi.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j-api.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- ================== -->
