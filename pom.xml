@@ -17,16 +17,19 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <selenium-java.version>4.12.0</selenium-java.version>
-        <cucumber-java.version>7.11.1</cucumber-java.version>
-        <testng.version>7.7.1</testng.version>
-        <cucumber-testng.version>7.11.1</cucumber-testng.version>
+        <cucumber-java.version>7.14.0</cucumber-java.version>
+        <testng.version>7.8.0</testng.version>
+        <cucumber-testng.version>7.14.0</cucumber-testng.version>
         <extentreports-cucumber7-adapter.version>1.10.1</extentreports-cucumber7-adapter.version>
         <mysql-connector-java.version>8.0.32</mysql-connector-java.version>
         <poi.version>5.2.3</poi.version>
-        <lombok.version>1.18.20</lombok.version>
+        <lombok.version>1.18.30</lombok.version>
         <log4j-core.version>2.20.0</log4j-core.version>
-        <log4j-api.version>2.20.0</log4j-api.version>
-        <maven-surefire-plugin.version>2.9</maven-surefire-plugin.version>
+        <log4j-api.version>2.22.0</log4j-api.version>
+        <jquery.version>3.6.4</jquery.version>
+        <gson.version>2.10.1</gson.version>
+        <snakeyaml.version>2.0</snakeyaml.version>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 
     </properties>
     <dependencies>
@@ -107,10 +110,39 @@
             <version>${log4j-api.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- ================== -->
-        <!-- excel dependencies -->
-        <!-- ================== -->
+
+        <!-- ====================== -->
+        <!-- for framework security -->
+        <!-- ====================== -->
+
+        <!-- https://mvnrepository.com/artifact/org.webjars/jquery -->
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>${jquery.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${snakeyaml.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- ========================== -->
+    <!-- for pipeline compatibility -->
+    <!-- ========================== -->
 
     <profiles>
         <profile>
