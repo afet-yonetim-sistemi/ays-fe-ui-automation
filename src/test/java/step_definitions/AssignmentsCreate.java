@@ -1,41 +1,22 @@
 package step_definitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.AYOS_Assignments_POM;
-import pages.Login_POM;
-import utilities.DriverClass;
+import pages.AYOSAssignmentsPOM;
 
-public class Assignments_Create {
+public class AssignmentsCreate {
 
-    AYOS_Assignments_POM ayo =new AYOS_Assignments_POM();
-    Login_POM gir =new Login_POM();
-    @Given("Log into the system")
-    public void Log_into_the_system() {
-        DriverClass.getDriver().get("https://test-kurum.afetyonetimsistemi.com/login");
-        DriverClass.getDriver().manage().window().maximize();
-        gir.sendKeysMethod(gir.getLoginUsername(), "ays-admin-1");
-        gir.sendKeysMethod(gir.getLoginPassword(), "A123y456S.");
-        gir.clickMethod(gir.getLoginButton());
-      //  gir.waitUntilVisible(gir.getAdminsHeader());
-      //  Assert.assertTrue(gir.getAdminsHeader().isDisplayed());
-    }
-
+    AYOSAssignmentsPOM ayo =new AYOSAssignmentsPOM();
     @When("Click on the assignments tab")
     public void Click_on_the_assignments_tab() {
-    //    ayo.clickMethod(ayo.getDilSecenegi());
-    //    ayo.clickMethod(ayo.getTurkceDilSecenegi());
         ayo.clickMethod(ayo.getAssignments());
     }
-
     @And("Click on the create button")
     public void Click_on_the_create_button() {
         ayo.moveToElement(ayo.getCreateButton());
         ayo.clickElementWithJavaScript(ayo.getCreateButton());
     }
-
     @And("Fill out the assignment form")
     public void Fill_out_the_assignment_form() {
         ayo.sendKeysMethod(ayo.getCreateName(), "rıfkı");
@@ -49,10 +30,7 @@ public class Assignments_Create {
         ayo.clickMethod(ayo.getCreateMapSelect());
         ayo.clickMethod(ayo.getCreateLocationMarkerIcon());
         ayo.clickMethod(ayo.getOkButton());
-
-
     }
-
     @And("Enter invalid characters in the name field while filling out the assignment form")
     public void Enter_invalid_characters_in_the_name_field_while_filling_out_the_assignment_form() {
         ayo.sendKeysMethod(ayo.getCreateName(), "?--/-**-8965");
@@ -61,9 +39,7 @@ public class Assignments_Create {
         ayo.clickMethod(ayo.getCreateAreaCode());
         ayo.clickMethod(ayo.getCreateTurkiyeAreaCode());
         ayo.sendKeysMethod(ayo.getCreatePhoneNumber(), "55555555");
-
     }
-
     @And("Enter invalid characters in the last name field while filling out the assignment form")
     public void Enter_invalid_characters_in_the_last_name_field_while_filling_out_the_assignment_form() {
         ayo.sendKeysMethod(ayo.getCreateName(), "rıfkı");
@@ -72,9 +48,7 @@ public class Assignments_Create {
         ayo.clickMethod(ayo.getCreateAreaCode());
         ayo.clickMethod(ayo.getCreateTurkiyeAreaCode());
         ayo.sendKeysMethod(ayo.getCreatePhoneNumber(), "888888888");
-
     }
-
     @And("Enter an invalid description while filling out the assignment form")
     public void Enter_an_invalid_description_while_filling_out_the_assignment_form() {
         ayo.sendKeysMethod(ayo.getCreateName(), "rıfkı");
@@ -83,9 +57,7 @@ public class Assignments_Create {
         ayo.clickMethod(ayo.getCreateAreaCode());
         ayo.clickMethod(ayo.getCreateTurkiyeAreaCode());
         ayo.sendKeysMethod(ayo.getCreatePhoneNumber(), "55555555");
-
     }
-
     @And("Enter an invalid phone number while filling out the assignment form")
     public void Enter_an_invalid_phone_number_while_filling_out_the_assignment_form() {
         ayo.sendKeysMethod(ayo.getCreateName(), "rıfkı");
@@ -94,9 +66,7 @@ public class Assignments_Create {
         ayo.clickMethod(ayo.getCreateAreaCode());
         ayo.clickMethod(ayo.getCreateTurkiyeAreaCode());
         ayo.sendKeysMethod(ayo.getCreatePhoneNumber(), "161616");
-
     }
-
     @And("Enter invalid coordinates while filling out the assignment form")
     public void Enter_invalid_coordinates_while_filling_out_the_assignment_form() {
         ayo.sendKeysMethod(ayo.getCreateName(), "rıfkı");
@@ -105,9 +75,7 @@ public class Assignments_Create {
         ayo.clickMethod(ayo.getCreateAreaCode());
         ayo.clickMethod(ayo.getCreateTurkiyeAreaCode());
         ayo.sendKeysMethod(ayo.getCreatePhoneNumber(), " ");
-
     }
-
     @Then("Click on the save button")
     public void Click_on_the_save_button() {
         ayo.clickMethod(ayo.getSaveAssignment());

@@ -15,11 +15,6 @@ import org.testng.annotations.AfterClass;
 
 public class RunnerForCrossBrowserTest extends AbstractTestNGCucumberTests {
 
-//    @BeforeClass
-//    @Parameters
-//    public void beforeClass(String browserName){DriverClass.setThreadDriverName(browserName);
-//    }
-
     @AfterClass
     public static void writeExtentReport(){
         ExtentService.getInstance().setSystemInfo("Windows User Name",System.getProperty("user.name"));

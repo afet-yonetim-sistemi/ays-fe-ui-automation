@@ -13,7 +13,6 @@ public class Hooks {
     public void beforeScenario(){
         System.out.println("Scenario started");
     }
-
     @After
     public void afterScenario(Scenario scenario) {
         System.out.println("Scenario finished");

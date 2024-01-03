@@ -3,16 +3,14 @@ package step_definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.Keys;
-import pages.AYOS_Assignments_POM;
+import pages.AYOSAssignmentsPOM;
 
-public class Assignments_Edit {
-
-    AYOS_Assignments_POM ayo =new AYOS_Assignments_POM();
+public class AssignmentsEdit {
+    AYOSAssignmentsPOM ayo =new AYOSAssignmentsPOM();
     @And("Click on the pencil icon with the edit button")
     public void Click_on_the_pencil_icon_with_the_edit_button() {
         ayo.clickMethod(ayo.getEdit());
     }
-
     @And("Edit each input in the assignment form")
     public void Edit_each_input_in_the_assignment_form() {
         ayo.getName().sendKeys(Keys.BACK_SPACE);
@@ -29,14 +27,9 @@ public class Assignments_Edit {
 
         ayo.getPhoneNumber().sendKeys(Keys.BACK_SPACE);
         ayo.sendKeysMethod(ayo.getPhoneNumber(), "11");
-
-
-
-
     }
-
     @Then("Click on the save edit button")
     public void Click_on_the_save_edit_button() {
-        ayo.clickMethod(ayo.getSaveAssignment());
+        ayo.clickMethod(ayo.getEditSaveButton());
     }
 }
