@@ -6,8 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.DriverClass;
 import utilities.MyMethods;
 
-public class Login_POM extends MyMethods {
-    public Login_POM() {
+public class LoginPOM extends MyMethods {
+    public LoginPOM() {
         PageFactory.initElements(DriverClass.getDriver(), this);
     }
 
@@ -19,8 +19,6 @@ public class Login_POM extends MyMethods {
 
     @FindBy(xpath = "//button[@type='submit']")
     private WebElement loginButton;
-
-    //@FindBy(xpath = "//div[@class='ant-page-header-heading-left ']")
     @FindBy(xpath = "//a[.='Admins']")
     private WebElement adminsHeader;
 

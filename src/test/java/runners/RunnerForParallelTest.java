@@ -6,11 +6,6 @@ import org.testng.annotations.AfterClass;
 
 public class RunnerForParallelTest  extends AbstractTestNGCucumberTests {
 
-//    @BeforeClass
-//    @Parameters(value = "browsers")
-//    public void beforeClass(String browserName) { DriverClass.setThreadDriverName(browserName);
-//    }
-
     @AfterClass
     public static void writeExtentReport(){
         ExtentService.getInstance().setSystemInfo("Windows User Name",System.getProperty("user.name"));

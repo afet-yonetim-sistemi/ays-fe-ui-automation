@@ -6,24 +6,16 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.DriverClass;
 import utilities.MyMethods;
 
-public class AYOS_Assignments_POM extends MyMethods {
+public class AYOSAssignmentsPOM extends MyMethods {
 
-    public AYOS_Assignments_POM() {
+    public AYOSAssignmentsPOM() {
         PageFactory.initElements(DriverClass.getDriver(), this); }
 
-    //@FindBy(xpath = "//a[text()='Assignments']/ancestor::li[@class='ant-menu-item']")
     @FindBy(css = "a[href='/assignments']")
     private WebElement assignments;
-
-    @FindBy(xpath = "//span[@class='anticon anticon-down']//*[name()='svg']")
-    private WebElement languageOption;
-
-    @FindBy(xpath = "(//span[normalize-space()='Türkçe'])[1]")
-    private WebElement turkishLanguageOption;
     @FindBy(xpath = "(//span[.='Create'])[2]")
     private WebElement createButton;
 
-    //bunlar degistir icin
     @FindBy(xpath = "(//input[@id='firstName'])[2]")
     private WebElement name;
 
@@ -33,7 +25,7 @@ public class AYOS_Assignments_POM extends MyMethods {
     @FindBy(xpath = "(//input[@id='description'])[2]")
     private WebElement description;
 
-    @FindBy(xpath = "(//div[contains(@class, 'ant-select-show-arrow')])[3]") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
+    @FindBy(xpath = "(//div[contains(@class, 'ant-select-show-arrow')])[3]")
     private WebElement areaCode;
 
     @FindBy(xpath = "//div[text()='+90 Türkiye']")
@@ -52,8 +44,6 @@ public class AYOS_Assignments_POM extends MyMethods {
     @FindBy(xpath = "//span[contains(@class, 'anticon-save')]")
     private WebElement saveAssignment;
 
-    //atamalar olusturmak icin ayrica yeni locatorlar olustur
-
     @FindBy(xpath = "(//input[@id='firstName'])[1]")
     private WebElement createName;
 
@@ -63,7 +53,7 @@ public class AYOS_Assignments_POM extends MyMethods {
     @FindBy(xpath = "(//input[@id='description'])[1]")
     private WebElement createDescription;
 
-    @FindBy(xpath = "(//span[@class='ant-select-selection-search'])[2]") ////div[@class='ant-drawer-content-wrapper']//div[@role='dialog']//div[@class='ant-drawer-wrapper-body']//div[@class='ant-drawer-body']//div//input[@id='phoneNumber_countryCode']
+    @FindBy(xpath = "(//span[@class='ant-select-selection-search'])[2]")
     private WebElement createAreaCode;
 
     @FindBy(xpath = "//div[text()='+90 Türkiye']")
@@ -80,14 +70,6 @@ public class AYOS_Assignments_POM extends MyMethods {
     private WebElement createLocationMarkerIcon;
     @FindBy(xpath = "//span[.='OK']")
     private WebElement okButton;
-
-    @FindBy(xpath = "(//a[@title='Zoom in'])[2]")
-    private WebElement createLocationZoomIn;
-    @FindBy(xpath = "(//a[@title='Zoom out'])[2]")
-    private WebElement createLocationZoomOut;
-
-    @FindBy(xpath = "(//span[contains(text(),'Save')])[1]")
-    private WebElement createSaveAssignment;
 
     @FindBy(xpath = "(//button[contains(@class,'refine-delete-button')])[1]")
     private WebElement deleteAssignment;
@@ -137,23 +119,11 @@ public class AYOS_Assignments_POM extends MyMethods {
     @FindBy(xpath = "//span[.='Filter']")
     private WebElement filterButton;
 
-   @FindBy(xpath = "//button[@type='button']//span[contains(text(),'Save')]")
+   @FindBy(xpath = "(//span[contains(@class, 'anticon-save')])[2]")
    private WebElement editSaveButton;
-    //body[1]/div[1]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/span[1]/div[1]/div[1]/div[1]/div[1]/button[1]
-  //  @FindBy(xpath = "//button[@class=\"ant-btn css-19achci ant-btn-default ant-btn-icon-only ant-btn-dangerous refine-delete-button\"]\n")
-  //  private WebElement ;
-
 
     public WebElement getAssignments() {
         return assignments;
-    }
-
-    public WebElement getLanguageOption() {
-        return languageOption;
-    }
-
-    public WebElement getTurkishLanguageOption() {
-        return turkishLanguageOption;
     }
 
     public WebElement getCreateButton() {
@@ -186,14 +156,6 @@ public class AYOS_Assignments_POM extends MyMethods {
 
     public WebElement getLocation() {
         return location;
-    }
-
-    public WebElement getLocationZoomIn() {
-        return locationZoomIn;
-    }
-
-    public WebElement getLocationZoomOut() {
-        return locationZoomOut;
     }
 
     public WebElement getSaveAssignment() {
@@ -235,17 +197,6 @@ public class AYOS_Assignments_POM extends MyMethods {
     }
     public WebElement getOkButton() {
         return okButton;
-    }
-    public WebElement getCreateLocationZoomIn() {
-        return createLocationZoomIn;
-    }
-
-    public WebElement getCreateLocationZoomOut() {
-        return createLocationZoomOut;
-    }
-
-    public WebElement getCreateSaveAssignment() {
-        return createSaveAssignment;
     }
 
     public WebElement getDeleteAssignment() {
@@ -303,10 +254,6 @@ public class AYOS_Assignments_POM extends MyMethods {
         return availableOption;
     }
 
-    public void setAvailableOption(WebElement availableOption) {
-        this.availableOption = availableOption;
-    }
-
     public WebElement getFilterBasedOnPhoneNumber() {
         return filterBasedOnPhoneNumber;
     }
@@ -323,21 +270,7 @@ public class AYOS_Assignments_POM extends MyMethods {
         return editSaveButton;
     }
 
-    public void setName(WebElement name) {
-        this.name = name;
-    }
 
-    public void setSurname(WebElement surname) {
-        this.surname = surname;
-    }
-
-    public void setDescription(WebElement description) {
-        this.description = description;
-    }
-
-    public void setPhoneNumber(WebElement phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 
 
 }

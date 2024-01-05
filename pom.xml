@@ -24,7 +24,7 @@
         <mysql-connector-java.version>8.0.32</mysql-connector-java.version>
         <poi.version>5.2.3</poi.version>
         <lombok.version>1.18.30</lombok.version>
-        <log4j-core.version>2.20.0</log4j-core.version>
+        <log4j-core.version>2.22.0</log4j-core.version>
         <log4j-api.version>2.22.0</log4j-api.version>
         <jquery.version>3.6.4</jquery.version>
         <gson.version>2.10.1</gson.version>
@@ -126,8 +126,6 @@
             <version>${log4j-api.version}</version>
             <scope>test</scope>
         </dependency>
-
-    </dependencies>
 
     <!-- ========================== -->
     <!-- for pipeline compatibility -->
