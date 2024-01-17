@@ -1,5 +1,6 @@
 package utilities;
 
+import com.github.javafaker.Faker;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
@@ -17,6 +18,7 @@ public class MyMethods {
 
     public WebDriverWait wait = new WebDriverWait(DriverClass.getDriver(), Duration.ofSeconds(60));
     Actions actions = new Actions(DriverClass.getDriver());
+    private static final Faker faker = new Faker();
 
     public void sendKeysMethod(WebElement element, String keys) {
         waitUntilVisible(element);
@@ -65,17 +67,10 @@ public class MyMethods {
         waitUntilClickable(element);
         return element.isDisplayed();
     }
-    public void moveToElement(WebElement element){
+
+    public void moveToElement(WebElement element) {
         waitUntilVisible(element);
         actions.moveToElement(element).build().perform();
-    }
-
-    public void setWait(int second) {
-        try {
-            Thread.sleep(second * 1000L);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public boolean isSelectedMethod(WebElement element) {
@@ -90,10 +85,11 @@ public class MyMethods {
     }
 
 
-    public void scroll(WebElement element){
+    public void scroll(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) DriverClass.getDriver();
         js.executeScript("arguments[0].scrollLeft += 500", element);
     }
+
     public void clear(WebElement element) {
         element.clear();
     }
@@ -112,6 +108,7 @@ public class MyMethods {
 
         return resultMap;
     }
+
     public String generateRandomEmail() {
         String email = "";
         String characters = "abcdefghijklmnopqrstuvwxyz0123456789";
@@ -129,9 +126,29 @@ public class MyMethods {
 
         return email;
     }
+
     public void clickElementWithJavaScript(WebElement element) {
         JavascriptExecutor executor = (JavascriptExecutor) DriverClass.getDriver();
         executor.executeScript("arguments[0].click();", element);
+    }
+
+
+    public static String generateRandomName() {
+        return faker.name().firstName();
+    }
+
+    public static String generateRandomSurname() {
+        return faker.name().lastName();
+    }
+
+    public static String generateRandomPhoneNumber() {
+        StringBuilder phoneNumber = new StringBuilder();
+        phoneNumber.append("505");
+        for (int i = 0; i < 7; i++) {
+            phoneNumber.append(faker.number().digit());
+        }
+
+        return phoneNumber.toString();
     }
 
 
