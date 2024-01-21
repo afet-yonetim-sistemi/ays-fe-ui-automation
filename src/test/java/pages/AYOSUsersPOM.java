@@ -31,6 +31,18 @@ public class AYOSUsersPOM extends MyMethods {
     private WebElement errorMassage;
     @FindBy(xpath = "//div[.= 'Invalid phone number']")
     private WebElement invalidPhoneNumberMessage;
+    @FindBy(xpath = "(//span[contains(@Class,'anticon-eye')])[2]")
+    private WebElement showIcon;
+    @FindBy(xpath = "//h5[.='Username']")
+    private WebElement showUsername;
+    @FindBy(xpath = "(//span[contains(@class, 'anticon-edit')])[1]")
+    private WebElement usersEditIcon;
+    @FindBy(xpath = "//span[@title='Active']")
+    private WebElement statusDropdown;
+    @FindBy(xpath = "//div[.='Active']")
+    private WebElement activeOption;
+    @FindBy(xpath = "//div[.='Passive']")
+    private WebElement passiveOption;
     public WebElement getUsersTab() {
         return usersTab;
     }
@@ -59,5 +71,29 @@ public class AYOSUsersPOM extends MyMethods {
     }
     public WebElement getInvalidPhoneNumberMessage() {
         return invalidPhoneNumberMessage;
+    }
+
+    public WebElement getShowIcon() {
+        return showIcon;
+    }
+
+    public WebElement getShowUsername() {
+        return showUsername;
+    }
+
+    public WebElement getUsersEditIcon() {
+        return usersEditIcon;
+    }
+
+    public WebElement getStatusDropdown() {
+        return statusDropdown;
+    }
+
+    public WebElement getActiveOption() {
+        return activeOption;
+    }
+
+    public WebElement getPassiveOption() {
+        return passiveOption;
     }
 }
