@@ -45,6 +45,10 @@ public class AYOSUsersPOM extends MyMethods {
     private WebElement activeStatus;
     @FindBy(xpath = "//div[.='Passive']")
     private WebElement passiveOption;
+    @FindBy(xpath = "//button[contains(@class,'refine-delete-button')]")
+    private WebElement deleteUsersIcon;
+    @FindBy(xpath = "//span[text()='Delete']")
+    private WebElement sureDeleteButton;
     public WebElement getUsersTab() {
         return usersTab;
     }
@@ -100,5 +104,12 @@ public class AYOSUsersPOM extends MyMethods {
     }
     public WebElement getPassiveOption() {
         return passiveOption;
+    }
+    public WebElement getDeleteUsersIcon() {
+        return deleteUsersIcon;
+    }
+
+    public WebElement getSureDeleteButton() {
+        return sureDeleteButton;
     }
 }
