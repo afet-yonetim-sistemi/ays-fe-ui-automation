@@ -9,7 +9,8 @@ public class AssignmentsEdit {
     AYOSAssignmentsPOM ayo =new AYOSAssignmentsPOM();
     @And("Click on the pencil icon with the edit button")
     public void Click_on_the_pencil_icon_with_the_edit_button() {
-        ayo.clickMethod(ayo.getEdit());
+        ayo.moveToElement(ayo.getEdit());
+        ayo.clickElementWithJavaScript(ayo.getEdit());
     }
     @And("Edit each input in the assignment form")
     public void Edit_each_input_in_the_assignment_form() {

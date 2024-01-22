@@ -37,10 +37,12 @@ public class AYOSUsersPOM extends MyMethods {
     private WebElement showUsername;
     @FindBy(xpath = "(//span[contains(@class, 'anticon-edit')])[1]")
     private WebElement usersEditIcon;
-    @FindBy(xpath = "//span[@title='Active']")
+    @FindBy(xpath = "(//span[@class='ant-select-selection-item'])[2]")
     private WebElement statusDropdown;
     @FindBy(xpath = "//div[.='Active']")
     private WebElement activeOption;
+    @FindBy(xpath = "//span[.='Active']")
+    private WebElement activeStatus;
     @FindBy(xpath = "//div[.='Passive']")
     private WebElement passiveOption;
     public WebElement getUsersTab() {
@@ -93,6 +95,9 @@ public class AYOSUsersPOM extends MyMethods {
         return activeOption;
     }
 
+    public WebElement getActiveStatus() {
+        return activeStatus;
+    }
     public WebElement getPassiveOption() {
         return passiveOption;
     }

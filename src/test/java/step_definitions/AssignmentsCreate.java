@@ -4,12 +4,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.AYOSAssignmentsPOM;
+import utilities.MyMethods;
 
-public class AssignmentsCreate {
+public class AssignmentsCreate extends MyMethods {
 
     AYOSAssignmentsPOM ayo =new AYOSAssignmentsPOM();
     @When("Click on the assignments tab")
     public void Click_on_the_assignments_tab() {
+        waitUntilClickable(ayo.getAssignments());
         ayo.clickMethod(ayo.getAssignments());
     }
     @And("Click on the create button")
