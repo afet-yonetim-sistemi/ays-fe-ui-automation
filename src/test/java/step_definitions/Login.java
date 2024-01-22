@@ -13,13 +13,13 @@ public class Login {
     LoginPOM login =new LoginPOM();
     @Given("Access the AYOS system")
     public void access_the_AYOS_system() {
-        DriverClass.getDriver().get(ConfigurationReader.getProperty("url"));
+        DriverClass.getDriver().get(ConfigurationReader.getProperty("api.url"));
         DriverClass.getDriver().manage().window().maximize();
     }
     @When("Enter the username and password")
     public void enter_the_username_and_password() {
-        login.sendKeysMethod(login.getLoginUsername(), ConfigurationReader.getProperty("admin1_username"));
-        login.sendKeysMethod(login.getLoginPassword(), ConfigurationReader.getProperty("admin1_password"));
+        login.sendKeysMethod(login.getLoginUsername(), ConfigurationReader.getProperty("admin-user.one.username"));
+        login.sendKeysMethod(login.getLoginPassword(), ConfigurationReader.getProperty("admin-user.one.password"));
     }
     @And("Click the Login button")
     public void click_the_Login_button() {
