@@ -22,7 +22,7 @@ public class DriverClass {
         if (threadDriver.get()==null) {
 
             if (threadDriverName.get()==null){
-                threadDriverName.set("chrome");
+                threadDriverName.set("chrome-headless");
             }
 
             switch (threadDriverName.get()) {
@@ -53,6 +53,10 @@ public class DriverClass {
                     options.addArguments("--disable-scroll-bounce");
 
                     options.addArguments("--remote-allow-origins=*"); // To solve the error with Chrome v111
+
+                    if ("chrome-headless".equals(threadDriverName.get())) {
+                        options.addArguments("--headless=new","--window-size=1920,1080");
+                    }
                     ChromeDriver Driver4 = new ChromeDriver(options);
                     threadDriver.set(Driver4);
                     threadDriverWait.set(new WebDriverWait(Driver4, Duration.of(10, ChronoUnit.SECONDS)));

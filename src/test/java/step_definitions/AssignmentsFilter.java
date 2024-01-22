@@ -9,6 +9,7 @@ public class AssignmentsFilter {
     @And("Click on the filter icon")
     public void Click_on_the_filter_icon() {
         ayo.moveToElement(ayo.getFilter());
+        ayo.waitUntilClickable(ayo.getFilter());
         ayo.clickElementWithJavaScript(ayo.getFilter());
     }
     @And("Select the available option from the status menu")

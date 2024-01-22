@@ -12,6 +12,7 @@ public class UsersCreate extends MyMethods{
 
     @When("Click on the users tab")
     public void click_on_the_users_tab() {
+        waitUntilClickable(usersPOM.getUsersTab());
         usersPOM.clickMethod(usersPOM.getUsersTab());
     }
 
@@ -53,6 +54,7 @@ public class UsersCreate extends MyMethods{
     }
     @And("{string} error massage is displayed")
     public void errorMassageIsDisplayed(String message) {
+        waitUntilVisible(usersPOM.getErrorMassage());
         Assert.assertEquals(usersPOM.getErrorMassage().getText(), message);
     }
 
