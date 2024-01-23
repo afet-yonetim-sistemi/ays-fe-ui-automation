@@ -36,11 +36,6 @@ public class AYOSAssignmentsPOM extends MyMethods {
     @FindBy(xpath = "(//span[contains(text(),'Select Location')])[2]")
     private WebElement location;
 
-    @FindBy(xpath = "(//a[@title='Zoom in'])[1]")
-    private WebElement locationZoomIn;
-
-    @FindBy(xpath = "(//a[@title='Zoom out'])[1]")
-    private WebElement locationZoomOut;
     @FindBy(xpath = "//span[contains(@class, 'anticon-save')]")
     private WebElement saveAssignment;
 
@@ -119,8 +114,8 @@ public class AYOSAssignmentsPOM extends MyMethods {
     @FindBy(xpath = "//span[.='Filter']")
     private WebElement filterButton;
 
-   @FindBy(xpath = "(//span[contains(@class, 'anticon-save')])[2]")
-   private WebElement editSaveButton;
+    @FindBy(xpath = "(//span[contains(@class, 'anticon-save')])[2]")
+    private WebElement editSaveButton;
 
     public WebElement getAssignments() {
         return assignments;
@@ -274,4 +269,3 @@ public class AYOSAssignmentsPOM extends MyMethods {
 
 
 }
-
