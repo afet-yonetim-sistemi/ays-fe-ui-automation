@@ -4,7 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -19,78 +21,76 @@ public class DriverClass {
     private static ThreadLocal<WebDriverWait> threadDriverWait = new ThreadLocal<>();
 
     public static WebDriver getDriver() {
-        if (threadDriver.get()==null) {
 
-            if (threadDriverName.get()==null){
-                threadDriverName.set("chrome-headless");
+        if (threadDriver.get() == null || !threadDriver.get().toString().contains(threadDriverName.get())) {
+            if (threadDriver.get() != null) {
+                quitDriver();
             }
 
             switch (threadDriverName.get()) {
-                case "firefox":
-                    FirefoxDriver Driver = new FirefoxDriver();
-                    threadDriver.set(Driver);
-                    threadDriverWait.set(new WebDriverWait(Driver, Duration.of(10, ChronoUnit.SECONDS)));
-                    threadDriver.get().manage().window().maximize();
-                    break;
-                case "safari":
-                    SafariDriver Driver2 = new SafariDriver();
-                    threadDriver.set(Driver2);
-                    threadDriverWait.set(new WebDriverWait(Driver2, Duration.of(10, ChronoUnit.SECONDS)));
-                    threadDriver.get().manage().window().maximize();
-                    break;
-                case "edge":
-                    EdgeDriver Driver3 = new EdgeDriver();
-                    threadDriver.set(Driver3);
-                    threadDriverWait.set(new WebDriverWait(Driver3, Duration.of(10, ChronoUnit.SECONDS)));
-                    threadDriver.get().manage().window().maximize();
-                    break;
-                default:
+                case "firefox" -> {
+                    FirefoxOptions options = new FirefoxOptions();
+                    if ("true".equals(System.getProperty("headless"))) {
+                        options.addArguments("--headless");
+                    }
+                    FirefoxDriver driver = new FirefoxDriver(options);
+                    threadDriver.set(driver);
+                }
+                case "safari" -> {
+                    SafariDriver safariDriver = new SafariDriver();
+                    threadDriver.set(safariDriver);
+                }
+                case "edge" -> {
+                    EdgeOptions options = new EdgeOptions();
+                    if ("true".equals(System.getProperty("headless"))) {
+                        options.addArguments("--headless=new");
+                    }
+                    EdgeDriver driver = new EdgeDriver(options);
+                    threadDriver.set(driver);
+                }
+                default -> {
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--disable-extensions");
-                    options.addArguments("--disable-gpu");
-                    options.addArguments("--disable-infobars");
-                    options.addArguments("--disable-notifications");
-                    options.addArguments("--disable-scroll-bounce");
-
-                    options.addArguments("--remote-allow-origins=*"); // To solve the error with Chrome v111
-
-                    if ("chrome-headless".equals(threadDriverName.get())) {
+                    if ("true".equals(System.getProperty("headless"))) {
                         options.addArguments("--headless=new","--window-size=1920,1080");
                     }
-                    ChromeDriver Driver4 = new ChromeDriver(options);
-                    threadDriver.set(Driver4);
-                    threadDriverWait.set(new WebDriverWait(Driver4, Duration.of(10, ChronoUnit.SECONDS)));
-                    threadDriver.get().manage().window().maximize();
+                    ChromeDriver driver = new ChromeDriver(options);
+                    threadDriver.set(driver);
+                }
+            }
+
+                threadDriverWait.set(new WebDriverWait(threadDriver.get(), Duration.of(10, ChronoUnit.SECONDS)));
+                threadDriver.get().manage().window().maximize();
+            }
+            return threadDriver.get();
+
+        }
+
+        public static WebDriverWait getDriverWait () {
+            return threadDriverWait.get();
+        }
+        public static void quitDriver () {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            if (threadDriver.get() != null) {
+                threadDriver.get().quit();
+                WebDriver driver = null;
+                threadDriver.set(driver);
             }
         }
-        return threadDriver.get();
-    }
 
-    public static WebDriverWait getDriverWait(){
-        return threadDriverWait.get();
-    }
-    public static void quitDriver(){
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        public static void setThreadDriverName (String browserName){
+            threadDriverName.set(browserName);
         }
-        if (threadDriver.get()!=null) {
-            threadDriver.get().quit();
-            WebDriver driver = null;
-            threadDriver.set(driver);
+        public static void setWait ( int second){
+            try {
+                Thread.sleep(second * 1000L);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
-    }
 
-    public static void setThreadDriverName(String browserName){
-        threadDriverName.set(browserName);
     }
-    public static void setWait(int second) {
-        try {
-            Thread.sleep(second * 1000L);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-}
