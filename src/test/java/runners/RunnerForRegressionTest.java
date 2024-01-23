@@ -2,7 +2,11 @@ package runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+import org.testng.ITestContext;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
+import utilities.DriverClass;
 
 @CucumberOptions(
         tags = "@regression",
@@ -12,10 +16,12 @@ import org.testng.annotations.DataProvider;
 
 public class RunnerForRegressionTest extends AbstractTestNGCucumberTests {
 
-    @Override
-    @DataProvider(parallel = true)
-    public Object[][] scenarios() {
-        return super.scenarios();
+    @BeforeClass
+    @Parameters({"browser", "headless"})
+    public static void beforeClass(String browserName, String headless){
+        DriverClass.setThreadDriverName(browserName);
+        System.setProperty("headless", headless);
     }
+
 
 }
