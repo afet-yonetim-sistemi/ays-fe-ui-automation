@@ -23,6 +23,11 @@ public class DriverClass {
     public static WebDriver getDriver() {
 
         if (threadDriver.get() == null || !threadDriver.get().toString().contains(threadDriverName.get())) {
+
+            if (threadDriverName.get()==null){
+                threadDriverName.set("chrome");
+            }
+
             if (threadDriver.get() != null) {
                 quitDriver();
             }
