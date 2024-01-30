@@ -23,6 +23,11 @@ public class DriverClass {
     public static WebDriver getDriver() {
 
         if (threadDriver.get() == null || !threadDriver.get().toString().contains(threadDriverName.get())) {
+
+            if (threadDriverName.get() == null) {
+                threadDriverName.set("chrome");
+            }
+
             if (threadDriver.get() != null) {
                 quitDriver();
             }
@@ -52,45 +57,47 @@ public class DriverClass {
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--disable-extensions");
                     if ("true".equals(System.getProperty("headless"))) {
-                        options.addArguments("--headless=new","--window-size=1920,1080");
+                        options.addArguments("--headless=new", "--window-size=1920,1080");
                     }
                     ChromeDriver driver = new ChromeDriver(options);
                     threadDriver.set(driver);
                 }
             }
 
-                threadDriverWait.set(new WebDriverWait(threadDriver.get(), Duration.of(10, ChronoUnit.SECONDS)));
-                threadDriver.get().manage().window().maximize();
-            }
-            return threadDriver.get();
-
+            threadDriverWait.set(new WebDriverWait(threadDriver.get(), Duration.of(10, ChronoUnit.SECONDS)));
+            threadDriver.get().manage().window().maximize();
         }
-
-        public static WebDriverWait getDriverWait () {
-            return threadDriverWait.get();
-        }
-        public static void quitDriver () {
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            if (threadDriver.get() != null) {
-                threadDriver.get().quit();
-                WebDriver driver = null;
-                threadDriver.set(driver);
-            }
-        }
-
-        public static void setThreadDriverName (String browserName){
-            threadDriverName.set(browserName);
-        }
-        public static void setWait ( int second){
-            try {
-                Thread.sleep(second * 1000L);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
+        return threadDriver.get();
 
     }
+
+    public static WebDriverWait getDriverWait() {
+        return threadDriverWait.get();
+    }
+
+    public static void quitDriver() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        if (threadDriver.get() != null) {
+            threadDriver.get().quit();
+            WebDriver driver = null;
+            threadDriver.set(driver);
+        }
+    }
+
+    public static void setThreadDriverName(String browserName) {
+        threadDriverName.set(browserName);
+    }
+
+    public static void setWait(int second) {
+        try {
+            Thread.sleep(second * 1000L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+}
