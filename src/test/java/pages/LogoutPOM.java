@@ -14,7 +14,6 @@ public class LogoutPOM extends MyMethods {
     @FindBy (xpath = "//span[@class='ant-dropdown-menu-title-content']") private WebElement logoutButton;
     @FindBy (xpath = "//button[@type= 'submit']") private WebElement loginButton;
 
-
     public WebElement getAdminsButton() {
         return adminsButton;
     }

@@ -27,7 +27,6 @@ public class Logout extends MyMethods {
         logout.clickMethod(logout.getLogoutButton());
 
     }
-
     @Then("the admin user should land on the Login page after logging out.")
     public void theAdminUserShouldLandOnTheLoginPageAfterLoggingOut() {
         Assert.assertTrue(logout.isPresent(logout.getLoginButton()));

@@ -6,7 +6,6 @@ Feature: Testing Logout
     When Enter the username and password
     And Click the Login button
 
-
     Scenario: Validating logout functionality
       Given Click on the admins button
       When Click on the profile button
