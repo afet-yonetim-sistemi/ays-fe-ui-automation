@@ -9,6 +9,7 @@ import utilities.MyMethods;
 public class LogoutPOM extends MyMethods {
     public LogoutPOM() {
         PageFactory.initElements(DriverClass.getDriver(), this);}
+
     @FindBy(xpath ="//span[@class='ant-menu-title-content'][1]") private WebElement adminsButton;
     @FindBy (xpath = "//span[@aria-label='user']") private WebElement profileButton;
     @FindBy (xpath = "//span[@class='ant-dropdown-menu-title-content']") private WebElement logoutButton;

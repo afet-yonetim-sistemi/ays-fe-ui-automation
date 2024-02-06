@@ -20,7 +20,6 @@ public class Logout extends MyMethods {
         logout.hoverOver(logout.getProfileButton());
     }
 
-
     @When("Click on the logout button")
     public void click_on_the_logout_button() {
         logout.waitUntilVisible(logout.getLogoutButton());
