@@ -13,4 +13,3 @@ Feature: Testing Logout
       Then the admin user should land on the Login page after logging out.
 
 
-
