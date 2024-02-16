@@ -1,4 +1,4 @@
-@regression
+@regression @smoke
 Feature: Testing Assignments
 
   Background:

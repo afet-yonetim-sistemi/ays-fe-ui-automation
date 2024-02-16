@@ -1,4 +1,4 @@
-@regression
+@regression @smoke
 Feature: Testing Assignments
 
   Background:
@@ -6,11 +6,14 @@ Feature: Testing Assignments
     When Enter the username and password
     And Click the Login button
 
-  Scenario: Editing Assignments
+  Scenario: Create Filtering for Assignments Based on Status
     When Click on the assignments tab
     And Click on the filter icon
     And Select the available option from the status menu
     Then Click on the filter button
-    And Click on the pencil icon with the edit button
-    And Edit each input in the assignment form
-    Then Click on the save edit button
+
+  Scenario: Create Filtering for Assignments Based on Phone Number
+    When Click on the assignments tab
+    And Click on the filter icon
+    And Filter by phone number
+    Then Click on the filter button

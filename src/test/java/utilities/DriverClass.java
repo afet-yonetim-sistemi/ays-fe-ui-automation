@@ -57,7 +57,7 @@ public class DriverClass {
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--disable-extensions");
                     if ("true".equals(System.getProperty("headless"))) {
-                        options.addArguments("--headless", "--window-size=1920,1080");
+                        options.addArguments("--headless=new", "--window-size=1920,1080");
                     }
                     options.addArguments("--no-sandbox");
                     options.addArguments("--disable-dev-shm-usage");

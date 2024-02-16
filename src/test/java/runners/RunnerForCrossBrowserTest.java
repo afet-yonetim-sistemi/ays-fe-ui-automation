@@ -13,24 +13,25 @@ import utilities.DriverClass;
         tags = "@Login",
         features = {"src/test/java/feature"},
         glue = {"step_definitions"},
-        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "json:target/cucumber-reports/cucumber.json"})
 
 
 public class RunnerForCrossBrowserTest extends AbstractTestNGCucumberTests {
 
     @BeforeClass
     @Parameters({"browser", "headless"})
-    public static void beforeClass(String browserName, String headless){
+    public static void beforeClass(String browserName, String headless) {
         DriverClass.setThreadDriverName(browserName);
         System.setProperty("headless", headless);
     }
+
     @AfterClass
-    public static void writeExtentReport(){
-        ExtentService.getInstance().setSystemInfo("Windows User Name",System.getProperty("user.name"));
-        ExtentService.getInstance().setSystemInfo("Time Zone",System.getProperty("user.timezone"));
-        ExtentService.getInstance().setSystemInfo("User Name","QA Team");
-        ExtentService.getInstance().setSystemInfo("Application Name","AYOS");
-        ExtentService.getInstance().setSystemInfo("Operating System Info",System.getProperty("os.name"));
-        ExtentService.getInstance().setSystemInfo("Department","QA");
+    public static void writeExtentReport() {
+        ExtentService.getInstance().setSystemInfo("Windows User Name", System.getProperty("user.name"));
+        ExtentService.getInstance().setSystemInfo("Time Zone", System.getProperty("user.timezone"));
+        ExtentService.getInstance().setSystemInfo("User Name", "QA Team");
+        ExtentService.getInstance().setSystemInfo("Application Name", "AYOS");
+        ExtentService.getInstance().setSystemInfo("Operating System Info", System.getProperty("os.name"));
+        ExtentService.getInstance().setSystemInfo("Department", "QA");
     }
 }

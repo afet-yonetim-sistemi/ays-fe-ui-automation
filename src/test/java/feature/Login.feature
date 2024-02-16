@@ -1,5 +1,6 @@
+@Login @regression @smoke
 Feature: Login Functionality
-  @Login @regression
+
   Scenario: Login with a valid username and password
     Given Access the AYOS system
     When Enter the username and password
