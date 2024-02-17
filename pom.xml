@@ -195,7 +195,7 @@
                         <version>${maven-surefire-plugin.version}</version>
                         <configuration>
                             <suiteXmlFiles>
-                                <suiteXmlFile>src/test/java/xml_files/CrossBrowserTest.xml</suiteXmlFile>
+                                <suiteXmlFile>src/test/java/xml_files/RegressionTest.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>
@@ -212,7 +212,7 @@
                         <version>${maven-surefire-plugin.version}</version>
                         <configuration>
                             <suiteXmlFiles>
-                                <suiteXmlFile>src/test/java/xml_files/RegressionTest.xml</suiteXmlFile>
+                                <suiteXmlFile>src/test/java/xml_files/SmokeTest.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>

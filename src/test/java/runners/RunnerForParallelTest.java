@@ -11,7 +11,7 @@ import utilities.ExtentReportUtil;
         tags = "",
         features = {"src/test/java/feature"},
         glue = {"step_definitions"},
-        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
+        plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "json:target/cucumber-reports/cucumber.json"})
 
 public class RunnerForParallelTest extends AbstractTestNGCucumberTests {
 

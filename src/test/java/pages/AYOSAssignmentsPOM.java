@@ -96,7 +96,7 @@ public class AYOSAssignmentsPOM extends MyMethods {
     @FindBy(xpath = "//h4[normalize-space()='Show Assignment']")
     private WebElement validateShow;
 
-    @FindBy(xpath = "(//button[contains(@class, 'ant-btn css-14ryt30')])[4]")
+    @FindBy(xpath = "(//button[contains(@class, 'ant-btn css-2icwjr')])[4]")
     private WebElement filter;
 
     @FindBy(xpath = "//div[@class='ant-select-selection-overflow']")
