@@ -2,7 +2,7 @@ package org.ays.runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
-import org.ays.utilities.DriverClass;
+import org.ays.utilities.DriverUtil;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
@@ -18,7 +18,7 @@ public class RunnerForSmokeTest extends AbstractTestNGCucumberTests {
     @BeforeClass
     @Parameters({"browser", "headless"})
     public static void beforeClass(String browserName, String headless) {
-        DriverClass.setThreadDriverName(browserName);
+        DriverUtil.setThreadDriverName(browserName);
         System.setProperty("headless", headless);
     }
 

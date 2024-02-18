@@ -1,7 +1,7 @@
 package org.ays.pages;
 
 import lombok.Getter;
-import org.ays.utilities.DriverClass;
+import org.ays.utilities.DriverUtil;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class UsersPOM {
 
     public UsersPOM() {
-        PageFactory.initElements(DriverClass.getDriver(), this);
+        PageFactory.initElements(DriverUtil.generateDriver(), this);
     }
 
     @FindBy(xpath = "//a[.='Users']")

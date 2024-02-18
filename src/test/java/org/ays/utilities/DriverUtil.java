@@ -1,5 +1,6 @@
 package org.ays.utilities;
 
+import lombok.experimental.UtilityClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -13,37 +14,39 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
-public class DriverClass {
-    private static ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
+@UtilityClass
+public class DriverUtil {
 
-    private static ThreadLocal<String> threadDriverName = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> THREAD_DRIVER = new ThreadLocal<>();
 
-    private static ThreadLocal<WebDriverWait> threadDriverWait = new ThreadLocal<>();
+    private static final ThreadLocal<String> THREAD_DRIVER_NAME = new ThreadLocal<>();
 
-    public static WebDriver getDriver() {
+    private static final ThreadLocal<WebDriverWait> THREAD_DRIVER_WAIT = new ThreadLocal<>();
 
-        if (threadDriver.get() == null || !threadDriver.get().toString().contains(threadDriverName.get())) {
+    public static WebDriver generateDriver() {
 
-            if (threadDriverName.get() == null) {
-                threadDriverName.set("chrome");
+        if (THREAD_DRIVER.get() == null || !THREAD_DRIVER.get().toString().contains(THREAD_DRIVER_NAME.get())) {
+
+            if (THREAD_DRIVER_NAME.get() == null) {
+                THREAD_DRIVER_NAME.set("chrome");
             }
 
-            if (threadDriver.get() != null) {
+            if (THREAD_DRIVER.get() != null) {
                 quitDriver();
             }
 
-            switch (threadDriverName.get()) {
+            switch (THREAD_DRIVER_NAME.get()) {
                 case "firefox" -> {
                     FirefoxOptions options = new FirefoxOptions();
                     if ("true".equals(System.getProperty("headless"))) {
                         options.addArguments("--headless");
                     }
                     FirefoxDriver driver = new FirefoxDriver(options);
-                    threadDriver.set(driver);
+                    THREAD_DRIVER.set(driver);
                 }
                 case "safari" -> {
                     SafariDriver safariDriver = new SafariDriver();
-                    threadDriver.set(safariDriver);
+                    THREAD_DRIVER.set(safariDriver);
                 }
                 case "edge" -> {
                     EdgeOptions options = new EdgeOptions();
@@ -51,7 +54,7 @@ public class DriverClass {
                         options.addArguments("--headless=new");
                     }
                     EdgeDriver driver = new EdgeDriver(options);
-                    threadDriver.set(driver);
+                    THREAD_DRIVER.set(driver);
                 }
                 default -> {
                     ChromeOptions options = new ChromeOptions();
@@ -62,19 +65,15 @@ public class DriverClass {
                     options.addArguments("--no-sandbox");
                     options.addArguments("--disable-dev-shm-usage");
                     ChromeDriver driver = new ChromeDriver(options);
-                    threadDriver.set(driver);
+                    THREAD_DRIVER.set(driver);
                 }
             }
 
-            threadDriverWait.set(new WebDriverWait(threadDriver.get(), Duration.of(10, ChronoUnit.SECONDS)));
-            threadDriver.get().manage().window().maximize();
+            THREAD_DRIVER_WAIT.set(new WebDriverWait(THREAD_DRIVER.get(), Duration.of(10, ChronoUnit.SECONDS)));
+            THREAD_DRIVER.get().manage().window().maximize();
         }
-        return threadDriver.get();
+        return THREAD_DRIVER.get();
 
-    }
-
-    public static WebDriverWait getDriverWait() {
-        return threadDriverWait.get();
     }
 
     public static void quitDriver() {
@@ -83,23 +82,13 @@ public class DriverClass {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        if (threadDriver.get() != null) {
-            threadDriver.get().quit();
-            WebDriver driver = null;
-            threadDriver.set(driver);
+        if (THREAD_DRIVER.get() != null) {
+            THREAD_DRIVER.get().quit();
         }
     }
 
     public static void setThreadDriverName(String browserName) {
-        threadDriverName.set(browserName);
-    }
-
-    public static void setWait(int second) {
-        try {
-            Thread.sleep(second * 1000L);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        THREAD_DRIVER_NAME.set(browserName);
     }
 
 }

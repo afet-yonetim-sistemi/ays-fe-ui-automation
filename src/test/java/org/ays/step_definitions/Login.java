@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.ays.pages.LoginPOM;
 import org.ays.utilities.ConfigurationReader;
-import org.ays.utilities.DriverClass;
+import org.ays.utilities.DriverUtil;
 import org.ays.utilities.PageActions;
 import org.testng.Assert;
 
@@ -15,8 +15,8 @@ public class Login extends PageActions {
 
     @Given("Access the AYOS system")
     public void access_the_AYOS_system() {
-        DriverClass.getDriver().get(ConfigurationReader.getProperty("api.url"));
-        DriverClass.getDriver().manage().window().maximize();
+        DriverUtil.generateDriver().get(ConfigurationReader.getProperty("api.url"));
+        DriverUtil.generateDriver().manage().window().maximize();
     }
 
     @When("Enter the username and password")

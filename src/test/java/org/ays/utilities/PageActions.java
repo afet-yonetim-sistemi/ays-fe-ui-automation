@@ -11,8 +11,8 @@ import java.time.Duration;
 
 public class PageActions {
 
-    private static final WebDriverWait WEB_DRIVER_WAIT = new WebDriverWait(DriverClass.getDriver(), Duration.ofSeconds(60));
-    private static final Actions ACTIONS = new Actions(DriverClass.getDriver());
+    private static final WebDriverWait WEB_DRIVER_WAIT = new WebDriverWait(DriverUtil.generateDriver(), Duration.ofSeconds(60));
+    private static final Actions ACTIONS = new Actions(DriverUtil.generateDriver());
 
     protected void sendKeysMethod(WebElement element, String keys) {
         this.waitUntilVisible(element);
@@ -30,7 +30,7 @@ public class PageActions {
     }
 
     protected void scrollToElement(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) DriverClass.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) DriverUtil.generateDriver();
         js.executeScript("arguments[0].scrollIntoView();", element);
     }
 
@@ -51,13 +51,13 @@ public class PageActions {
     }
 
     protected void hoverOver(WebElement element) {
-        Actions actions = new Actions(DriverClass.getDriver());
+        Actions actions = new Actions(DriverUtil.generateDriver());
         Action hoverOverElement = actions.moveToElement(element).build();
         hoverOverElement.perform();
     }
 
     protected void clickElementWithJavaScript(WebElement element) {
-        JavascriptExecutor executor = (JavascriptExecutor) DriverClass.getDriver();
+        JavascriptExecutor executor = (JavascriptExecutor) DriverUtil.generateDriver();
         executor.executeScript("arguments[0].click();", element);
     }
 
