@@ -1,8 +1,11 @@
 package org.ays.utilities;
 
+import lombok.experimental.UtilityClass;
+
 import java.io.FileInputStream;
 import java.util.Properties;
 
+@UtilityClass
 public class ConfigurationReader {
 
     private static Properties properties;
