@@ -7,9 +7,10 @@ import io.cucumber.java.en.When;
 import org.ays.pages.LoginPOM;
 import org.ays.utilities.ConfigurationReader;
 import org.ays.utilities.DriverClass;
+import org.ays.utilities.PageActions;
 import org.testng.Assert;
 
-public class Login {
+public class Login extends PageActions {
     LoginPOM loginPOM = new LoginPOM();
 
     @Given("Access the AYOS system")
@@ -20,18 +21,18 @@ public class Login {
 
     @When("Enter the username and password")
     public void enter_the_username_and_password() {
-        loginPOM.sendKeysMethod(loginPOM.getLoginUsername(), ConfigurationReader.getProperty("admin-user.one.username"));
-        loginPOM.sendKeysMethod(loginPOM.getLoginPassword(), ConfigurationReader.getProperty("admin-user.one.password"));
+        this.sendKeysMethod(loginPOM.getLoginUsername(), ConfigurationReader.getProperty("admin-user.one.username"));
+        this.sendKeysMethod(loginPOM.getLoginPassword(), ConfigurationReader.getProperty("admin-user.one.password"));
     }
 
     @And("Click the Login button")
     public void click_the_Login_button() {
-        loginPOM.clickMethod(loginPOM.getLoginButton());
+        this.clickMethod(loginPOM.getLoginButton());
     }
 
     @Then("The user should be able to successfully log in")
     public void the_user_should_be_able_to_successfully_log_in() {
-        loginPOM.waitUntilVisible(loginPOM.getAdminsHeader());
+        this.waitUntilVisible(loginPOM.getAdminsHeader());
         Assert.assertTrue(loginPOM.getAdminsHeader().isDisplayed());
     }
 }

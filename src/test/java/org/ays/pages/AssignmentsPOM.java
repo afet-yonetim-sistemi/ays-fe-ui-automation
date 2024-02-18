@@ -1,12 +1,13 @@
 package org.ays.pages;
 
+import lombok.Getter;
 import org.ays.utilities.DriverClass;
-import org.ays.utilities.MyMethods;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AssignmentsPOM extends MyMethods {
+@Getter
+public class AssignmentsPOM {
 
     public AssignmentsPOM() {
         PageFactory.initElements(DriverClass.getDriver(), this);
@@ -14,6 +15,7 @@ public class AssignmentsPOM extends MyMethods {
 
     @FindBy(css = "a[href='/assignments']")
     private WebElement assignments;
+
     @FindBy(xpath = "(//span[.='Create'])[2]")
     private WebElement createButton;
 
@@ -31,6 +33,7 @@ public class AssignmentsPOM extends MyMethods {
 
     @FindBy(xpath = "//div[text()='+90 Türkiye']")
     private WebElement turkiyeAreaCode;
+
     @FindBy(xpath = "(//input[@id='phoneNumber_lineNumber'])[2]")
     private WebElement phoneNumber;
 
@@ -54,16 +57,19 @@ public class AssignmentsPOM extends MyMethods {
 
     @FindBy(xpath = "//div[text()='+90 Türkiye']")
     private WebElement createTurkiyeAreaCode;
+
     @FindBy(xpath = "(//input[@id= 'phoneNumber_lineNumber'])[1]")
     private WebElement createPhoneNumber;
 
     @FindBy(xpath = "(//span[contains(text(),'Select Location')])[1]")
     private WebElement createLocation;
+
     @FindBy(id = "map-container-select-create-assignment")
     private WebElement createMapSelect;
 
     @FindBy(xpath = "//img[contains(@class,'leaflet-marker-icon')]")
     private WebElement createLocationMarkerIcon;
+
     @FindBy(xpath = "//span[.='OK']")
     private WebElement okButton;
 
@@ -72,13 +78,16 @@ public class AssignmentsPOM extends MyMethods {
 
     @FindBy(xpath = "(//span[text()='Delete'])[2]")
     private WebElement sureDeleteAssignment;
+
     @FindBy(xpath = "//div[@class='ant-notification-notice-message']")
     private WebElement successMessageDelete;
+
     @FindBy(xpath = "(//button[@type='button'])[7]")
     private WebElement showLocation;
 
     @FindBy(xpath = "//div[@class='ant-modal-header']")
     private WebElement validateLocation;
+
     @FindBy(xpath = "//span[normalize-space()='Open With Google Maps']")
     private WebElement openGoogleMaps;
 
@@ -117,158 +126,5 @@ public class AssignmentsPOM extends MyMethods {
 
     @FindBy(xpath = "(//span[contains(@class, 'anticon-save')])[2]")
     private WebElement editSaveButton;
-
-    public WebElement getAssignments() {
-        return assignments;
-    }
-
-    public WebElement getCreateButton() {
-        return createButton;
-    }
-
-    public WebElement getName() {
-        return name;
-    }
-
-    public WebElement getSurname() {
-        return surname;
-    }
-
-    public WebElement getDescription() {
-        return description;
-    }
-
-    public WebElement getAreaCode() {
-        return areaCode;
-    }
-
-    public WebElement getTurkiyeAreaCode() {
-        return turkiyeAreaCode;
-    }
-
-    public WebElement getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public WebElement getLocation() {
-        return location;
-    }
-
-    public WebElement getSaveAssignment() {
-        return saveAssignment;
-    }
-
-    public WebElement getCreateName() {
-        return createName;
-    }
-
-    public WebElement getCreateSurname() {
-        return createSurname;
-    }
-
-    public WebElement getCreateDescription() {
-        return createDescription;
-    }
-
-    public WebElement getCreateAreaCode() {
-        return createAreaCode;
-    }
-
-    public WebElement getCreateTurkiyeAreaCode() {
-        return createTurkiyeAreaCode;
-    }
-
-    public WebElement getCreatePhoneNumber() {
-        return createPhoneNumber;
-    }
-
-    public WebElement getCreateLocation() {
-        return createLocation;
-    }
-
-    public WebElement getCreateMapSelect() {
-        return createMapSelect;
-    }
-
-    public WebElement getCreateLocationMarkerIcon() {
-        return createLocationMarkerIcon;
-    }
-
-    public WebElement getOkButton() {
-        return okButton;
-    }
-
-    public WebElement getDeleteAssignment() {
-        return deleteAssignment;
-    }
-
-    public WebElement getSureDeleteAssignment() {
-        return sureDeleteAssignment;
-    }
-
-    public WebElement getSuccessMessageDelete() {
-        return successMessageDelete;
-    }
-
-    public WebElement getShowLocation() {
-        return showLocation;
-    }
-
-    public WebElement getValidateLocation() {
-        return validateLocation;
-    }
-
-    public WebElement getOpenGoogleMaps() {
-        return openGoogleMaps;
-    }
-
-    public WebElement getCopyLocationInfo() {
-        return copyLocationInfo;
-    }
-
-    public WebElement getOpenOnMyPhone() {
-        return openOnMyPhone;
-    }
-
-    public WebElement getEdit() {
-        return edit;
-    }
-
-    public WebElement getShow() {
-        return show;
-    }
-
-    public WebElement getValidateShow() {
-        return validateShow;
-    }
-
-    public WebElement getFilter() {
-        return filter;
-    }
-
-    public WebElement getFilterBasedOnStatus() {
-        return filterBasedOnStatus;
-    }
-
-    public WebElement getAvailableOption() {
-        return availableOption;
-    }
-
-    public WebElement getFilterBasedOnPhoneNumber() {
-        return filterBasedOnPhoneNumber;
-    }
-
-    public WebElement getFilterBasedOnAreaCode() {
-        return filterBasedOnAreaCode;
-    }
-
-    public WebElement getFilterButton() {
-        return filterButton;
-    }
-
-    public WebElement getEditSaveButton() {
-        return editSaveButton;
-    }
-
 
 }

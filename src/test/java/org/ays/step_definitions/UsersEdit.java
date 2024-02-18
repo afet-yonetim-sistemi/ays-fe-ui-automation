@@ -3,28 +3,31 @@ package org.ays.step_definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.ays.pages.UsersPOM;
+import org.ays.utilities.PageActions;
 
-public class UsersEdit {
+public class UsersEdit extends PageActions {
+
     UsersPOM usersPOM = new UsersPOM();
+
     @And("Click on the pencil icon")
     public void clickOnThePencilIcon() {
-        usersPOM.moveToElement(usersPOM.getUsersEditIcon());
-        usersPOM.clickElementWithJavaScript(usersPOM.getUsersEditIcon());
+        this.moveToElement(usersPOM.getUsersEditIcon());
+        this.clickElementWithJavaScript(usersPOM.getUsersEditIcon());
 
     }
+
     @When("Edit the status section in the user form")
     public void editTheStatusSectionInTheUserForm() {
-        usersPOM.waitUntilClickable(usersPOM.getStatusDropdown());
-        usersPOM.clickMethod(usersPOM.getStatusDropdown());
-        if (usersPOM.getStatusDropdown().getText().equalsIgnoreCase("active")){
-            usersPOM.waitUntilClickable(usersPOM.getPassiveOption());
-            usersPOM.clickMethod(usersPOM.getPassiveOption());
+        this.waitUntilClickable(usersPOM.getStatusDropdown());
+        this.clickMethod(usersPOM.getStatusDropdown());
+        if (usersPOM.getStatusDropdown().getText().equalsIgnoreCase("active")) {
+            this.waitUntilClickable(usersPOM.getPassiveOption());
+            this.clickMethod(usersPOM.getPassiveOption());
         } else if (usersPOM.getStatusDropdown().getText().equalsIgnoreCase("passive")) {
-            usersPOM.waitUntilClickable(usersPOM.getActiveOption());
-            usersPOM.clickMethod(usersPOM.getActiveOption());
+            this.waitUntilClickable(usersPOM.getActiveOption());
+            this.clickMethod(usersPOM.getActiveOption());
         }
 
     }
-
 
 }

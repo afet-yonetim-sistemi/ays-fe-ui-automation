@@ -5,30 +5,32 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.ays.pages.LogoutPOM;
-import org.ays.utilities.MyMethods;
+import org.ays.utilities.PageActions;
 import org.testng.Assert;
 
-public class Logout extends MyMethods {
+public class Logout extends PageActions {
+
     LogoutPOM logoutPOM = new LogoutPOM();
 
     @Given("Click on the admins button")
     public void clickOnTheAdminsButton() {
-        logoutPOM.clickMethod(logoutPOM.getAdminsButton());
+        this.clickMethod(logoutPOM.getAdminsButton());
     }
 
     @When("Click on the profile button")
     public void clickOnTheProfileButton() {
-        logoutPOM.hoverOver(logoutPOM.getProfileButton());
+        this.hoverOver(logoutPOM.getProfileButton());
     }
 
     @And("Click on the logout button")
     public void clickOnTheLogoutButton() {
-        logoutPOM.waitUntilVisible(logoutPOM.getLogoutButton());
-        logoutPOM.clickMethod(logoutPOM.getLogoutButton());
+        this.waitUntilVisible(logoutPOM.getLogoutButton());
+        this.clickMethod(logoutPOM.getLogoutButton());
     }
 
     @Then("the admin user should land on the Login page after logging out.")
     public void theAdminUserShouldLandOnTheLoginPageAfterLoggingOut() {
-        Assert.assertTrue(logoutPOM.isPresent(logoutPOM.getLoginButton()));
+        Assert.assertTrue(this.isPresent(logoutPOM.getLoginButton()));
     }
+
 }

@@ -9,56 +9,54 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class MyMethods {
+public class PageActions {
 
     private static final WebDriverWait WEB_DRIVER_WAIT = new WebDriverWait(DriverClass.getDriver(), Duration.ofSeconds(60));
     private static final Actions ACTIONS = new Actions(DriverClass.getDriver());
 
-    public void sendKeysMethod(WebElement element, String keys) {
-        waitUntilVisible(element);
-        scrollToElement(element);
+    protected void sendKeysMethod(WebElement element, String keys) {
+        this.waitUntilVisible(element);
+        this.scrollToElement(element);
         element.clear();
         element.sendKeys(keys);
     }
 
-
-    public void waitUntilVisible(WebElement element) {
+    protected void waitUntilVisible(WebElement element) {
         WEB_DRIVER_WAIT.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void waitUntilClickable(WebElement element) {
+    protected void waitUntilClickable(WebElement element) {
         WEB_DRIVER_WAIT.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public void scrollToElement(WebElement element) {
+    protected void scrollToElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) DriverClass.getDriver();
         js.executeScript("arguments[0].scrollIntoView();", element);
     }
 
-    public void clickMethod(WebElement element) {
-        waitUntilClickable(element);
-        scrollToElement(element);
+    protected void clickMethod(WebElement element) {
+        this.waitUntilClickable(element);
+        this.scrollToElement(element);
         element.click();
-
     }
 
-    public boolean isPresent(WebElement element) {
-        waitUntilClickable(element);
+    protected boolean isPresent(WebElement element) {
+        this.waitUntilClickable(element);
         return element.isDisplayed();
     }
 
-    public void moveToElement(WebElement element) {
-        waitUntilVisible(element);
+    protected void moveToElement(WebElement element) {
+        this.waitUntilVisible(element);
         ACTIONS.moveToElement(element).build().perform();
     }
 
-    public void hoverOver(WebElement element) {
+    protected void hoverOver(WebElement element) {
         Actions actions = new Actions(DriverClass.getDriver());
         Action hoverOverElement = actions.moveToElement(element).build();
         hoverOverElement.perform();
     }
 
-    public void clickElementWithJavaScript(WebElement element) {
+    protected void clickElementWithJavaScript(WebElement element) {
         JavascriptExecutor executor = (JavascriptExecutor) DriverClass.getDriver();
         executor.executeScript("arguments[0].click();", element);
     }

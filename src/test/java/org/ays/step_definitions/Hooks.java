@@ -3,16 +3,17 @@ package org.ays.step_definitions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import org.ays.utilities.DriverClass;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.ays.utilities.DriverClass;
 
 public class Hooks {
 
     @Before
-    public void beforeScenario(){
+    public void beforeScenario() {
         System.out.println("Scenario started");
     }
+
     @After
     public void afterScenario(Scenario scenario) {
         System.out.println("Scenario finished");
@@ -22,4 +23,5 @@ public class Hooks {
         }
         DriverClass.quitDriver();
     }
+
 }
