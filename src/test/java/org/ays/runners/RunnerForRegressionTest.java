@@ -8,8 +8,8 @@ import org.ays.utilities.DriverUtil;
 
 @CucumberOptions(
         tags = "@regression",
-        features = {"src/test/java/org.ays.feature"},
-        glue = {"step_definitions"},
+        features = {"src/test/java/org/ays/feature"},
+        glue = {"org/ays/step_definitions"},
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
                 "json:target/cucumber-reports/cucumber.json",
                 "html:target/cucumber-reports/cucumber-reports.html"})
