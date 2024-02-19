@@ -26,8 +26,8 @@ public class AysConfigurationProperty {
         }
     }
 
-    public static class Api {
-        public static final String URL = PROPERTIES.getProperty("api.url");
+    public static class Ui {
+        public static final String URL = PROPERTIES.getProperty("ui.url");
     }
 
     public static class InstitutionOne {

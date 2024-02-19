@@ -16,7 +16,7 @@ public class Login extends PageActions {
 
     @Given("Access the AYOS system")
     public void access_the_AYOS_system() {
-        DriverUtil.generateDriver().get(AysConfigurationProperty.Api.URL);
+        DriverUtil.generateDriver().get(AysConfigurationProperty.Ui.URL);
         DriverUtil.generateDriver().manage().window().maximize();
     }
 
