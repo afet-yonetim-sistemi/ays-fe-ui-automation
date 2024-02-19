@@ -2,3 +2,5 @@
 *.iml
 /target
 configuration.properties
+test-output
+*.pdf
