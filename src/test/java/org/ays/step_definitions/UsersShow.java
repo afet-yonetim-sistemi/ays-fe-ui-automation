@@ -2,23 +2,24 @@ package org.ays.step_definitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.ays.browser.AysPageActions;
 import org.ays.pages.UsersPOM;
-import org.ays.utilities.PageActions;
 import org.testng.Assert;
 
-public class UsersShow extends PageActions {
+public class UsersShow {
 
-    UsersPOM usersPOM = new UsersPOM();
+    private final UsersPOM usersPOM = new UsersPOM();
+    private final AysPageActions pageActions = new AysPageActions();
 
     @When("Click on the eye icon")
     public void clickOnTheEyeIcon() {
-        this.moveToElement(usersPOM.getShowIcon());
-        this.clickElementWithJavaScript(usersPOM.getShowIcon());
+        pageActions.moveToElement(usersPOM.getShowIcon());
+        pageActions.clickElementWithJavaScript(usersPOM.getShowIcon());
     }
 
     @Then("Validate that the {string} has appeared in the users information")
     public void validateThatTheHasAppearedInTheUsersInformation(String username) {
-        waitUntilVisible(usersPOM.getShowUsername());
+        pageActions.waitUntilVisible(usersPOM.getShowUsername());
         Assert.assertEquals(usersPOM.getShowUsername().getText(), username);
     }
 

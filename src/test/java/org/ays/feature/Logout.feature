@@ -1,8 +1,8 @@
-@regression @smoke
+@Regression @Smoke
 Feature: Testing Logout
 
   Background:
-    Given Access the AYOS system
+    Given Open the institution login page
     When Enter the username and password
     And Click the Login button
 
@@ -11,5 +11,3 @@ Feature: Testing Logout
     When Click on the profile button
     And  Click on the logout button
     Then the admin user should land on the Login page after logging out.
-
-

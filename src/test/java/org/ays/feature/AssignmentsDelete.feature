@@ -1,7 +1,7 @@
 Feature: Testing Assignments
 
   Background:
-    Given Access the AYOS system
+    Given Open the institution login page
     When Enter the username and password
     And Click the Login button
 

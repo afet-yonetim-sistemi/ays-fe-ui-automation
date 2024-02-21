@@ -1,12 +1,12 @@
-@regression
+@Regression
 Feature: Testing Users Section
 
   Background:
-    Given Access the AYOS system
+    Given Open the institution login page
     When Enter the username and password
     And Click the Login button
 
-  @smoke
+  @Smoke
   Scenario: Create a New Users
     When Click on the users tab
     And Click on the create button

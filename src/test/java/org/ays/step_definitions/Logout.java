@@ -4,33 +4,39 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.ays.browser.AysPageActions;
 import org.ays.pages.LogoutPOM;
-import org.ays.utilities.PageActions;
 import org.testng.Assert;
 
-public class Logout extends PageActions {
+public class Logout {
 
-    LogoutPOM logoutPOM = new LogoutPOM();
+    private final LogoutPOM logoutPOM;
+    private final AysPageActions pageActions;
+
+    public Logout() {
+        this.logoutPOM = new LogoutPOM();
+        this.pageActions = new AysPageActions();
+    }
 
     @Given("Click on the admins button")
     public void clickOnTheAdminsButton() {
-        this.clickMethod(logoutPOM.getAdminsButton());
+        pageActions.clickMethod(logoutPOM.getAdminsButton());
     }
 
     @When("Click on the profile button")
     public void clickOnTheProfileButton() {
-        this.hoverOver(logoutPOM.getProfileButton());
+        pageActions.hoverOver(logoutPOM.getProfileButton());
     }
 
     @And("Click on the logout button")
     public void clickOnTheLogoutButton() {
-        this.waitUntilVisible(logoutPOM.getLogoutButton());
-        this.clickMethod(logoutPOM.getLogoutButton());
+        pageActions.waitUntilVisible(logoutPOM.getLogoutButton());
+        pageActions.clickMethod(logoutPOM.getLogoutButton());
     }
 
     @Then("the admin user should land on the Login page after logging out.")
     public void theAdminUserShouldLandOnTheLoginPageAfterLoggingOut() {
-        Assert.assertTrue(this.isPresent(logoutPOM.getLoginButton()));
+        Assert.assertTrue(pageActions.isPresent(logoutPOM.getLoginButton()));
     }
 
 }

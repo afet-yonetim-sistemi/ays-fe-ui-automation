@@ -1,4 +1,4 @@
-package org.ays.utilities;
+package org.ays.configuration;
 
 import lombok.experimental.UtilityClass;
 
