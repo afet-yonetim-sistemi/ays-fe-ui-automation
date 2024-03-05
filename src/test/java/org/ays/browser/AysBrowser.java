@@ -34,7 +34,7 @@ public class AysBrowser {
         List<String> commonBrowserArguments = new ArrayList<>();
         if (System.getProperty("headless") != null) {
             log.debug("Headless mode is enabled");
-            commonBrowserArguments.add("--headless=new");
+            commonBrowserArguments.add("--headless");
             commonBrowserArguments.add("--window-size=1920,1080");
         }
 
