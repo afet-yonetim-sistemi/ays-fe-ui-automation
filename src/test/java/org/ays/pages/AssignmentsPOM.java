@@ -106,7 +106,7 @@ public class AssignmentsPOM {
     @FindBy(xpath = "//h4[normalize-space()='Show Assignment']")
     private WebElement validateShow;
 
-    @FindBy(xpath = "(//button[contains(@class, 'ant-btn css-2icwjr')])[4]")
+    @FindBy(xpath = "(//button[contains(@class, 'ant-btn') and contains(@class, 'ant-btn-icon-only')])[1]")
     private WebElement filter;
 
     @FindBy(xpath = "//div[@class='ant-select-selection-overflow']")
