@@ -67,4 +67,7 @@ public class UsersPOM {
     @FindBy(xpath = "//span[text()='Delete']")
     private WebElement sureDeleteButton;
 
+    @FindBy(css = "div.ant-table-column-sorters>span")
+    private WebElement createdAtColumn;
+
 }
