@@ -8,7 +8,7 @@
     <description>AYS FE UI Automation</description>
     <groupId>org.ays</groupId>
     <artifactId>ays-fe-ui-automation</artifactId>
-    <version>1.0.0.MVP</version>
+    <version>1.1.0.MVP</version>
     <name>ays-fe-ui-automation</name>
 
     <properties>
