@@ -69,7 +69,7 @@ public class AysPageActions {
     }
 
     public void doubleClick(WebElement element) {
-        new Actions(this.webDriver).doubleClick(element).build().perform();
+        this.actions.doubleClick(element).build().perform();
     }
 
     public void clickElementWithJavaScript(WebElement element) {
