@@ -68,6 +68,10 @@ public class AysPageActions {
         hoverOverElement.perform();
     }
 
+    public void doubleClick(WebElement element) {
+        this.actions.doubleClick(element).build().perform();
+    }
+
     public void clickElementWithJavaScript(WebElement element) {
         JavascriptExecutor executor = (JavascriptExecutor) this.webDriver;
         executor.executeScript("arguments[0].click();", element);
