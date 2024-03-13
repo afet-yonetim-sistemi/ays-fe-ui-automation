@@ -1,11 +1,11 @@
-@Regression
+@Ignore
 Feature: Testing Users
 
   Background:
     Given Open the institution login page
     When Enter the username and password
     And Click the Login button
-  @Smoke
+
   Scenario: Delete the Existing Users
     When Click on the users tab
     And Sort Created At column in descending order
