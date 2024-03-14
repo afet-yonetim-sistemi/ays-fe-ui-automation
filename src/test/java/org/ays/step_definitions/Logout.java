@@ -19,8 +19,6 @@ public class Logout {
     }
 
 
-
-
     @When("Click on the profile button")
     public void clickOnTheProfileButton() {
         pageActions.waitUntilVisible(logoutPOM.getProfileButton());
