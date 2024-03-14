@@ -1,4 +1,4 @@
-@Ignore
+@Smoke @Regression
 Feature: Testing Users
 
   Background:
@@ -8,6 +8,7 @@ Feature: Testing Users
 
   Scenario: Editing Users
     When Click on the users tab
+    And Sort Created At column in descending order
     And Click on the pencil icon
     And Edit the status section in the user form
     Then Click on the save edit button
