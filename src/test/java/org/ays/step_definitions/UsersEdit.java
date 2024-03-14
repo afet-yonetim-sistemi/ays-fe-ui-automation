@@ -12,6 +12,7 @@ public class UsersEdit {
 
     @And("Click on the pencil icon")
     public void clickOnThePencilIcon() {
+        pageActions.waitUntilVisible(usersPOM.getUsersEditIcon());
         pageActions.moveToElement(usersPOM.getUsersEditIcon());
         pageActions.clickElementWithJavaScript(usersPOM.getUsersEditIcon());
     }

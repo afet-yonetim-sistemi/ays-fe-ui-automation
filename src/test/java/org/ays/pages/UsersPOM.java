@@ -61,7 +61,7 @@ public class UsersPOM {
     @FindBy(xpath = "//div[.='Passive']")
     private WebElement passiveOption;
 
-    @FindBy(xpath = "//button[contains(@class,'refine-delete-button')]")
+    @FindBy(xpath = "(//button[contains(@class,'refine-delete-button')])[1]")
     private WebElement deleteUsersIcon;
 
     @FindBy(xpath = "//span[text()='Delete']")
