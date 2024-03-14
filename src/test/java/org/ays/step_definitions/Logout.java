@@ -18,13 +18,12 @@ public class Logout {
         this.pageActions = new AysPageActions();
     }
 
-    @Given("Click on the admins button")
-    public void clickOnTheAdminsButton() {
-        pageActions.clickMethod(logoutPOM.getAdminsButton());
-    }
+
+
 
     @When("Click on the profile button")
     public void clickOnTheProfileButton() {
+        pageActions.waitUntilVisible(logoutPOM.getProfileButton());
         pageActions.hoverOver(logoutPOM.getProfileButton());
     }
 
