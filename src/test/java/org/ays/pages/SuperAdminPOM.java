@@ -27,9 +27,5 @@ public class SuperAdminPOM {
     @FindBy(xpath = "//button[@id='filter-button']")
     private WebElement filtersButton;
 
-
-
-
-
 }
 

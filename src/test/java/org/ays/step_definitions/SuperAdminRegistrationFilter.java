@@ -11,37 +11,38 @@ import org.ays.pages.SuperAdminPOM;
 
 public class SuperAdminRegistrationFilter {
     private final LoginPOM loginPOM = new LoginPOM();
-    private final AysPageActions pageActions = new AysPageActions();
     private final SuperAdminPOM superAdminPOM = new SuperAdminPOM();
+    private final AysPageActions pageActions = new AysPageActions();
 
     @When("Enter the super admin username and password")
-    public void enter_the_username_and_password() {
+    public void Enter_the_super_admin_username_and_password() {
         this.pageActions.sendKeysMethod(loginPOM.getLoginUsername(), AysConfigurationProperty.InstitutionOne.SuperAdminUserOne.USERNAME);
         this.pageActions.sendKeysMethod(loginPOM.getLoginPassword(), AysConfigurationProperty.InstitutionOne.SuperAdminUserOne.PASSWORD);
     }
 
     @When("Click on the registration-application")
-    public void Click_on_the_assignments_tab() {
+    public void Click_on_the_registration_application() {
         pageActions.waitUntilClickable(superAdminPOM.getRegistrationApplication());
         pageActions.clickMethod(superAdminPOM.getRegistrationApplication());
     }
 
     @And("Click filter icon")
-    public void Click_on_the_filter_icon() {
+    public void Click_filter_icon() {
+        pageActions.waitUntilVisible(superAdminPOM.getFilterIcon());
         pageActions.moveToElement(superAdminPOM.getFilterIcon());
         pageActions.waitUntilClickable(superAdminPOM.getFilterIcon());
         pageActions.clickElementWithJavaScript(superAdminPOM.getFilterIcon());
     }
 
-    @And("Selects available option from the status menu")
-    public void Select_the_available_option_from_the_status_menu() {
+    @And("Select available option from the status menu")
+    public void Select_available_option_from_the_status_menu() {
         pageActions.clickMethod(superAdminPOM.getStatusBar());
         pageActions.clickElementWithJavaScript(superAdminPOM.getWaiting());
         pageActions.clickMethod(superAdminPOM.getStatusBar());
     }
 
     @Then("Click filter button")
-    public void Click_on_the_filter_button() {
+    public void Click_filter_button() {
         pageActions.clickMethod(superAdminPOM.getFiltersButton());
     }
 }

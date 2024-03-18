@@ -9,5 +9,5 @@ Feature: Testing Super Admin Registration List
   Scenario: Testing registration list by super admin user
     When Click on the registration-application
     When Click filter icon
-    And  Selects available option from the status menu
+    And  Select available option from the status menu
     Then Click filter button
