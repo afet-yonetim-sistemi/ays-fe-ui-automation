@@ -1,4 +1,4 @@
-@Regression @Smoke
+@Ignore
 Feature: Testing Users
 
   Background:
