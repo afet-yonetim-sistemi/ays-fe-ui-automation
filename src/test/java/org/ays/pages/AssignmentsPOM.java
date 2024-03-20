@@ -97,7 +97,7 @@ public class AssignmentsPOM {
     @FindBy(xpath = "//span[normalize-space()='Open On My Phone']")
     private WebElement openOnMyPhone;
 
-    @FindBy(xpath = "//span[@aria-label='edit']")
+    @FindBy(xpath = "(//span[@aria-label='edit'])[1]")
     private WebElement edit;
 
     @FindBy(xpath = "(//button[contains(@class,'refine-show-button')])[1]")
