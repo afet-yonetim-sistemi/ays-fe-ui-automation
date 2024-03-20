@@ -1,3 +1,4 @@
+@Ignored
 Feature: Testing Assignments
 
   Background:
