@@ -59,11 +59,14 @@ public class UsersCreate {
 
     @And("Enter invalid characters in the phone number field while filling out the users form")
     public void enterInvalidCharactersInThePhoneNumberFieldWhileFillingOutTheUsersForm() {
+        pageActions.waitUntilVisible(usersPOM.getFirstName());
         pageActions.sendKeysMethod(usersPOM.getFirstName(), AysRandomUtil.generateFirstName());
+        pageActions.waitUntilVisible(usersPOM.getLastName());
         pageActions.sendKeysMethod(usersPOM.getLastName(), AysRandomUtil.generateLastName());
         pageActions.clickMethod(usersPOM.getCountryCode());
         pageActions.clickMethod(usersPOM.getTurkeyCountryCode());
-        pageActions.sendKeysMethod(usersPOM.getPhoneNumber(), "abc");
+        pageActions.waitUntilVisible(usersPOM.getPhoneNumber());
+        pageActions.sendKeysMethod(usersPOM.getPhoneNumber(), "123");
     }
 
     @And("{string} massage is displayed")
