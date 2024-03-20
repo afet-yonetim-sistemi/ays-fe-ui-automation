@@ -11,3 +11,4 @@ Feature: Testing Super Admin Registration List
     When Click filter icon
     And  Select available option from the status menu
     Then Click filter button
+    And All status row can show "Waiting"

@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 @Slf4j
 public class AysPageActions {
@@ -35,6 +36,10 @@ public class AysPageActions {
 
     public void waitUntilVisible(WebElement element) {
         webDriverWait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void waitUntilVisible(List<WebElement> element) {
+        webDriverWait.until(ExpectedConditions.visibilityOfAllElements(element));
     }
 
     public void waitUntilClickable(WebElement element) {

@@ -1,13 +1,17 @@
 package org.ays.step_definitions;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.ays.browser.AysPageActions;
 import org.ays.configuration.AysConfigurationProperty;
 import org.ays.pages.LoginPOM;
 import org.ays.pages.SuperAdminPOM;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
+import org.testng.Assert;
+
 
 public class SuperAdminRegistrationFilter {
     private final LoginPOM loginPOM = new LoginPOM();
@@ -44,5 +48,17 @@ public class SuperAdminRegistrationFilter {
     @Then("Click filter button")
     public void Click_filter_button() {
         pageActions.clickMethod(superAdminPOM.getFiltersButton());
+    }
+
+    @And("All status row can show {string}")
+    public void allStatusRowCanShow(String expectedStatus) {
+
+        pageActions.waitUntilVisible(superAdminPOM.getStatusColumn());
+        List<WebElement> statusCells = superAdminPOM.getStatusColumn();
+
+        for (WebElement cell : statusCells) {
+            Assert.assertEquals(cell.getText(), expectedStatus);
+
+        }
     }
 }

@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 @Getter
 public class SuperAdminPOM {
     public SuperAdminPOM() {
@@ -15,7 +17,7 @@ public class SuperAdminPOM {
     @FindBy(xpath = "//a[normalize-space()='Registration Applications']")
     private WebElement registrationApplication;
 
-    @FindBy(xpath = "//button[@class='ant-btn css-2sv4ty ant-btn-default ant-btn-icon-only']")
+    @FindBy(xpath = "(//button)[5]")
     private WebElement filterIcon;
 
     @FindBy(xpath = "//div[@class='ant-select-selection-overflow']")
@@ -26,6 +28,9 @@ public class SuperAdminPOM {
 
     @FindBy(xpath = "//button[@id='filter-button']")
     private WebElement filtersButton;
+
+    @FindBy(xpath = "//td/span[contains(@class,'ant-tag-blue')]")
+    private List<WebElement> statusColumn;
 
 }
 
