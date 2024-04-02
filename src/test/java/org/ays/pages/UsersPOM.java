@@ -16,6 +16,9 @@ public class UsersPOM {
     @FindBy(xpath = "//a[.='Users']")
     private WebElement usersTab;
 
+    @FindBy(xpath = "(//span[.='Create'])[2]")
+    private WebElement createButton;
+
     @FindBy(id = "firstName")
     private WebElement firstName;
 
@@ -30,6 +33,9 @@ public class UsersPOM {
 
     @FindBy(xpath = "//input[@id= 'phoneNumber_lineNumber']")
     private WebElement phoneNumber;
+
+    @FindBy(xpath = "//span[contains(@class, 'anticon-save')]")
+    private WebElement saveButton;
 
     @FindBy(xpath = "//div[.='Successful']")
     private WebElement successfulMessage;
@@ -67,7 +73,13 @@ public class UsersPOM {
     @FindBy(xpath = "//span[text()='Delete']")
     private WebElement sureDeleteButton;
 
+    @FindBy(xpath = "//div[@class='ant-notification-notice-message']")
+    private WebElement successMessageDelete;
+
     @FindBy(xpath = "//div[@class='ant-table-column-sorters']/span[1]")
     private WebElement createdAtColumn;
+
+    @FindBy(xpath = "(//span[contains(@class, 'anticon-save')])[2]")
+    private WebElement editSaveButton;
 
 }

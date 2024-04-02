@@ -1,6 +1,7 @@
 package org.ays.step_definitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.ays.browser.AysPageActions;
 import org.ays.pages.UsersPOM;
@@ -18,6 +19,12 @@ public class UsersCreate {
         pageActions.clickMethod(usersPOM.getUsersTab());
     }
 
+    @And("Click on the create button")
+    public void Click_on_the_create_button() {
+        pageActions.moveToElement(usersPOM.getCreateButton());
+        pageActions.clickElementWithJavaScript(usersPOM.getCreateButton());
+    }
+
     @When("Fill out the users form")
     public void fill_out_the_users_form() {
         pageActions.waitUntilVisible(usersPOM.getFirstName());
@@ -28,6 +35,11 @@ public class UsersCreate {
         pageActions.clickMethod(usersPOM.getTurkeyCountryCode());
         pageActions.waitUntilVisible(usersPOM.getPhoneNumber());
         pageActions.sendKeysMethod(usersPOM.getPhoneNumber(), AysRandomUtil.generatePhoneNumber());
+    }
+
+    @Then("Click on the save button")
+    public void Click_on_the_save_button() {
+        pageActions.clickMethod(usersPOM.getSaveButton());
     }
 
     @And("{string} success message is displayed")

@@ -1,4 +1,4 @@
-@Ignored
+@Regression
 Feature: Testing Users
 
   Background:

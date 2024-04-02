@@ -1,9 +1,11 @@
 package org.ays.step_definitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.ays.pages.UsersPOM;
 import org.ays.browser.AysPageActions;
+import org.testng.Assert;
 
 public class UsersDelete {
 
@@ -26,6 +28,12 @@ public class UsersDelete {
     public void clickOnTheDeleteButtonForTheTopUsers() {
         pageActions.waitUntilClickable(usersPOM.getSureDeleteButton());
         pageActions.clickMethod(usersPOM.getSureDeleteButton());
+    }
+
+    @Then("Validate the success message")
+    public void Validate_the_success_message() {
+        pageActions.waitUntilVisible(usersPOM.getSuccessMessageDelete());
+        Assert.assertTrue(usersPOM.getSuccessMessageDelete().isDisplayed());
     }
 
 }

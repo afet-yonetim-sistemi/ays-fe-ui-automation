@@ -1,6 +1,7 @@
 package org.ays.step_definitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.ays.browser.AysPageActions;
 import org.ays.pages.UsersPOM;
@@ -28,6 +29,11 @@ public class UsersEdit {
             pageActions.waitUntilClickable(usersPOM.getActiveOption());
             pageActions.clickMethod(usersPOM.getActiveOption());
         }
+    }
+
+    @Then("Click on the save edit button")
+    public void Click_on_the_save_edit_button() {
+        pageActions.clickMethod(usersPOM.getEditSaveButton());
     }
 
 }
