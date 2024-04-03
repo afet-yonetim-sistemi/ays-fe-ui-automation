@@ -32,16 +32,13 @@ public class SuperAdminRegistrationFilter {
 
     @And("Click filter icon")
     public void Click_filter_icon() {
-        pageActions.waitUntilVisible(superAdminPOM.getFilterIcon());
-        pageActions.moveToElement(superAdminPOM.getFilterIcon());
-        pageActions.waitUntilClickable(superAdminPOM.getFilterIcon());
         pageActions.clickElementWithJavaScript(superAdminPOM.getFilterIcon());
     }
 
     @And("Select available option from the status menu")
     public void Select_available_option_from_the_status_menu() {
         pageActions.clickMethod(superAdminPOM.getStatusBar());
-        pageActions.clickElementWithJavaScript(superAdminPOM.getWaiting());
+        pageActions.clickMethod(superAdminPOM.getStatusOptionsFromFilterDropdownMenu().get(0));
         pageActions.clickMethod(superAdminPOM.getStatusBar());
     }
 
@@ -58,7 +55,6 @@ public class SuperAdminRegistrationFilter {
 
         for (WebElement cell : statusCells) {
             Assert.assertEquals(cell.getText(), expectedStatus);
-
         }
     }
 }
