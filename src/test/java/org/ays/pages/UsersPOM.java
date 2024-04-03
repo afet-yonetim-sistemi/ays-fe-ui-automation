@@ -25,7 +25,7 @@ public class UsersPOM {
     @FindBy(id = "lastName")
     private WebElement lastName;
 
-    @FindBy(xpath = "(//div[contains(@class, 'ant-select-show-arrow')])[2]")
+    @FindBy(xpath = "//div/span[@class='ant-select-selection-search']")
     private WebElement countryCode;
 
     @FindBy(xpath = "(//div[.='+90 Türkiye'])[2]")
