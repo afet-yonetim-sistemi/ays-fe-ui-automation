@@ -52,19 +52,16 @@ public class UsersPOM {
     @FindBy(xpath = "//h5[.='Username']")
     private WebElement showUsername;
 
-    @FindBy(xpath = "(//span[contains(@class, 'anticon-edit')])[1]")
+    @FindBy(xpath = "//span[contains(@class, 'anticon-edit')]")
     private WebElement usersEditIcon;
 
-    @FindBy(xpath = "(//span[@class='ant-select-selection-item'])[2]")
+    @FindBy(xpath = "(//div[contains(@class, 'ant-select')])[3]")
     private WebElement statusDropdown;
 
     @FindBy(xpath = "//div[.='Active']")
     private WebElement activeOption;
 
-    @FindBy(xpath = "//span[.='Active']")
-    private WebElement activeStatus;
-
-    @FindBy(xpath = "//div[.='Passive']")
+    @FindBy(xpath = "(//div[.='Passive'])[2]")
     private WebElement passiveOption;
 
     @FindBy(xpath = "(//button[contains(@class,'refine-delete-button')])[1]")
