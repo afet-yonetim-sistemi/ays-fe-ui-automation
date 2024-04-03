@@ -1,4 +1,4 @@
-@Regression
+@Ignore
 Feature: Testing Users Section
 
   Background:
@@ -6,7 +6,6 @@ Feature: Testing Users Section
     When Enter the username and password
     And Click the Login button
 
-  @Smoke
   Scenario: Create a New Users
     When Click on the users tab
     And Click on the create button

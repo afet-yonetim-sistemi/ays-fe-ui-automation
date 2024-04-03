@@ -1,4 +1,4 @@
-@Ignored
+@Ignore
 Feature: Testing Users
 
   Background:
