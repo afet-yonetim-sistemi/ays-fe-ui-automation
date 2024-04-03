@@ -55,7 +55,7 @@ public class UsersPOM {
     @FindBy(xpath = "//span[contains(@class, 'anticon-edit')]")
     private WebElement usersEditIcon;
 
-    @FindBy(xpath = "(//div[contains(@class, 'ant-select')])[3]")
+    @FindBy(xpath = "(//span[@class='ant-select-selection-item'])[1]")
     private WebElement statusDropdown;
 
     @FindBy(xpath = "//div[.='Active']")

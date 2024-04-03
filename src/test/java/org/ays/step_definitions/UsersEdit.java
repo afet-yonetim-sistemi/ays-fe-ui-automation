@@ -35,8 +35,9 @@ public class UsersEdit {
 
     @Then("Click on the save edit button")
     public void Click_on_the_save_edit_button() {
-        pageActions.waitUntilClickable(usersPOM.getEditSaveButton());
-        pageActions.clickMethod(usersPOM.getEditSaveButton());
+        pageActions.waitUntilVisible(usersPOM.getEditSaveButton());
+        pageActions.moveToElement(usersPOM.getEditSaveButton());
+        pageActions.clickElementWithJavaScript(usersPOM.getEditSaveButton());
     }
 
 }
