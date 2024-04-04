@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 @Getter
 public class UsersPOM {
 
@@ -64,7 +66,7 @@ public class UsersPOM {
     @FindBy(xpath = "(//div[.='Passive'])[2]")
     private WebElement passiveOption;
 
-    @FindBy(xpath = "(//button[contains(@class,'refine-delete-button')])[1]")
+    @FindBy(xpath = "(//tr[contains(@class,'ant-table-row-level-0')])[1]/td/div/div/button")
     private WebElement deleteUsersIcon;
 
     @FindBy(xpath = "//span[text()='Delete']")
@@ -78,5 +80,11 @@ public class UsersPOM {
 
     @FindBy(xpath = "(//span[contains(@class, 'anticon-save')])[2]")
     private WebElement editSaveButton;
+
+    @FindBy(xpath = "//button[@class='ant-modal-close']")
+    private WebElement popupCloseButton;
+
+    @FindBy(xpath = "(//tr[contains(@class,'ant-table-row-level-0')])[1]/td/span")
+    private List<WebElement> firstRowData;
 
 }

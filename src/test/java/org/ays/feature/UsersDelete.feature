@@ -8,6 +8,10 @@ Feature: Testing Users
 
   Scenario: Delete the Existing Users
     When Click on the users tab
+    And Click on the create button
+    And Fill out the users form using "Test" firstName
+    Then Click on the save button
+    And Click on the pop up close button
     And Sort Created At column in descending order
     And Click on the trash bin icon for the top users
     And Click on the delete button for the top users
