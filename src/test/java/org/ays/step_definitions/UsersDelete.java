@@ -52,8 +52,9 @@ public class UsersDelete {
 
     @And("Click on the delete button for the top users")
     public void clickOnTheDeleteButtonForTheTopUsers() {
+        pageActions.moveToElement(usersPOM.getSureDeleteButton());
         pageActions.waitUntilClickable(usersPOM.getSureDeleteButton());
-        pageActions.clickMethod(usersPOM.getSureDeleteButton());
+        pageActions.clickElementWithJavaScript(usersPOM.getSureDeleteButton());
     }
 
     @Then("Validate the success message")

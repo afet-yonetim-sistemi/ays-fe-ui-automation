@@ -69,7 +69,7 @@ public class UsersPOM {
     @FindBy(xpath = "(//tr[contains(@class,'ant-table-row-level-0')])[1]/td/div/div/button")
     private WebElement deleteUsersIcon;
 
-    @FindBy(xpath = "//button/span[.='Delete']")
+    @FindBy(xpath = "//div[@class='ant-popconfirm-buttons']//button[contains(@class,'ant-btn-dangerous')]")
     private WebElement sureDeleteButton;
 
     @FindBy(xpath = "//div[@class='ant-notification-notice-message']")
