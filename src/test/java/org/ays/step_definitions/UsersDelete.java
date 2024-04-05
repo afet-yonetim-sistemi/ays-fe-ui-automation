@@ -48,6 +48,7 @@ public class UsersDelete {
             pageActions.moveToElement(usersPOM.getDeleteUsersIcon());
             pageActions.clickElementWithJavaScript(usersPOM.getDeleteUsersIcon());
         }
+        pageActions.waitFor(4);
     }
 
     @And("Click on the delete button for the top users")
