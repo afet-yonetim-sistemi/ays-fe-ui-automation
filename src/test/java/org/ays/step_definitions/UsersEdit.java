@@ -23,11 +23,11 @@ public class UsersEdit {
         pageActions.moveToElement(usersPOM.getStatusDropdown());
         pageActions.clickMethod(usersPOM.getStatusDropdown());
 
-        if (usersPOM.getStatusDropdown().getText().equalsIgnoreCase("Active")) {
+        if (usersPOM.getStatusDropdown().getText().equals("Active")) {
             pageActions.waitUntilClickable(usersPOM.getPassiveOption());
             pageActions.clickMethod(usersPOM.getPassiveOption());
         }
-        if (usersPOM.getStatusDropdown().getText().equalsIgnoreCase("Passive")) {
+        if (usersPOM.getStatusDropdown().getText().equals("Passive")) {
             pageActions.waitUntilClickable(usersPOM.getActiveOption());
             pageActions.clickMethod(usersPOM.getActiveOption());
         }

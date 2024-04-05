@@ -28,12 +28,14 @@ public class UsersDelete {
 
     @And("Click on the pop up close button")
     public void clickOnThePopUpCloseButton() {
+        pageActions.waitFor(3);
         pageActions.waitUntilClickable(usersPOM.getPopupCloseButton());
         pageActions.clickMethod(usersPOM.getPopupCloseButton());
     }
 
     @When("Sort Created At column in descending order")
     public void sort_created_at_column_in_descending_order() {
+        pageActions.waitFor(3);
         pageActions.waitUntilVisible(usersPOM.getCreatedAtColumn());
         pageActions.waitUntilClickable(usersPOM.getCreatedAtColumn());
         pageActions.doubleClick(usersPOM.getCreatedAtColumn());
@@ -41,6 +43,7 @@ public class UsersDelete {
 
     @When("Click on the trash bin icon for the top users")
     public void click_on_the_trash_bin_icon_for_the_top_users() {
+        pageActions.waitFor(3);
         pageActions.waitUntilVisible(usersPOM.getFirstRowData());
 
         String firstName = usersPOM.getFirstRowData().get(0).getText();
@@ -48,7 +51,7 @@ public class UsersDelete {
             pageActions.moveToElement(usersPOM.getDeleteUsersIcon());
             pageActions.clickElementWithJavaScript(usersPOM.getDeleteUsersIcon());
         }
-        pageActions.waitFor(4);
+        pageActions.waitFor(3);
     }
 
     @And("Click on the delete button for the top users")
