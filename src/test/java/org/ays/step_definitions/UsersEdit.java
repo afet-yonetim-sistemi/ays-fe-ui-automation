@@ -23,14 +23,21 @@ public class UsersEdit {
         pageActions.moveToElement(usersPOM.getStatusDropdown());
         pageActions.clickMethod(usersPOM.getStatusDropdown());
 
-        if (usersPOM.getStatusDropdown().getText().equals("Active")) {
-            pageActions.waitUntilClickable(usersPOM.getPassiveOption());
-            pageActions.clickMethod(usersPOM.getPassiveOption());
+        String status = usersPOM.getStatusDropdown().getText();
+        switch (status) {
+
+            case "Active": {
+                pageActions.waitUntilClickable(usersPOM.getPassiveOption());
+                pageActions.clickMethod(usersPOM.getPassiveOption());
+                break;
+            }
+            case "Passive": {
+                pageActions.waitUntilClickable(usersPOM.getActiveOption());
+                pageActions.clickMethod(usersPOM.getActiveOption());
+                break;
+            }
         }
-        if (usersPOM.getStatusDropdown().getText().equals("Passive")) {
-            pageActions.waitUntilClickable(usersPOM.getActiveOption());
-            pageActions.clickMethod(usersPOM.getActiveOption());
-        }
+        pageActions.waitFor(3);
     }
 
     @Then("Click on the save edit button")
