@@ -20,12 +20,14 @@ public class UsersEdit {
 
     @When("Edit the status section in the user form")
     public void editTheStatusSectionInTheUserForm() {
-        pageActions.waitUntilClickable(usersPOM.getStatusDropdown());
+        pageActions.moveToElement(usersPOM.getStatusDropdown());
         pageActions.clickMethod(usersPOM.getStatusDropdown());
-        if (usersPOM.getStatusDropdown().getText().equalsIgnoreCase("active")) {
+
+        if (usersPOM.getStatusDropdown().getText().equals("Active")) {
             pageActions.waitUntilClickable(usersPOM.getPassiveOption());
             pageActions.clickMethod(usersPOM.getPassiveOption());
-        } else if (usersPOM.getStatusDropdown().getText().equalsIgnoreCase("passive")) {
+        }
+        if (usersPOM.getStatusDropdown().getText().equals("Passive")) {
             pageActions.waitUntilClickable(usersPOM.getActiveOption());
             pageActions.clickMethod(usersPOM.getActiveOption());
         }
@@ -33,7 +35,9 @@ public class UsersEdit {
 
     @Then("Click on the save edit button")
     public void Click_on_the_save_edit_button() {
-        pageActions.clickMethod(usersPOM.getEditSaveButton());
+        pageActions.waitUntilVisible(usersPOM.getEditSaveButton());
+        pageActions.moveToElement(usersPOM.getEditSaveButton());
+        pageActions.clickElementWithJavaScript(usersPOM.getEditSaveButton());
     }
 
 }
