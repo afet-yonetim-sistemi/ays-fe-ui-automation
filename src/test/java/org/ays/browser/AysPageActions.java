@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 @Slf4j
 public class AysPageActions {
@@ -35,6 +36,10 @@ public class AysPageActions {
 
     public void waitUntilVisible(WebElement element) {
         webDriverWait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void waitUntilVisible(List<WebElement> element) {
+        webDriverWait.until(ExpectedConditions.visibilityOfAllElements(element));
     }
 
     public void waitUntilClickable(WebElement element) {
@@ -68,9 +73,21 @@ public class AysPageActions {
         hoverOverElement.perform();
     }
 
+    public void doubleClick(WebElement element) {
+        this.actions.doubleClick(element).build().perform();
+    }
+
     public void clickElementWithJavaScript(WebElement element) {
         JavascriptExecutor executor = (JavascriptExecutor) this.webDriver;
         executor.executeScript("arguments[0].click();", element);
+    }
+
+    public void waitFor(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }

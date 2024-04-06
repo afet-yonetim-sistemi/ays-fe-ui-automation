@@ -1,6 +1,7 @@
 package org.ays.step_definitions;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.ays.browser.AysPageActions;
 import org.ays.pages.UsersPOM;
@@ -18,13 +19,27 @@ public class UsersCreate {
         pageActions.clickMethod(usersPOM.getUsersTab());
     }
 
+    @And("Click on the create button")
+    public void Click_on_the_create_button() {
+        pageActions.moveToElement(usersPOM.getCreateButton());
+        pageActions.clickElementWithJavaScript(usersPOM.getCreateButton());
+    }
+
     @When("Fill out the users form")
     public void fill_out_the_users_form() {
+        pageActions.waitUntilVisible(usersPOM.getFirstName());
         pageActions.sendKeysMethod(usersPOM.getFirstName(), AysRandomUtil.generateFirstName());
+        pageActions.waitUntilVisible(usersPOM.getLastName());
         pageActions.sendKeysMethod(usersPOM.getLastName(), AysRandomUtil.generateLastName());
         pageActions.clickMethod(usersPOM.getCountryCode());
         pageActions.clickMethod(usersPOM.getTurkeyCountryCode());
+        pageActions.waitUntilVisible(usersPOM.getPhoneNumber());
         pageActions.sendKeysMethod(usersPOM.getPhoneNumber(), AysRandomUtil.generatePhoneNumber());
+    }
+
+    @Then("Click on the save button")
+    public void Click_on_the_save_button() {
+        pageActions.clickMethod(usersPOM.getSaveButton());
     }
 
     @And("{string} success message is displayed")
@@ -35,19 +50,25 @@ public class UsersCreate {
 
     @And("Enter invalid characters in the name field while filling out the users form")
     public void enterInvalidCharactersInTheNameFieldWhileFillingOutTheUsersForm() {
+        pageActions.waitUntilVisible(usersPOM.getFirstName());
         pageActions.sendKeysMethod(usersPOM.getFirstName(), "?--/-**-8965");
+        pageActions.waitUntilVisible(usersPOM.getLastName());
         pageActions.sendKeysMethod(usersPOM.getLastName(), AysRandomUtil.generateLastName());
         pageActions.clickMethod(usersPOM.getCountryCode());
         pageActions.clickMethod(usersPOM.getTurkeyCountryCode());
+        pageActions.waitUntilVisible(usersPOM.getPhoneNumber());
         pageActions.sendKeysMethod(usersPOM.getPhoneNumber(), AysRandomUtil.generatePhoneNumber());
     }
 
     @And("Enter invalid characters in the last name field while filling out the users form")
     public void enterInvalidCharactersInTheLastNameFieldWhileFillingOutTheUsersForm() {
+        pageActions.waitUntilVisible(usersPOM.getFirstName());
         pageActions.sendKeysMethod(usersPOM.getFirstName(), AysRandomUtil.generateFirstName());
+        pageActions.waitUntilVisible(usersPOM.getLastName());
         pageActions.sendKeysMethod(usersPOM.getLastName(), "?--/-**-8965");
         pageActions.clickMethod(usersPOM.getCountryCode());
         pageActions.clickMethod(usersPOM.getTurkeyCountryCode());
+        pageActions.waitUntilVisible(usersPOM.getPhoneNumber());
         pageActions.sendKeysMethod(usersPOM.getPhoneNumber(), AysRandomUtil.generatePhoneNumber());
     }
 
@@ -59,15 +80,19 @@ public class UsersCreate {
 
     @And("Enter invalid characters in the phone number field while filling out the users form")
     public void enterInvalidCharactersInThePhoneNumberFieldWhileFillingOutTheUsersForm() {
+        pageActions.waitUntilVisible(usersPOM.getFirstName());
         pageActions.sendKeysMethod(usersPOM.getFirstName(), AysRandomUtil.generateFirstName());
+        pageActions.waitUntilVisible(usersPOM.getLastName());
         pageActions.sendKeysMethod(usersPOM.getLastName(), AysRandomUtil.generateLastName());
         pageActions.clickMethod(usersPOM.getCountryCode());
         pageActions.clickMethod(usersPOM.getTurkeyCountryCode());
-        pageActions.sendKeysMethod(usersPOM.getPhoneNumber(), "abc");
+        pageActions.waitUntilVisible(usersPOM.getPhoneNumber());
+        pageActions.sendKeysMethod(usersPOM.getPhoneNumber(), "123");
     }
 
     @And("{string} massage is displayed")
     public void massageIsDisplayed(String message) {
+        pageActions.waitUntilVisible(usersPOM.getInvalidPhoneNumberMessage());
         Assert.assertEquals(usersPOM.getInvalidPhoneNumberMessage().getText(), message);
     }
 

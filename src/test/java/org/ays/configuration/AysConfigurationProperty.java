@@ -35,6 +35,10 @@ public class AysConfigurationProperty {
             public static final String USERNAME = PROPERTIES.getProperty("institution_one.admin_user_one.username");
             public static final String PASSWORD = PROPERTIES.getProperty("institution_one.admin_user_one.password");
         }
+        public static class SuperAdminUserOne {
+            public static final String USERNAME = PROPERTIES.getProperty("institution.super_admin_user_one.username");
+            public static final String PASSWORD = PROPERTIES.getProperty("institution.super_admin_user_one.password");
+        }
     }
 
     private static class AysConfigurationException extends RuntimeException {

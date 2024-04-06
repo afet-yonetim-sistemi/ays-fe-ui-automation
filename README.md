@@ -35,14 +35,15 @@ pom.xml: This is the Maven project configuration file that specifies dependencie
 
 README.md: A documentation file explaining the project and providing usage instructions.
 
+---
 
 ## Contributing
 
 If you'd like to contribute to this project, please follow these guidelines:
-1.Clone this repository to your local machine.
+1. Clone this repository to your local machine.
 git clone https://github.com/afet-yonetim-sistemi/ays-fe-ui-automation.git
 
-2.Create a new branch for your feature or bug fix.
+2. Create a new branch for your feature or bug fix.
 
 3. Write test scenarios to feature file.
 
@@ -50,15 +51,36 @@ git clone https://github.com/afet-yonetim-sistemi/ays-fe-ui-automation.git
 
 5. Test your changes to ensure they work as expected.
 
-6.Make your changes and commit them.
+6. Make your changes and commit them.
 
-7.Create a pull request, describing your changes and why they should be merged.
+7. Create a pull request, describing your changes and why they should be merged.
+
+---
+## Using the Configuration File
+
+The project leverages a configuration file (configuration.properties) to securely manage sensitive or environment-specific data.
+
+To effectively utilize this configuration file, follow these steps:
+1. **Create a Configuration File:** Duplicate the sample_configuration.properties file provided in the framework,
+   renaming it as configuration.properties. Input your sensitive data in the form of key-value pairs within this file.
+2. **Accessing Configuration Data:** To access the stored data, use the PROPERTIES.getProperty("your key")
+   method available under the configuration package. This method retrieves the values associated with specific keys from the
+   configuration.properties file.
+
+By following these steps, you can securely manage sensitive information and easily access it within the project using the AysConfigurationProperty class.
+
+---
 
 ## Running Specific Test Suites
 
-You can run specific test suites by modifying the testng.xml file under the runners package. Add or remove <suite> elements to define the suites you want to run.
+You can run specific test suites by modifying the testng.xml file under the testsuite package. Add or remove <suite> elements to define the suites you want to run.
 
+---
 
+## Generating Reports
+
+Test execution reports can be found in the target folder. You can open the HTML report in a web browser to view
+test results.
 
 
 
