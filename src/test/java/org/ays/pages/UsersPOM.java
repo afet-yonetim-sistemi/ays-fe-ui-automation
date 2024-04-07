@@ -27,7 +27,7 @@ public class UsersPOM {
     @FindBy(id = "lastName")
     private WebElement lastName;
 
-    @FindBy(xpath = "//div/span[@class='ant-select-selection-search']")
+    @FindBy(xpath = "(//div/span[@class='ant-select-selection-search'])[2]")
     private WebElement countryCode;
 
     @FindBy(xpath = "(//div[.='+90 Türkiye'])[2]")
@@ -57,7 +57,7 @@ public class UsersPOM {
     @FindBy(xpath = "//span[contains(@class, 'anticon-edit')]")
     private WebElement usersEditIcon;
 
-    @FindBy(xpath = "(//span[@class='ant-select-selection-item'])[1]")
+    @FindBy(xpath = "(//span[@class='ant-select-selection-item'])[2]")
     private WebElement statusDropdown;
 
     @FindBy(xpath = "//div[.='Active']")
@@ -78,7 +78,7 @@ public class UsersPOM {
     @FindBy(xpath = "//div[@class='ant-table-column-sorters']/span[1]")
     private WebElement createdAtColumn;
 
-    @FindBy(xpath = "(//span[contains(@class, 'anticon-save')])[2]")
+    @FindBy(xpath = "(//button[contains(@class, 'refine-save-button')])[2]")
     private WebElement editSaveButton;
 
     @FindBy(xpath = "//button[@class='ant-modal-close']")
