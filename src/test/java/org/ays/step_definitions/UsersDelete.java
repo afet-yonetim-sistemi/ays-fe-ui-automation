@@ -33,6 +33,13 @@ public class UsersDelete {
         pageActions.clickMethod(usersPOM.getPopupCloseButton());
     }
 
+    @And("Click on the pop up close Ok button")
+    public void clickOnThePopUpCloseOkButton() {
+        pageActions.waitUntilClickable(usersPOM.getPopupCloseOkButton());
+        pageActions.clickMethod(usersPOM.getPopupCloseOkButton());
+
+    }
+
     @When("Sort Created At column in descending order")
     public void sort_created_at_column_in_descending_order() {
         pageActions.waitFor(3);
@@ -66,6 +73,5 @@ public class UsersDelete {
         pageActions.waitUntilVisible(usersPOM.getSuccessMessageDelete());
         Assert.assertTrue(usersPOM.getSuccessMessageDelete().isDisplayed());
     }
-
 
 }

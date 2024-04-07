@@ -13,6 +13,10 @@ Feature: Testing Users Section
     And Fill out the users form
     Then Click on the save button
     And "Successful" success message is displayed
+    And "New User Created" title is displayed
+    And Username and Password information is displayed
+    Then Click on the Copy and Close button
+    And "Username and password copied to clipboard" message is displayed
 
   Scenario: Create an Users with an Invalid First Name
     When Click on the users tab
