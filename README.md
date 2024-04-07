@@ -1,4 +1,4 @@
-# AYS UI Test Automation Repository
+# AYS | Afet Yönetim Sistemi UI Test Automation [![Application Status](https://github.com/afet-yonetim-sistemi/ays-fe-ui-automation/actions/workflows/application-health-checker.yml/badge.svg)](https://github.com/afet-yonetim-sistemi/ays-fe-ui-automation/actions/workflows/application-health-checker.yml)
 
 This repository contains automated UI tests using the Selenium-Cucumber-TestNG framework. The tests are organized into packages for ease of use and maintainability.
 
