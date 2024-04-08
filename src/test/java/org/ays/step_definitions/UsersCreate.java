@@ -96,4 +96,29 @@ public class UsersCreate {
         Assert.assertEquals(usersPOM.getInvalidPhoneNumberMessage().getText(), message);
     }
 
+    @And("{string} title is displayed")
+    public void titleIsDisplayed(String title) {
+        pageActions.waitUntilVisible(usersPOM.getNewUserCreatedTitle());
+        Assert.assertEquals(usersPOM.getNewUserCreatedTitle().getText(), title);
+
+    }
+
+    @And("Username and Password information is displayed")
+    public void usernameAndPasswordInformationIsDisplayed() {
+        pageActions.waitUntilVisible(usersPOM.getUsernameInfo());
+        Assert.assertTrue(pageActions.isPresent(usersPOM.getUsernameInfo()));
+        Assert.assertTrue(pageActions.isPresent(usersPOM.getPasswordInfo()));
+    }
+
+    @Then("Click on the Copy and Close button")
+    public void clickOnTheCopyAndCloseButton() {
+        pageActions.waitUntilClickable(usersPOM.getCopyAndCloseButton());
+        pageActions.clickMethod(usersPOM.getCopyAndCloseButton());
+    }
+
+    @And("{string} message is displayed")
+    public void messageIsDisplayed(String copiedMessage) {
+        pageActions.waitUntilVisible(usersPOM.getCopiedMessage());
+        Assert.assertEquals(usersPOM.getCopiedMessage().getText(), copiedMessage);
+    }
 }

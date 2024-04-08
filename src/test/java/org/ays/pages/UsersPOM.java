@@ -87,4 +87,21 @@ public class UsersPOM {
     @FindBy(xpath = "(//tr[contains(@class,'ant-table-row-level-0')])[1]/td/span")
     private List<WebElement> firstRowData;
 
+    @FindBy(xpath = "//div[@class='ant-modal-title']")
+    private WebElement newUserCreatedTitle;
+
+    @FindBy(xpath = "//div[@class='ant-modal-body']/div/div[3]/span")
+    private WebElement usernameInfo;
+
+    @FindBy(xpath = "//div[@class='ant-modal-body']/div/div[4]/span")
+    private WebElement passwordInfo;
+
+    @FindBy(xpath = "//button/span[.='Copy and Close']")
+    private WebElement copyAndCloseButton;
+
+    @FindBy(xpath = "//div[.='Username and password copied to clipboard']")
+    private WebElement copiedMessage;
+
+    @FindBy(xpath = "//div[@class= 'ant-modal-confirm-btns']/button[2]")
+    private WebElement popupCloseOkButton;
 }
