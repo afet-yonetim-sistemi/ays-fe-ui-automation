@@ -29,8 +29,11 @@ public class SuperAdminPOM {
     @FindBy(xpath = "//button[@id='filter-button']")
     private WebElement filtersButton;
 
-    @FindBy(xpath = "//td/span[contains(@class,'ant-tag-blue')]")
+    @FindBy(xpath = "//td/span[contains(@class,'ant-tag')]")
     private List<WebElement> statusColumn;
+
+    @FindBy(css = "div[class='ant-select-item-option-content']")
+    private List<WebElement> statusOptionsFromFilterDropdownMenu;
 
 }
 
