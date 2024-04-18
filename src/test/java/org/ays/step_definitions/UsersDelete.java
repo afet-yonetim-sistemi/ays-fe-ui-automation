@@ -74,4 +74,26 @@ public class UsersDelete {
         Assert.assertTrue(usersPOM.getSuccessMessageDelete().isDisplayed());
     }
 
+    @And("Click on the eye icon for the top users")
+    public void clickOnTheEyeIconForTheTopUsers() {
+        pageActions.waitFor(3);
+        pageActions.waitUntilVisible(usersPOM.getFirstRowData());
+
+        String firstName = usersPOM.getFirstRowData().get(0).getText();
+        if (firstName.startsWith("Test")) {
+            pageActions.moveToElement(usersPOM.getShowIcon());
+            pageActions.clickElementWithJavaScript(usersPOM.getShowIcon());
+        }
+        pageActions.waitFor(3);
+    }
+
+    @And("Click on the delete button on the users detail screen")
+    public void clickOnTheDeleteButtonOnTheUsersDetailScreen() {
+        pageActions.waitFor(3);
+        pageActions.moveToElement(usersPOM.getUsersDetailDeleteButton());
+        pageActions.clickElementWithJavaScript(usersPOM.getUsersDetailDeleteButton());
+        pageActions.waitFor(3);
+    }
+
 }
+

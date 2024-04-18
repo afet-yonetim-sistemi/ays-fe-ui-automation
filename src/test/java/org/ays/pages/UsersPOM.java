@@ -48,7 +48,7 @@ public class UsersPOM {
     @FindBy(xpath = "//div[.= 'Invalid phone number']")
     private WebElement invalidPhoneNumberMessage;
 
-    @FindBy(xpath = "(//span[contains(@Class,'anticon-eye')])[2]")
+    @FindBy(xpath = "(//span[contains(@Class,'anticon-eye')])[1]")
     private WebElement showIcon;
 
     @FindBy(xpath = "//h5[.='Username']")
@@ -104,4 +104,7 @@ public class UsersPOM {
 
     @FindBy(xpath = "//div[@class= 'ant-modal-confirm-btns']/button[2]")
     private WebElement popupCloseOkButton;
+
+    @FindBy(xpath = "//span[.='Delete']")
+    private WebElement usersDetailDeleteButton;
 }
