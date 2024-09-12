@@ -32,7 +32,7 @@
         <junit.version>4.13.2</junit.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
-        <logback-classic.version>1.5.0</logback-classic.version>
+        <logback-classic.version>1.5.8</logback-classic.version>
         <commons-compress.version>1.27.1</commons-compress.version>
         <pdfbox.version>3.0.3</pdfbox.version>
     </properties>
@@ -171,6 +171,12 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.dom4j</groupId>
+                    <artifactId>dom4j</artifactId>
+                </exclusion>
+            </exclusions>
             <version>${logback-classic.version}</version>
         </dependency>
 
