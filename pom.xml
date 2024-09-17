@@ -18,20 +18,23 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <selenium-java.version>4.16.1</selenium-java.version>
-        <cucumber-java.version>7.15.0</cucumber-java.version>
-        <testng.version>7.8.0</testng.version>
-        <cucumber-testng.version>7.15.0</cucumber-testng.version>
+        <selenium-java.version>4.24.0</selenium-java.version>
+        <cucumber-java.version>7.18.1</cucumber-java.version>
+        <testng.version>7.10.2</testng.version>
+        <cucumber-testng.version>7.18.1</cucumber-testng.version>
         <extentreports-cucumber7-adapter.version>1.14.0</extentreports-cucumber7-adapter.version>
-        <mysql-connector-j.version>8.2.0</mysql-connector-j.version>
-        <lombok.version>1.18.30</lombok.version>
-        <jquery.version>3.6.4</jquery.version>
-        <gson.version>2.10.1</gson.version>
-        <snakeyaml.version>2.2</snakeyaml.version>
+        <mysql-connector-j.version>9.0.0</mysql-connector-j.version>
+        <lombok.version>1.18.34</lombok.version>
+        <jquery.version>3.7.1</jquery.version>
+        <gson.version>2.11.0</gson.version>
+        <snakeyaml.version>2.3</snakeyaml.version>
         <javafaker.version>1.0.2</javafaker.version>
         <junit.version>4.13.2</junit.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-        <logback-classic.version>1.5.0</logback-classic.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <logback-classic.version>1.5.8</logback-classic.version>
+        <commons-compress.version>1.27.1</commons-compress.version>
+        <pdfbox.version>3.0.3</pdfbox.version>
     </properties>
 
     <dependencies>
@@ -99,8 +102,20 @@
                     <artifactId>commons-codec</artifactId>
                 </exclusion>
                 <exclusion>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-compress</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-io</groupId>
+                    <artifactId>commons-io</artifactId>
+                </exclusion>
+                <exclusion>
                     <groupId>io.cucumber</groupId>
                     <artifactId>cucumber-java</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.pdfbox</groupId>
+                    <artifactId>pdfbox</artifactId>
                 </exclusion>
             </exclusions>
             <scope>test</scope>
@@ -128,6 +143,10 @@
                     <groupId>org.yaml</groupId>
                     <artifactId>snakeyaml</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.apache.commons</groupId>
+                    <artifactId>commons-lang3</artifactId>
+                </exclusion>
             </exclusions>
             <scope>test</scope>
         </dependency>
@@ -136,16 +155,35 @@
             <artifactId>snakeyaml</artifactId>
             <version>${snakeyaml.version}</version>
         </dependency>
+
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.errorprone</groupId>
+                    <artifactId>error_prone_annotations</artifactId>
+                </exclusion>
+            </exclusions>
             <version>${gson.version}</version>
         </dependency>
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.dom4j</groupId>
+                    <artifactId>dom4j</artifactId>
+                </exclusion>
+            </exclusions>
             <version>${logback-classic.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>${commons-compress.version}</version>
         </dependency>
 
     </dependencies>
