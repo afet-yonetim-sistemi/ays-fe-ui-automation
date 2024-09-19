@@ -22,7 +22,7 @@ public class Login {
 
     @When("Enter the username and password")
     public void enter_the_username_and_password() {
-        this.pageActions.sendKeysMethod(loginPOM.getLoginUsername(), AysConfigurationProperty.InstitutionOne.AdminUserOne.USERNAME);
+        this.pageActions.sendKeysMethod(loginPOM.getLoginUsername(), AysConfigurationProperty.InstitutionOne.AdminUserOne.EMAIL_ADDRESS);
         this.pageActions.sendKeysMethod(loginPOM.getLoginPassword(), AysConfigurationProperty.InstitutionOne.AdminUserOne.PASSWORD);
     }
 
