@@ -30,28 +30,26 @@ public class AysConfigurationProperty {
         public static final String URL = PROPERTIES.getProperty("ui.url");
     }
 
-    public static class SuperAdminUserOne {
-        public static final String EMAIL_ADDRESS = PROPERTIES.getProperty("institution.super_admin_user_one.email_address");
-        public static final String PASSWORD = PROPERTIES.getProperty("institution.super_admin_user_one.password");
+    public static class AfetYonetimSistemiAdmin {
+        public static final String EMAIL_ADDRESS = PROPERTIES.getProperty("afet_yonetim_sistemi.admin.email_address");
+        public static final String PASSWORD = PROPERTIES.getProperty("afet_yonetim_sistemi.admin.password");
     }
 
-    public static class InstitutionOne {
-        public static class AdminUserOne {
-            public static final String EMAIL_ADDRESS = PROPERTIES.getProperty("institution_one.admin_user_one.email_address");
-            public static final String PASSWORD = PROPERTIES.getProperty("institution_one.admin_user_one.password");
-        }
-
-        public static class AdminUserTwo {
-            public static final String EMAIL_ADDRESS = PROPERTIES.getProperty("institution_one.admin_user_two.email_address");
-            public static final String PASSWORD = PROPERTIES.getProperty("institution_one.admin_user_two.password");
-        }
-
-        public static class TestAdmin {
-            public static final String EMAIL_ADDRESS = PROPERTIES.getProperty("institution.test_admin.email_address");
-            public static final String PASSWORD = PROPERTIES.getProperty("institution.test_admin.password");
-        }
-
+    public static class VolunteerFoundationAdmin {
+        public static final String EMAIL_ADDRESS = PROPERTIES.getProperty("volunteer_foundation.admin.email_address");
+        public static final String PASSWORD = PROPERTIES.getProperty("volunteer_foundation.admin.password");
     }
+
+    public static class DisasterFoundationAdmin {
+        public static final String EMAIL_ADDRESS = PROPERTIES.getProperty("disaster_foundation.admin.email_address");
+        public static final String PASSWORD = PROPERTIES.getProperty("disaster_foundation.admin.password");
+    }
+
+    public static class TestFoundationAdmin {
+        public static final String EMAIL_ADDRESS = PROPERTIES.getProperty("test_foundation.admin.email_address");
+        public static final String PASSWORD = PROPERTIES.getProperty("test_foundation.admin.password");
+    }
+
 
     private static class AysConfigurationException extends RuntimeException {
 
