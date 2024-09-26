@@ -30,16 +30,26 @@ public class AysConfigurationProperty {
         public static final String URL = PROPERTIES.getProperty("ui.url");
     }
 
-    public static class InstitutionOne {
-        public static class AdminUserOne {
-            public static final String USERNAME = PROPERTIES.getProperty("institution_one.admin_user_one.username");
-            public static final String PASSWORD = PROPERTIES.getProperty("institution_one.admin_user_one.password");
+    public static class VolunteerFoundation {
+
+        public static class Admin {
+            public static final String EMAIL_ADDRESS = PROPERTIES.getProperty("volunteer_foundation.admin.email_address");
+            public static final String PASSWORD = PROPERTIES.getProperty("volunteer_foundation.admin.password");
+
         }
-        public static class SuperAdminUserOne {
-            public static final String USERNAME = PROPERTIES.getProperty("institution.super_admin_user_one.username");
-            public static final String PASSWORD = PROPERTIES.getProperty("institution.super_admin_user_one.password");
-        }
+
     }
+
+    public static class TestFoundation {
+
+        public static class Admin {
+            public static final String EMAIL_ADDRESS = PROPERTIES.getProperty("test_foundation.admin.email_address");
+            public static final String PASSWORD = PROPERTIES.getProperty("test_foundation.admin.password");
+
+        }
+
+    }
+
 
     private static class AysConfigurationException extends RuntimeException {
 

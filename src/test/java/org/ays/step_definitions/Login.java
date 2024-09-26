@@ -22,8 +22,8 @@ public class Login {
 
     @When("Enter the username and password")
     public void enter_the_username_and_password() {
-        this.pageActions.sendKeysMethod(loginPOM.getLoginUsername(), AysConfigurationProperty.InstitutionOne.AdminUserOne.USERNAME);
-        this.pageActions.sendKeysMethod(loginPOM.getLoginPassword(), AysConfigurationProperty.InstitutionOne.AdminUserOne.PASSWORD);
+        this.pageActions.sendKeysMethod(loginPOM.getLoginUsername(), AysConfigurationProperty.VolunteerFoundation.Admin.EMAIL_ADDRESS);
+        this.pageActions.sendKeysMethod(loginPOM.getLoginPassword(), AysConfigurationProperty.VolunteerFoundation.Admin.PASSWORD);
     }
 
     @And("Click the Login button")
