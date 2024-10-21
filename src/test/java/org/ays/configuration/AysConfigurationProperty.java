@@ -30,21 +30,23 @@ public class AysConfigurationProperty {
         public static final String URL = PROPERTIES.getProperty("ui.url");
     }
 
-    public static class VolunteerFoundation {
+    public static class TestVolunteerFoundation {
 
-        public static class Admin {
-            public static final String EMAIL_ADDRESS = PROPERTIES.getProperty("volunteer_foundation.admin.email_address");
-            public static final String PASSWORD = PROPERTIES.getProperty("volunteer_foundation.admin.password");
+        public static class SuperAdmin {
+            public static final String EMAIL_ADDRESS = PROPERTIES.getProperty("test_volunteer_foundation.super_admin.email_address");
+            public static final String PASSWORD = PROPERTIES.getProperty("test_volunteer_foundation.super_admin.password");
 
         }
 
-    }
-
-    public static class TestFoundation {
-
         public static class Admin {
-            public static final String EMAIL_ADDRESS = PROPERTIES.getProperty("test_foundation.admin.email_address");
-            public static final String PASSWORD = PROPERTIES.getProperty("test_foundation.admin.password");
+            public static final String EMAIL_ADDRESS = PROPERTIES.getProperty("test_volunteer_foundation.admin.email_address");
+            public static final String PASSWORD = PROPERTIES.getProperty("test_volunteer_foundation.admin.password");
+
+        }
+
+        public static class User {
+            public static final String EMAIL_ADDRESS = PROPERTIES.getProperty("test_volunteer_foundation.user.email_address");
+            public static final String PASSWORD = PROPERTIES.getProperty("test_volunteer_foundation.user.password");
 
         }
 
