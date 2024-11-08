@@ -51,7 +51,7 @@ public class Login {
     @Then("The username should be displayed on the homepage after successful login")
     public void theUsernameShouldBeDisplayedOnTheHomepageAfterSuccessfulLogin() {
         pageActions.waitUntilVisible(loginPOM.getUsername());
-        assertTrue(loginPOM.getUsername().isDisplayed());
+        assertTrue(pageActions.isPresent(loginPOM.getUsername()));
     }
 
     @And("accessToken and refreshToken should be stored in localStorage")
@@ -133,13 +133,13 @@ public class Login {
     @Then("User should be able to see dark theme")
     public void userShouldBeAbleToSeeDarkTheme() {
         pageActions.waitUntilVisible(loginPOM.getDarkTheme());
-        assertTrue((loginPOM.getDarkTheme().isDisplayed()));
+        assertTrue(pageActions.isPresent(loginPOM.getDarkTheme()));
     }
 
     @Then("User should be able to see light theme")
     public void userShouldBeAbleToSeeLightTheme() {
         pageActions.waitUntilVisible(loginPOM.getLightTheme());
-        assertTrue((loginPOM.getLightTheme().isDisplayed()));
+        assertTrue(pageActions.isPresent(loginPOM.getLightTheme()));
     }
 
     @When("Enter valid emailAddress and invalid password")
@@ -170,7 +170,7 @@ public class Login {
     @Then("User should be able to see the Turkish page")
     public void userShouldBeAbleToSeeTheTurkishPage() {
         AysLocalizationUtil.setLanguage("tr");
-        assertEquals(loginPOM.getWelcomeTitle().getText(),
+        assertEquals(loginPOM.getWelcomeHeader().getText(),
                 AysLocalizationUtil.getText("header"));
     }
 
@@ -182,7 +182,7 @@ public class Login {
     @Then("User should be able to see the English page")
     public void userShouldBeAbleToSeeTheEnglishPage() {
         AysLocalizationUtil.setLanguage("en");
-        assertEquals(loginPOM.getWelcomeTitle().getText(),
+        assertEquals(loginPOM.getWelcomeHeader().getText(),
                 AysLocalizationUtil.getText("header"));
     }
 

@@ -56,7 +56,7 @@ public class LoginPOM {
     private WebElement englishOption;
 
     @FindBy(xpath = "//h3")
-    private WebElement welcomeTitle;
+    private WebElement welcomeHeader;
 
 
 }

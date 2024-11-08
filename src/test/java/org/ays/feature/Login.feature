@@ -46,8 +46,8 @@ Feature: Login Functionality
     And Click on the Login button
     Then User should be able to see password errorMessage
     Examples:
-      | emailAddress | password |
-      | user@email.us  | pass     |
+      | emailAddress  | password |
+      | user@email.us | pass     |
 
   Scenario: Login with valid email address invalid password
     When Sets the page language
