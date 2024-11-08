@@ -58,7 +58,7 @@ public class AysPageActions {
     }
 
     public boolean isPresent(WebElement element) {
-        this.waitUntilClickable(element);
+        this.waitUntilVisible(element);
         return element.isDisplayed();
     }
 
