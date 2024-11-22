@@ -19,6 +19,7 @@ public class Login {
     private final LoginPOM loginPOM;
     private final AysPageActions pageActions;
     private final AysLocaleStorageUtil localeStorageUtil;
+    private final AysLocalizationUtil localizationUtil;
 
 
     public Login() {
@@ -26,6 +27,7 @@ public class Login {
         this.loginPOM = new LoginPOM();
         this.pageActions = new AysPageActions();
         this.localeStorageUtil = new AysLocaleStorageUtil();
+        this.localizationUtil = new AysLocalizationUtil();
 
     }
 
@@ -80,16 +82,14 @@ public class Login {
 
     @Then("User should be able to see invalid email error message")
     public void userShouldBeAbleToSeeInvalidEmailErrorMessage() {
-        AysLocalizationUtil.setLanguage("en");
         assertEquals(loginPOM.getEmailAddressErrorMessage().getText(),
-                AysLocalizationUtil.getText("emailAddress_errorMessage"));
+                localizationUtil.validateElementMessage("login.validation_error.email_address"));
     }
 
     @Then("User should be able to see password errorMessage")
     public void userShouldBeAbleToSeePasswordErrorMessage() {
-        AysLocalizationUtil.setLanguage("en");
         assertEquals(loginPOM.getPasswordErrorMessage().getText(),
-                AysLocalizationUtil.getText("password_errorMessage"));
+                localizationUtil.validateElementMessage("login.validation_error.password"));
     }
 
     @When("Enter unauthorized {string} and {string}")
@@ -169,9 +169,8 @@ public class Login {
 
     @Then("User should be able to see the Turkish page")
     public void userShouldBeAbleToSeeTheTurkishPage() {
-        AysLocalizationUtil.setLanguage("tr");
         assertEquals(loginPOM.getWelcomeHeader().getText(),
-                AysLocalizationUtil.getText("header"));
+                localizationUtil.validateElementMessage("login.header.welcome"));
     }
 
     @And("Select the English option")
@@ -181,9 +180,8 @@ public class Login {
 
     @Then("User should be able to see the English page")
     public void userShouldBeAbleToSeeTheEnglishPage() {
-        AysLocalizationUtil.setLanguage("en");
         assertEquals(loginPOM.getWelcomeHeader().getText(),
-                AysLocalizationUtil.getText("header"));
+                localizationUtil.validateElementMessage("login.header.welcome"));
     }
 
 }

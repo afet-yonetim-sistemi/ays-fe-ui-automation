@@ -49,10 +49,10 @@ public class LoginPOM {
     @FindBy(css = "button[role='combobox']")
     private WebElement languageButton;
 
-    @FindBy(xpath = "//span[text()='Türkçe']")
+    @FindBy(xpath = "//span[text()='Turkish']")
     private WebElement turkishOption;
 
-    @FindBy(xpath = "//span[text()='English']")
+    @FindBy(xpath = "//span[text()='İngilizce']")
     private WebElement englishOption;
 
     @FindBy(xpath = "//h3")
