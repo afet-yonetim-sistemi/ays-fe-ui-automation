@@ -9,7 +9,7 @@ import static org.testng.Assert.fail;
 
 public class AysLocaleStorageUtil {
 
-    private static AysPageActions pageActions = null;
+    private static AysPageActions pageActions;
 
     public AysLocaleStorageUtil() {
         pageActions = new AysPageActions();
@@ -70,6 +70,29 @@ public class AysLocaleStorageUtil {
             exception.printStackTrace();
         }
         return "en";
+    }
+
+    public void mockTokenExpiration(String token) {
+        try {
+            JavascriptExecutor javascriptExecutor = (JavascriptExecutor) pageActions.getWebDriver();
+            javascriptExecutor.executeScript("let persistData = JSON.parse(localStorage.getItem('persist:root')); " +
+                    "if (persistData) { " +
+                    "   let authData = JSON.parse(persistData.auth); " +
+                    "  if ('refreshToken' === '" + token + "') { " +
+                    "       authData.accessToken ='';" +
+                    "       authData.refreshToken = '';" +
+                    "   } " +
+                    "   persistData.auth = JSON.stringify(authData); " +
+                    "   localStorage.setItem('persist:root', JSON.stringify(persistData));" +
+                    "} else { " +
+                    "   throw 'persist:root not found'; " +
+                    "}");
+
+            pageActions.getWebDriver().navigate().refresh();
+        } catch (Exception e) {
+            System.err.println("An error occurred while mocking token expiration: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
 }

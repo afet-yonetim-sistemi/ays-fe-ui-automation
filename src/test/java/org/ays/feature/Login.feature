@@ -61,6 +61,11 @@ Feature: Login Functionality
     And Click on the Login button
     Then Error pop-up message should be displayed
 
+  Scenario: Login with blank email address and password
+    When Sets the page language
+    And Click on the Login button
+    Then User should be able to see errorMessage under email and password input box
+
   @Smoke
   Scenario: Password hiding checking
     When Enter hiding password
@@ -85,4 +90,29 @@ Feature: Login Functionality
     And Select the English option
     Then User should be able to see the English page
 
+  Scenario: Logged-in user visits login URL
+
+  As a logged-in user, I should not see the login page again when I navigate to the login URL
+  Instead, I should be redirected to the dashboard page.
+
+    When Enter the email address and password
+    And Click on the Login button
+    Then The username should be displayed on the homepage after successful login
+    And The user navigates to the login URL in a new tab
+    Then The user should be able to see dashboard page
+
+  Scenario: Dashboard page access without login
+
+  As a user, I should not be able to access the dashboard page without logging in
+  Instead, I should be redirected to the login page.
+
+    When The user navigates to the dashboard page
+    Then The user should see the login page
+
+  Scenario: Refresh Token expiration triggers logout
+    When Enter the email address and password
+    And Click on the Login button
+    And accessToken and refreshToken should be stored in localStorage
+    And The "refreshToken" expires using mock expiration
+    Then The user should see the login page
 

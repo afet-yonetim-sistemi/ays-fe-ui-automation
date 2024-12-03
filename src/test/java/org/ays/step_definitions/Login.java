@@ -104,6 +104,12 @@ public class Login {
         assertTrue(pageActions.isPresent(loginPOM.getPopupErrorMessage()));
     }
 
+    @Then("User should be able to see errorMessage under email and password input box")
+    public void userShouldBeAbleToSeeErrorMessageUnderEmailAndPasswordInputBox() {
+        assertTrue(pageActions.isPresent(loginPOM.getEmailAddressErrorMessage()));
+        assertTrue(pageActions.isPresent(loginPOM.getPasswordErrorMessage()));
+    }
+
     @When("Enter hiding password")
     public void enterHidingPassword() {
         pageActions.sendKeysMethod(loginPOM.getLoginPassword(), "passwordCheck");
@@ -184,4 +190,40 @@ public class Login {
                 localizationUtil.validateElementMessage("login.header.welcome"));
     }
 
+    @And("The user navigates to the login URL in a new tab")
+    public void theUserNavigatesToTheLoginURLInANewTab() {
+        pageActions.openANewTab(AysConfigurationProperty.Ui.URL);
+        pageActions.switchToWindow();
+
+    }
+
+    @Then("The user should be able to see dashboard page")
+    public void theUserShouldBeAbleToSeeDashboardPage() {
+        pageActions.waitUntilVisible(loginPOM.getUsername());
+        assertTrue(pageActions.getWebDriver().getCurrentUrl().contains("/dashboard"));
+
+    }
+
+    @When("The user navigates to the dashboard page")
+    public void theUserNavigatesToTheDashboardPage() {
+        pageActions.getWebDriver().navigate().to(AysConfigurationProperty.Ui.URL + "/dashboard");
+    }
+
+    @Then("The user should see the login page")
+    public void theUserShouldSeeTheLoginPage() {
+        pageActions.waitUntilVisible(loginPOM.getWelcomeHeader());
+        assertTrue(pageActions.getWebDriver().getCurrentUrl().contains("/login"));
+    }
+
+    @And("The {string} expires using mock expiration")
+    public void theExpiresUsingMockExpiration(String token) {
+        pageActions.waitFor(2);
+        localeStorageUtil.mockTokenExpiration(token);
+    }
+
+    @Then("Refresh token generates a new access token and the user continues to login")
+    public void refreshTokenGeneratesANewAccessTokenAndTheUserContinuesToLogin() {
+        pageActions.waitUntilVisible(loginPOM.getUsername());
+        assertTrue(pageActions.getWebDriver().getCurrentUrl().contains("/dashboard"));
+    }
 }
