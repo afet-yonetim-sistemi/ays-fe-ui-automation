@@ -34,7 +34,6 @@
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <logback-classic.version>1.5.8</logback-classic.version>
         <commons-compress.version>1.27.1</commons-compress.version>
-        <pdfbox.version>3.0.3</pdfbox.version>
     </properties>
 
     <dependencies>
@@ -112,10 +111,6 @@
                 <exclusion>
                     <groupId>io.cucumber</groupId>
                     <artifactId>cucumber-java</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.apache.pdfbox</groupId>
-                    <artifactId>pdfbox</artifactId>
                 </exclusion>
             </exclusions>
             <scope>test</scope>

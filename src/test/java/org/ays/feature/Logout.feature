@@ -1,10 +1,9 @@
-@Regression @Smoke
 Feature: Testing Logout
 
   Background:
     Given Open the institution login page
-    When Enter the username and password
-    And Click the Login button
+    When Enter the email address and password
+    And Click on the Login button
 
   Scenario: Validating logout functionality
     When Click on the profile button
