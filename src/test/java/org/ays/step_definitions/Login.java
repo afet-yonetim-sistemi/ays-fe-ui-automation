@@ -34,7 +34,6 @@ public class Login {
     @Given("Open the institution login page")
     public void openTheInstitutionLoginPage() {
         pageActions.getWebDriver().get(AysConfigurationProperty.Ui.URL);
-        pageActions.getWebDriver().manage().window().maximize();
     }
 
     @When("Enter the email address and password")
