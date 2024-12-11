@@ -7,34 +7,222 @@ import io.cucumber.java.en.When;
 import org.ays.browser.AysPageActions;
 import org.ays.pages.LoginPOM;
 import org.ays.configuration.AysConfigurationProperty;
-import org.testng.Assert;
+import org.ays.utilities.AysLocalizationUtil;
+import org.ays.utilities.AysLocaleStorageUtil;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 
 public class Login {
 
-    private final LoginPOM loginPOM = new LoginPOM();
-    private final AysPageActions pageActions = new AysPageActions();
+    private final LoginPOM loginPOM;
+    private final AysPageActions pageActions;
+    private final AysLocaleStorageUtil localeStorageUtil;
+    private final AysLocalizationUtil localizationUtil;
+
+
+    public Login() {
+
+        this.loginPOM = new LoginPOM();
+        this.pageActions = new AysPageActions();
+        this.localeStorageUtil = new AysLocaleStorageUtil();
+        this.localizationUtil = new AysLocalizationUtil();
+
+    }
 
     @Given("Open the institution login page")
-    public void open_the_institution_login_page() {
-        this.pageActions.getWebDriver().get(AysConfigurationProperty.Ui.URL);
-        this.pageActions.getWebDriver().manage().window().maximize();
+    public void openTheInstitutionLoginPage() {
+        pageActions.getWebDriver().get(AysConfigurationProperty.Ui.URL);
     }
 
-    @When("Enter the username and password")
-    public void enter_the_username_and_password() {
-        this.pageActions.sendKeysMethod(loginPOM.getLoginUsername(), AysConfigurationProperty.TestVolunteerFoundation.Admin.EMAIL_ADDRESS);
-        this.pageActions.sendKeysMethod(loginPOM.getLoginPassword(), AysConfigurationProperty.TestVolunteerFoundation.Admin.PASSWORD);
+    @When("Enter the email address and password")
+    public void enterTheEmailAddressAndPassword() {
+        pageActions.sendKeysMethod(loginPOM.getLoginEmailAddress(), AysConfigurationProperty
+                .TestVolunteerFoundation.Admin.EMAIL_ADDRESS);
+        pageActions.sendKeysMethod(loginPOM.getLoginPassword(), AysConfigurationProperty
+                .TestVolunteerFoundation.Admin.PASSWORD);
     }
 
-    @And("Click the Login button")
-    public void click_the_Login_button() {
-        this.pageActions.clickMethod(loginPOM.getLoginButton());
+    @And("Click on the Login button")
+    public void clickOnTheLoginButton() {
+        pageActions.clickMethod(loginPOM.getLoginButton());
     }
 
-    @Then("The user should be able to successfully log in")
-    public void the_user_should_be_able_to_successfully_log_in() {
-        this.pageActions.waitUntilVisible(loginPOM.getAdminsHeader());
-        Assert.assertTrue(loginPOM.getAdminsHeader().isDisplayed());
+    @Then("The username should be displayed on the homepage after successful login")
+    public void theUsernameShouldBeDisplayedOnTheHomepageAfterSuccessfulLogin() {
+        pageActions.waitUntilVisible(loginPOM.getUsername());
+        assertTrue(pageActions.isPresent(loginPOM.getUsername()));
     }
 
+    @And("accessToken and refreshToken should be stored in localStorage")
+    public void accessTokenAndRefreshTokenShouldBeStoredInLocalStorage() {
+        pageActions.waitFor(2);
+        localeStorageUtil.assertTokensStoredInLocalStorage();
+    }
+
+    @When("Enter invalid {string} and {string}")
+    public void enterInvalidAnd(String emailAddress, String password) {
+        pageActions.sendKeysMethod(loginPOM.getLoginEmailAddress(), emailAddress);
+        pageActions.sendKeysMethod(loginPOM.getLoginPassword(), password);
+    }
+
+    @When("Sets the email address to {string} and enters {string}")
+    public void setsTheEmailAddressToAndEnters(String emailAddress, String password) {
+        pageActions.sendKeysMethod(loginPOM.getLoginEmailAddress(), emailAddress);
+        pageActions.sendKeysMethod(loginPOM.getLoginPassword(), password);
+    }
+
+    @Then("User should be able to see invalid email error message")
+    public void userShouldBeAbleToSeeInvalidEmailErrorMessage() {
+        localizationUtil.validateElementMessage("login.validation_error.email_address",
+                loginPOM.getEmailAddressErrorMessage().getText(),
+                true);
+    }
+
+    @Then("User should be able to see password errorMessage")
+    public void userShouldBeAbleToSeePasswordErrorMessage() {
+        localizationUtil.validateElementMessage("login.validation_error.password",
+                loginPOM.getPasswordErrorMessage().getText(),
+                true);
+    }
+
+    @When("Enter unauthorized {string} and {string}")
+    public void enterUnauthorizedAnd(String emailAddress, String password) {
+        pageActions.sendKeysMethod(loginPOM.getLoginEmailAddress(), emailAddress);
+        pageActions.sendKeysMethod(loginPOM.getLoginPassword(), password);
+    }
+
+    @Then("Error pop-up message should be displayed")
+    public void errorPopUpMessageShouldBeDisplayed() {
+        pageActions.waitUntilVisible(loginPOM.getPopupErrorMessage());
+        localizationUtil.validateElementMessage("login.popup_error_message",
+                loginPOM.getPopupErrorMessage().getText(),
+                true);
+    }
+
+    @Then("User should be able to see errorMessage under email and password input box")
+    public void userShouldBeAbleToSeeErrorMessageUnderEmailAndPasswordInputBox() {
+        assertTrue(pageActions.isPresent(loginPOM.getEmailAddressErrorMessage()));
+        assertTrue(pageActions.isPresent(loginPOM.getPasswordErrorMessage()));
+    }
+
+    @When("Enter hiding password")
+    public void enterHidingPassword() {
+        pageActions.sendKeysMethod(loginPOM.getLoginPassword(), "passwordCheck");
+    }
+
+    @And("Click on the eye icon")
+    public void clickOnTheEyeIcon() {
+        pageActions.clickMethod(loginPOM.getHiddenPasswordIcon());
+    }
+
+    @Then("The password should be displayed without being hidden")
+    public void thePasswordShouldBeDisplayedWithoutBeingHidden() {
+        assertEquals(loginPOM.getLoginPassword().getAttribute("type"), "text");
+    }
+
+    @Then("The password should be displayed hidden")
+    public void thePasswordShouldBeDisplayedHidden() {
+        assertEquals(loginPOM.getLoginPassword().getAttribute("type"), "password");
+    }
+
+    @When("Click on the theme icon")
+    public void clickOnTheThemeIcon() {
+        pageActions.moveToElement(loginPOM.getThemeIcon());
+        pageActions.clickElementWithJavaScript(loginPOM.getThemeIcon());
+    }
+
+    @Then("User should be able to see dark theme")
+    public void userShouldBeAbleToSeeDarkTheme() {
+        pageActions.waitUntilVisible(loginPOM.getDarkTheme());
+        assertTrue(pageActions.isPresent(loginPOM.getDarkTheme()));
+    }
+
+    @Then("User should be able to see light theme")
+    public void userShouldBeAbleToSeeLightTheme() {
+        pageActions.waitUntilVisible(loginPOM.getLightTheme());
+        assertTrue(pageActions.isPresent(loginPOM.getLightTheme()));
+    }
+
+    @When("Enter valid emailAddress and invalid password")
+    public void enterValidEmailAddressAndInvalidPassword() {
+        pageActions.sendKeysMethod(loginPOM.getLoginEmailAddress(), AysConfigurationProperty
+                .TestVolunteerFoundation.Admin.EMAIL_ADDRESS);
+        pageActions.sendKeysMethod(loginPOM.getLoginPassword(), "password");
+    }
+
+    @When("Enter invalid emailAddress and valid password")
+    public void enterInvalidEmailAddressAndValidPassword() {
+        pageActions.sendKeysMethod(loginPOM.getLoginEmailAddress(), "invalid@email.us");
+        pageActions.sendKeysMethod(loginPOM.getLoginPassword(), AysConfigurationProperty
+                .TestVolunteerFoundation.Admin.PASSWORD);
+    }
+
+    @When("Click on the language button")
+    public void clickOnTheLanguageButton() {
+        pageActions.moveToElement(loginPOM.getLanguageButton());
+        pageActions.clickMethod(loginPOM.getLanguageButton());
+    }
+
+    @And("Select the Turkish option")
+    public void selectTheTurkishOption() {
+        pageActions.clickMethod(loginPOM.getTurkishOption());
+    }
+
+    @Then("User should be able to see the Turkish page")
+    public void userShouldBeAbleToSeeTheTurkishPage() {
+        localizationUtil.validateElementMessage("login.header.welcome",
+                loginPOM.getWelcomeHeader().getText(),
+                false);
+    }
+
+    @And("Select the English option")
+    public void selectTheEnglishOption() {
+        pageActions.clickMethod(loginPOM.getEnglishOption());
+    }
+
+    @Then("User should be able to see the English page")
+    public void userShouldBeAbleToSeeTheEnglishPage() {
+        localizationUtil.validateElementMessage("login.header.welcome",
+                loginPOM.getWelcomeHeader().getText(),
+                false);
+    }
+
+    @And("The user navigates to the login URL in a new tab")
+    public void theUserNavigatesToTheLoginURLInANewTab() {
+        pageActions.openANewTab(AysConfigurationProperty.Ui.URL);
+        pageActions.switchToWindow();
+
+    }
+
+    @Then("The user should be able to see dashboard page")
+    public void theUserShouldBeAbleToSeeDashboardPage() {
+        pageActions.waitUntilVisible(loginPOM.getUsername());
+        assertTrue(pageActions.getWebDriver().getCurrentUrl().contains("/dashboard"));
+
+    }
+
+    @When("The user navigates to the dashboard page")
+    public void theUserNavigatesToTheDashboardPage() {
+        pageActions.getWebDriver().navigate().to(AysConfigurationProperty.Ui.URL + "/dashboard");
+    }
+
+    @Then("The user should see the login page")
+    public void theUserShouldSeeTheLoginPage() {
+        pageActions.waitUntilVisible(loginPOM.getWelcomeHeader());
+        assertTrue(pageActions.getWebDriver().getCurrentUrl().contains("/login"));
+    }
+
+    @And("The {string} expires using mock expiration")
+    public void theExpiresUsingMockExpiration(String token) {
+        pageActions.waitFor(2);
+        localeStorageUtil.mockTokenExpiration(token);
+    }
+
+    @Then("Refresh token generates a new access token and the user continues to login")
+    public void refreshTokenGeneratesANewAccessTokenAndTheUserContinuesToLogin() {
+        pageActions.waitUntilVisible(loginPOM.getUsername());
+        assertTrue(pageActions.getWebDriver().getCurrentUrl().contains("/dashboard"));
+    }
 }

@@ -4,7 +4,7 @@
     <test name="Regression Test">
         <parameter name="browser" value="chrome"/>
         <classes>
-
+            <class name="org.ays.runners.RunnerForRegressionTest"/>
         </classes>
     </test>
 </suite>
