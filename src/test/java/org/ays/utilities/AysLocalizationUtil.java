@@ -1,7 +1,10 @@
 package org.ays.utilities;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
+
+import static org.testng.Assert.assertEquals;
 
 public class AysLocalizationUtil {
 
@@ -15,8 +18,7 @@ public class AysLocalizationUtil {
      * <h3>Testing Guidelines:
      * <li>To check messages by language in tests, just call the validateMessage method.
      * <li>Use the getText method to retrieve the expected validation message
-     * <li>Use the setLanguage method to determines the language of the "ays_ui_elements" file
-     * in your test cases.
+     * <li>Use the setLanguage method to changes the page language and determines the language of the "ays_ui_elements" file
      */
 
     private static ResourceBundle bundle;
@@ -38,10 +40,25 @@ public class AysLocalizationUtil {
         return bundle.getString(key);
     }
 
-    public String validateElementMessage(String key) {
+    public void validateElementMessage(String key, String actualText, boolean isLocalStorageBased) {
         String currentLanguage = AysLocaleStorageUtil.getLanguageFromLocalStorage();
-        setLanguage(currentLanguage);
-        return getText(key);
+
+        if (isLocalStorageBased) {
+            List<String> languages = List.of("tr", "en");
+
+            for (String language : languages) {
+                // TODO: Remove this if condition when the bug in AYS-505 is resolved
+                if (language.equals(currentLanguage)) {
+                    setLanguage(language);
+                    assertEquals(actualText, getText(key));
+                    break;
+                }
+            }
+
+        } else {
+            setLanguage(currentLanguage);
+            assertEquals(actualText, getText(key));
+        }
     }
 
 }

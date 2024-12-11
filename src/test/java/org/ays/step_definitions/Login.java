@@ -61,12 +61,6 @@ public class Login {
         localeStorageUtil.assertTokensStoredInLocalStorage();
     }
 
-    @When("Sets the page language")
-    public void setsThePageLanguage() {
-        pageActions.waitFor(2);
-        localeStorageUtil.toggleLanguageInLocalStorage("en");
-    }
-
     @When("Enter invalid {string} and {string}")
     public void enterInvalidAnd(String emailAddress, String password) {
         pageActions.sendKeysMethod(loginPOM.getLoginEmailAddress(), emailAddress);
@@ -81,14 +75,16 @@ public class Login {
 
     @Then("User should be able to see invalid email error message")
     public void userShouldBeAbleToSeeInvalidEmailErrorMessage() {
-        assertEquals(loginPOM.getEmailAddressErrorMessage().getText(),
-                localizationUtil.validateElementMessage("login.validation_error.email_address"));
+        localizationUtil.validateElementMessage("login.validation_error.email_address",
+                loginPOM.getEmailAddressErrorMessage().getText(),
+                true);
     }
 
     @Then("User should be able to see password errorMessage")
     public void userShouldBeAbleToSeePasswordErrorMessage() {
-        assertEquals(loginPOM.getPasswordErrorMessage().getText(),
-                localizationUtil.validateElementMessage("login.validation_error.password"));
+        localizationUtil.validateElementMessage("login.validation_error.password",
+                loginPOM.getPasswordErrorMessage().getText(),
+                true);
     }
 
     @When("Enter unauthorized {string} and {string}")
@@ -100,7 +96,9 @@ public class Login {
     @Then("Error pop-up message should be displayed")
     public void errorPopUpMessageShouldBeDisplayed() {
         pageActions.waitUntilVisible(loginPOM.getPopupErrorMessage());
-        assertTrue(pageActions.isPresent(loginPOM.getPopupErrorMessage()));
+        localizationUtil.validateElementMessage("login.popup_error_message",
+                loginPOM.getPopupErrorMessage().getText(),
+                true);
     }
 
     @Then("User should be able to see errorMessage under email and password input box")
@@ -174,8 +172,9 @@ public class Login {
 
     @Then("User should be able to see the Turkish page")
     public void userShouldBeAbleToSeeTheTurkishPage() {
-        assertEquals(loginPOM.getWelcomeHeader().getText(),
-                localizationUtil.validateElementMessage("login.header.welcome"));
+        localizationUtil.validateElementMessage("login.header.welcome",
+                loginPOM.getWelcomeHeader().getText(),
+                false);
     }
 
     @And("Select the English option")
@@ -185,8 +184,9 @@ public class Login {
 
     @Then("User should be able to see the English page")
     public void userShouldBeAbleToSeeTheEnglishPage() {
-        assertEquals(loginPOM.getWelcomeHeader().getText(),
-                localizationUtil.validateElementMessage("login.header.welcome"));
+        localizationUtil.validateElementMessage("login.header.welcome",
+                loginPOM.getWelcomeHeader().getText(),
+                false);
     }
 
     @And("The user navigates to the login URL in a new tab")

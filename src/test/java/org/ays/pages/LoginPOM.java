@@ -31,7 +31,7 @@ public class LoginPOM {
     @FindBy(id = ":r2:-form-item-message")
     private WebElement passwordErrorMessage;
 
-    @FindBy(xpath = "//div[contains(@class, 'gap-1')]")
+    @FindBy(xpath = "//div[contains(@class,'text-sm opacity-90')]")
     private WebElement popupErrorMessage;
 
     @FindBy(xpath = "//div[@class= 'relative']/button")

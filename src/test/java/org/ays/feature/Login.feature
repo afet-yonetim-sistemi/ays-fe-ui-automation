@@ -20,7 +20,6 @@ Feature: Login Functionality
       | unauthorized@email.us | password |
 
   Scenario Outline: Login with invalid emailAddress
-    When Sets the page language
     When Enter invalid "<emailAddress>" and "<password>"
     And Click on the Login button
     Then User should be able to see invalid email error message
@@ -35,13 +34,11 @@ Feature: Login Functionality
       | userays.org   | password |
 
   Scenario: Login with a blank email address
-    When Sets the page language
     When Sets the email address to "   " and enters "password"
     And Click on the Login button
     Then User should be able to see invalid email error message
 
   Scenario Outline: Login with invalid password
-    When Sets the page language
     When Enter invalid "<emailAddress>" and "<password>"
     And Click on the Login button
     Then User should be able to see password errorMessage
@@ -50,19 +47,16 @@ Feature: Login Functionality
       | user@email.us | pass     |
 
   Scenario: Login with valid email address invalid password
-    When Sets the page language
     When Enter valid emailAddress and invalid password
     And Click on the Login button
     Then Error pop-up message should be displayed
 
   Scenario: Login with invalid email address valid password
-    When Sets the page language
     When Enter invalid emailAddress and valid password
     And Click on the Login button
     Then Error pop-up message should be displayed
 
   Scenario: Login with blank email address and password
-    When Sets the page language
     And Click on the Login button
     Then User should be able to see errorMessage under email and password input box
 

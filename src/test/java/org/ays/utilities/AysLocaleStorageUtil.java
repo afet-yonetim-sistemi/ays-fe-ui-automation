@@ -89,9 +89,9 @@ public class AysLocaleStorageUtil {
                     "}");
 
             pageActions.getWebDriver().navigate().refresh();
-        } catch (Exception e) {
-            System.err.println("An error occurred while mocking token expiration: " + e.getMessage());
-            e.printStackTrace();
+        } catch (Exception exception) {
+            fail("An error occurred while mocking token expiration: " + exception.getMessage());
+            exception.printStackTrace();
         }
     }
 
