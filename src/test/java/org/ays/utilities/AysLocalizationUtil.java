@@ -42,6 +42,7 @@ public class AysLocalizationUtil {
         if (isLocalStorageBased) {
             setLanguage(currentLanguage);
             assertEquals(actualText, getText(key));
+            return;
         }
 
         List<AysLanguage> languages = AysLanguage.getLanguages();
