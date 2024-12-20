@@ -1,8 +1,10 @@
 package org.ays.utilities;
 
 import org.ays.browser.AysPageActions;
+import org.ays.enums.AysLanguage;
 import org.openqa.selenium.JavascriptExecutor;
 
+import static org.ays.enums.AysLanguage.EN;
 import static org.testng.Assert.assertTrue;
 import static org.testng.Assert.fail;
 
@@ -49,27 +51,21 @@ public class AysLocaleStorageUtil {
 
     }
 
-    public static String getLanguageFromLocalStorage() {
+    public static AysLanguage getLanguageFromLocalStorage() {
         try {
             JavascriptExecutor javascriptExecutor = (JavascriptExecutor) pageActions.getWebDriver();
-            Object language = javascriptExecutor.executeScript("return localStorage.getItem('language');");
+            AysLanguage language = AysLanguage.valueOfCode(
+                    javascriptExecutor.executeScript("return localStorage.getItem('language');")
+            );
 
             pageActions.waitFor(2);
 
-            if (language == null) {
-                return "en";
-            }
-
-            String languageCode = language.toString().toLowerCase();
-            if ("tr".equals(languageCode) || "en".equals(languageCode)) {
-                return languageCode;
-            }
-
+            return language;
         } catch (Exception exception) {
             fail("An error occurred while retrieving the language from localStorage: " + exception.getMessage());
             exception.printStackTrace();
         }
-        return "en";
+        return EN;
     }
 
     public void mockTokenExpiration(String token) {

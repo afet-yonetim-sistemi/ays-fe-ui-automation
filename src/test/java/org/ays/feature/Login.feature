@@ -24,14 +24,15 @@ Feature: Login Functionality
     And Click on the Login button
     Then User should be able to see invalid email error message
     Examples:
-      | emailAddress  | password |
-      | user          | password |
-      | 123           | password |
-      | .....         | password |
-      | !'^+%&/*#     | password |
-      | !user@ays.org | password |
-      | user@aysorg   | password |
-      | userays.org   | password |
+      | emailAddress | password |
+      | user         | password |
+      | 123          | password |
+      | .....        | password |
+      | !'^+%&/*#    | password |
+      | user@ays.o   | password |
+      | user@aysorg  | password |
+      | userays.org  | password |
+      | @user.org    | password |
 
   Scenario: Login with a blank email address
     When Sets the email address to "   " and enters "password"
@@ -78,11 +79,11 @@ Feature: Login Functionality
   @Smoke
   Scenario: Language selection checking
     When Click on the language button
-    And Select the Turkish option
-    Then User should be able to see the Turkish page
+    And Select the "Turkish" option
+    Then The user should be able to see all texts compatible with the Turkish language
     And Click on the language button
-    And Select the English option
-    Then User should be able to see the English page
+    And Select the "İngilizce" option
+    Then The user should be able to see all texts compatible with the English language
 
   Scenario: Logged-in user visits login URL
 

@@ -1,17 +1,12 @@
 package org.ays.pages;
 
 import lombok.Getter;
-import org.ays.browser.AysBrowser;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 @Getter
-public class LoginPOM {
+public class LoginPage extends BasePage {
 
-    public LoginPOM() {
-        PageFactory.initElements(AysBrowser.getWebDriver(), this);
-    }
 
     @FindBy(name = "emailAddress")
     private WebElement loginEmailAddress;
@@ -49,14 +44,11 @@ public class LoginPOM {
     @FindBy(css = "button[role='combobox']")
     private WebElement languageButton;
 
-    @FindBy(xpath = "//span[text()='Turkish']")
-    private WebElement turkishOption;
-
-    @FindBy(xpath = "//span[text()='İngilizce']")
-    private WebElement englishOption;
-
     @FindBy(xpath = "//h3")
     private WebElement welcomeHeader;
+
+    @FindBy(xpath = "//div[@class='container']")
+    private WebElement allLoginText;
 
 
 }
