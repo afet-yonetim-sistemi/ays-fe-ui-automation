@@ -2,6 +2,9 @@ package org.ays.runners;
 
 import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(tags = "@Smoke")
+@CucumberOptions(
+        plugin = {"pretty"},
+        tags = "@Smoke", publish = true
+)
 public class RunnerForSmokeTest extends AysAbstractTestNGCucumberTests {
 }

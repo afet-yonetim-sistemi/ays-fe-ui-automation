@@ -11,7 +11,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Slf4j
 public class AysPageActions {
@@ -58,7 +60,7 @@ public class AysPageActions {
     }
 
     public boolean isPresent(WebElement element) {
-        this.waitUntilClickable(element);
+        this.waitUntilVisible(element);
         return element.isDisplayed();
     }
 
@@ -88,6 +90,17 @@ public class AysPageActions {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public void openANewTab(String url) {
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) webDriver;
+        javascriptExecutor.executeScript("window.open(arguments[0], '_blank');", url);
+    }
+
+    public void switchToWindow() {
+        Set<String> windowHandles = webDriver.getWindowHandles();
+        List<String> tabs = new ArrayList<>(windowHandles);
+        webDriver.switchTo().window(tabs.get(1));
     }
 
 }
