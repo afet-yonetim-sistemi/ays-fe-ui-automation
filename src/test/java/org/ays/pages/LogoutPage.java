@@ -1,17 +1,11 @@
 package org.ays.pages;
 
 import lombok.Getter;
-import org.ays.browser.AysBrowser;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 @Getter
-public class LogoutPOM {
-
-    public LogoutPOM() {
-        PageFactory.initElements(AysBrowser.getWebDriver(), this);
-    }
+public class LogoutPage extends BasePage {
 
     @FindBy(xpath = "//span[@class='ant-menu-title-content'][1]")
     private WebElement adminsButton;

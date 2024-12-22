@@ -60,7 +60,7 @@ public class AysBrowser {
             }
             default -> throw new IllegalArgumentException("Unimplemented browser type: " + browserType);
         }
-
+        webDriver.manage().window().maximize();
         log.debug("Browser has been started.");
     }
 
