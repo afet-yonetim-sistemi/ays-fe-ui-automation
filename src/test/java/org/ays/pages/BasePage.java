@@ -14,7 +14,7 @@ public class BasePage {
         PageFactory.initElements(AysBrowser.getWebDriver(), this);
     }
 
-    public void language(String language) {
+    public void selectLanguage(String language) {
         String locator = "//span[text()='" + language + "']";
         WebElement element = AysBrowser.getWebDriver().findElement(By.xpath(locator));
         actions.clickMethod(element);

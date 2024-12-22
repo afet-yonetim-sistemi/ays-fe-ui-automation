@@ -53,7 +53,7 @@ public class Common {
     @And("Select the {string} option")
     public void selectTheOption(String language) {
         pageActions.waitFor(1);
-        basePage.language(language);
+        basePage.selectLanguage(language);
         pageActions.getWebDriver().navigate().refresh();
     }
 
