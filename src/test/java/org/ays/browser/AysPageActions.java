@@ -40,10 +40,6 @@ public class AysPageActions {
         webDriverWait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void waitUntilVisible(List<WebElement> element) {
-        webDriverWait.until(ExpectedConditions.visibilityOfAllElements(element));
-    }
-
     public void waitUntilClickable(WebElement element) {
         webDriverWait.until(ExpectedConditions.elementToBeClickable(element));
     }
@@ -101,6 +97,15 @@ public class AysPageActions {
         Set<String> windowHandles = webDriver.getWindowHandles();
         List<String> tabs = new ArrayList<>(windowHandles);
         webDriver.switchTo().window(tabs.get(1));
+    }
+    public void switchToTabByIndex(int index) {
+        Set<String> windowHandles = webDriver.getWindowHandles();
+        List<String> tabs = new ArrayList<>(windowHandles);
+        if (index < 0 || index >= tabs.size()) {
+            log.error("Invalid tab index: " + index);
+            throw new IllegalArgumentException("Invalid tab index");
+        }
+        webDriver.switchTo().window(tabs.get(index));
     }
 
 }

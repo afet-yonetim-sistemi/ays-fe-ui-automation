@@ -36,6 +36,39 @@ public class AysLocaleStorageUtil {
 
     }
 
+    public void assertTokensNotInLocalStorage() {
+        try {
+            JavascriptExecutor javascriptExecutor = (JavascriptExecutor) pageActions.getWebDriver();
+            String rootData = (String) javascriptExecutor.executeScript("return localStorage.getItem('persist:root');");
+
+            if (rootData == null) {
+                throw new Exception("rootData is null. 'persist:root' data not found in localStorage.");
+            }
+
+            assertTrue(rootData.contains("accessToken"), "'accessToken' key is not present in localStorage.");
+            assertTrue(rootData.contains("refreshToken"), "'refreshToken' key is not present in localStorage.");
+
+            String accessToken = (String) javascriptExecutor.executeScript(
+                    "return JSON.parse(localStorage.getItem('persist:root')).auth.accessToken;"
+            );
+            String refreshToken = (String) javascriptExecutor.executeScript(
+                    "return JSON.parse(localStorage.getItem('persist:root')).auth.refreshToken;"
+            );
+
+            if (accessToken != null && !accessToken.isEmpty()) {
+                fail("'accessToken' should be null or empty, but found: " + accessToken);
+            }
+
+            if (refreshToken != null && !refreshToken.isEmpty()) {
+                fail("'refreshToken' should be null or empty, but found: " + refreshToken);
+            }
+
+        } catch (Exception exception) {
+            fail("An error occurred while checking token removal in localStorage: " + exception.getMessage());
+            exception.printStackTrace();
+        }
+    }
+
     public void toggleLanguageInLocalStorage(String language) {
         try {
             JavascriptExecutor javascriptExecutor = (JavascriptExecutor) pageActions.getWebDriver();

@@ -10,10 +10,10 @@ public class LogoutPage extends BasePage {
     @FindBy(xpath = "//span[@class='ant-menu-title-content'][1]")
     private WebElement adminsButton;
 
-    @FindBy(xpath = "//span[@aria-label='user']")
+    @FindBy(css = "span.relative.flex")
     private WebElement profileButton;
 
-    @FindBy(xpath = "//span[@class='ant-dropdown-menu-title-content']")
+    @FindBy(css = "div.relative")
     private WebElement logoutButton;
 
     @FindBy(xpath = "//button[@type= 'submit']")
