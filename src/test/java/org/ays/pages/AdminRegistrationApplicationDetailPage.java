@@ -12,4 +12,7 @@ public class AdminRegistrationApplicationDetailPage extends BasePage{
 
     @FindBy(css = "input[name='reason']")
     private WebElement reasonValue;
+
+    @FindBy(css = "input[name='status']")
+    private WebElement status;
 }

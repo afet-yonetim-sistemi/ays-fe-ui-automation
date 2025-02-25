@@ -8,6 +8,17 @@ import java.util.List;
 
 @Getter
 public class AdminRegistrationPreApplicationPage extends BasePage {
+    @FindBy(css ="h1.text-2xl.font-medium.mb-5")
+    private WebElement preApplicationPageHeader;
+
+    @FindBy(css = "div.space-y-2.col-span-1 label.text-sm.font-medium.leading-none")
+    private WebElement institutionText;
+
+    @FindBy(css = "div.space-y-2.col-span-2 label.text-sm.font-medium.leading-none")
+    private WebElement creationReasonText;
+
+    @FindBy(css = "div.space-y-2.col-span-1 button")
+    private WebElement selectInstitutionText;
 
     @FindBy(xpath = "//button[.//span[text()='Select Institution']]")
     private WebElement selectInstitution;
@@ -18,7 +29,7 @@ public class AdminRegistrationPreApplicationPage extends BasePage {
     @FindBy(xpath = "//textarea[@name='reason']")
     private WebElement reason;
 
-    @FindBy(xpath = "//button[text()='Create']")
+    @FindBy(xpath = "//button[@type='submit']")
     private WebElement create;
 
     @FindBy(css = "li[role='status'].success.group")

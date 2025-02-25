@@ -41,7 +41,7 @@ public class LoginPage extends BasePage {
     @FindBy(css = "html.dark")
     private WebElement darkTheme;
 
-    @FindBy(css = "button[role='combobox']")
+    @FindBy(css = "div.flex.gap-2 button")
     private WebElement languageButton;
 
     @FindBy(xpath = "//h3")

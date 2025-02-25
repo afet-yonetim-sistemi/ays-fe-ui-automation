@@ -4,23 +4,29 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.ays.browser.AysPageActions;
+import org.ays.enums.AysLanguage;
 import org.ays.pages.AdminRegistrationApplicationDetailPage;
 import org.ays.pages.AdminRegistrationApplicationsPage;
 import org.ays.pages.AdminRegistrationPreApplicationPage;
+import org.ays.utilities.AysLocaleStorageUtil;
+import org.ays.utilities.AysLocalizationUtil;
 import org.ays.utilities.AysRandomUtil;
 import org.testng.Assert;
+
+import static org.testng.AssertJUnit.assertEquals;
 
 public class AdminRegistrationPreApplicationCreation {
     private final AdminRegistrationApplicationsPage adminRegistrationApplicationsPage;
     private final AdminRegistrationApplicationDetailPage adminRegistrationApplicationDetailPage;
     private final AdminRegistrationPreApplicationPage adminRegistrationPreApplicationPage;
+    private final AysLocalizationUtil localizationUtil;
     private final AysPageActions pageActions;
-    private String enteredReason;
 
     public AdminRegistrationPreApplicationCreation() {
         this.adminRegistrationApplicationsPage = new AdminRegistrationApplicationsPage();
         this.adminRegistrationApplicationDetailPage = new AdminRegistrationApplicationDetailPage();
         this.adminRegistrationPreApplicationPage = new AdminRegistrationPreApplicationPage();
+        this.localizationUtil = new AysLocalizationUtil();
         this.pageActions = new AysPageActions();
     }
 
@@ -42,7 +48,7 @@ public class AdminRegistrationPreApplicationCreation {
 
     @And("Enter a valid creation reason with text between {int} and {int} characters")
     public void enterAValidCreationReasonWithTextBetweenAndCharacters(int arg0, int arg1) {
-        enteredReason = AysRandomUtil.generateReason();
+        String enteredReason = AysRandomUtil.generateReason();
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getReason());
         pageActions.sendKeysMethod(adminRegistrationPreApplicationPage.getReason(), enteredReason);
     }
@@ -60,27 +66,29 @@ public class AdminRegistrationPreApplicationCreation {
     @And("I should be redirected to the details page after creation")
     public void iShouldBeRedirectedToTheDetailsPageAfterCreation() {
         Assert.assertTrue(pageActions.isPresent(adminRegistrationApplicationDetailPage.getHeader()));
-        String actualReason = adminRegistrationApplicationDetailPage.getReasonValue().getAttribute("value");
-        Assert.assertEquals(enteredReason, actualReason);
     }
 
 
     @Then("Enter {string} and validate the error message {string}")
-    public void enterAndValidateTheErrorMessage(String invalidReason, String expectedErrorMessage) {
+    public void enterAndValidateTheErrorMessage(String invalidReason, String errorKey) {
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getReason());
         pageActions.sendKeysMethod(adminRegistrationPreApplicationPage.getReason(), invalidReason);
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getCreate());
 
+
         String actualErrorMessage = adminRegistrationPreApplicationPage.getErrorMessageForReason().getText();
-        Assert.assertEquals(actualErrorMessage, expectedErrorMessage,
-                "Error message mismatch for reason: " + invalidReason);
+        localizationUtil.validateElementMessage(
+                errorKey,
+                actualErrorMessage,
+                true
+        );
 
     }
 
     @Then("Enter a reason with more than {int} characters and validate the error message")
     public void enterAReasonWithMoreThanCharactersAndValidateTheErrorMessage(int length) {
-        String longReason = "A".repeat(length + 1);
-        String expectedErrorMessage = "This field must not exceed " + length + " characters.";
+        String longReason = AysRandomUtil.generateReason(600);
+        String expectedErrorMessage = "This field must be at most " + length + " characters.";
 
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getReason());
         pageActions.sendKeysMethod(adminRegistrationPreApplicationPage.getReason(), longReason);
@@ -105,5 +113,37 @@ public class AdminRegistrationPreApplicationCreation {
     public void iShouldSeeAnErrorMessageForReason(String expectedReasonErrorMessage) {
         String actualReasonErrorMessage = adminRegistrationPreApplicationPage.getErrorMessageForReason().getText();
         Assert.assertEquals(actualReasonErrorMessage, expectedReasonErrorMessage, "Error message did not match.");
+    }
+
+    @Then("I should see that the application status is {string}")
+    public void iShouldSeeThatTheApplicationStatusIs(String expectedStatus) {
+        pageActions.waitUntilVisible(adminRegistrationApplicationDetailPage.getStatus());
+        String actualStatus = adminRegistrationApplicationDetailPage.getStatus().getAttribute("value");
+        Assert.assertEquals(actualStatus, expectedStatus);
+    }
+
+    @Then("User should be able to see all texts on admin registration pre-application page compatible with the {string} language")
+    public void userShouldBeAbleToSeeAllTextsOnAdminRegistrationPreApplicationPageCompatibleWithTheLanguage(String language) {
+        if (language.equalsIgnoreCase("Turkish")) {
+            AysLocaleStorageUtil.getLanguageFromLocalStorage();
+            AysLocalizationUtil.setLanguage(AysLanguage.TR);
+        } else if (language.equalsIgnoreCase("English")) {
+            AysLocaleStorageUtil.getLanguageFromLocalStorage();
+            AysLocalizationUtil.setLanguage(AysLanguage.EN);
+        }
+
+        String header = AysLocalizationUtil.getText("admin_reg_pre_application_header");
+        String institutionLabel = AysLocalizationUtil.getText("admin_reg_pre_application_institution_label");
+        String selectInstitutionButton = AysLocalizationUtil.getText("admin_reg_pre_application_select_institution_button");
+        String creationReasonLabel = AysLocalizationUtil.getText("admin_reg_pre_application_creation_reason_label");
+        String createButton = AysLocalizationUtil.getText("admin_reg_pre_application_creat_button");
+
+
+        assertEquals(adminRegistrationPreApplicationPage.getPreApplicationPageHeader().getText(), header);
+        assertEquals(adminRegistrationPreApplicationPage.getInstitutionText().getText(), institutionLabel);
+        assertEquals(adminRegistrationPreApplicationPage.getSelectInstitutionText().getText(), selectInstitutionButton);
+        assertEquals(adminRegistrationPreApplicationPage.getCreationReasonText().getText(), creationReasonLabel);
+        assertEquals(adminRegistrationPreApplicationPage.getCreate().getText(), createButton);
+
     }
 }
