@@ -13,9 +13,11 @@ import org.ays.utilities.AysLocalizationUtil;
 import org.ays.utilities.AysRandomUtil;
 import org.testng.Assert;
 
+import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class AdminRegistrationPreApplicationCreation {
+
     private final AdminRegistrationApplicationsPage adminRegistrationApplicationsPage;
     private final AdminRegistrationApplicationDetailPage adminRegistrationApplicationDetailPage;
     private final AdminRegistrationPreApplicationPage adminRegistrationPreApplicationPage;
@@ -32,12 +34,12 @@ public class AdminRegistrationPreApplicationCreation {
 
     @And("Click on the Admin Registration Applications button from left  navigation bar")
     public void clickOnTheAdminRegistrationApplicationsButtonFromLeftNavigationBar() {
-        pageActions.clickMethod(adminRegistrationApplicationsPage.getAdminRegistrationApplications());
+        pageActions.clickMethod(adminRegistrationApplicationsPage.getAdminRegistrationApplicationsMenu());
     }
 
     @And("Click on the Create Pre-Application button")
     public void clickOnTheCreatePreApplicationButton() {
-        pageActions.clickMethod(adminRegistrationApplicationsPage.getCreatePreApplication());
+        pageActions.clickMethod(adminRegistrationApplicationsPage.getCreatePreApplicationButton());
     }
 
     @When("Select an institution from the dropdown menu")
@@ -47,7 +49,7 @@ public class AdminRegistrationPreApplicationCreation {
     }
 
     @And("Enter a valid creation reason with text between {int} and {int} characters")
-    public void enterAValidCreationReasonWithTextBetweenAndCharacters(int arg0, int arg1) {
+    public void enterAValidCreationReasonWithTextBetweenAndCharacters() {
         String enteredReason = AysRandomUtil.generateReason();
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getReason());
         pageActions.sendKeysMethod(adminRegistrationPreApplicationPage.getReason(), enteredReason);
@@ -55,17 +57,17 @@ public class AdminRegistrationPreApplicationCreation {
 
     @And("Click the create button for pre-application form")
     public void clickTheCreateButtonForPreApplicationForm() {
-        pageActions.clickMethod(adminRegistrationPreApplicationPage.getCreate());
+        pageActions.clickMethod(adminRegistrationPreApplicationPage.getCreateButton());
     }
 
-    @Then("I should see a success message confirming the pre-application creation")
-    public void iShouldSeeASuccessMessageConfirmingThePreApplicationCreation() {
-        Assert.assertTrue(pageActions.isPresent(adminRegistrationPreApplicationPage.getSuccessMessage()));
+    @Then("User should see a success message confirming the pre-application creation")
+    public void userShouldSeeASuccessMessageConfirmingThePreApplicationCreation() {
+        assertTrue(pageActions.isPresent(adminRegistrationPreApplicationPage.getSuccessMessage()));
     }
 
-    @And("I should be redirected to the details page after creation")
-    public void iShouldBeRedirectedToTheDetailsPageAfterCreation() {
-        Assert.assertTrue(pageActions.isPresent(adminRegistrationApplicationDetailPage.getHeader()));
+    @And("User should be redirected to the details page after creation")
+    public void userShouldBeRedirectedToTheDetailsPageAfterCreation() {
+        assertTrue(pageActions.isPresent(adminRegistrationApplicationDetailPage.getHeader()));
     }
 
 
@@ -73,7 +75,7 @@ public class AdminRegistrationPreApplicationCreation {
     public void enterAndValidateTheErrorMessage(String invalidReason, String errorKey) {
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getReason());
         pageActions.sendKeysMethod(adminRegistrationPreApplicationPage.getReason(), invalidReason);
-        pageActions.clickMethod(adminRegistrationPreApplicationPage.getCreate());
+        pageActions.clickMethod(adminRegistrationPreApplicationPage.getCreateButton());
 
 
         String actualErrorMessage = adminRegistrationPreApplicationPage.getErrorMessageForReason().getText();
@@ -82,7 +84,6 @@ public class AdminRegistrationPreApplicationCreation {
                 actualErrorMessage,
                 true
         );
-
     }
 
     @Then("Enter a reason with more than {int} characters and validate the error message")
@@ -92,21 +93,23 @@ public class AdminRegistrationPreApplicationCreation {
 
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getReason());
         pageActions.sendKeysMethod(adminRegistrationPreApplicationPage.getReason(), longReason);
-        pageActions.clickMethod(adminRegistrationPreApplicationPage.getCreate());
+        pageActions.clickMethod(adminRegistrationPreApplicationPage.getCreateButton());
 
         String actualErrorMessage = adminRegistrationPreApplicationPage.getErrorMessageForReason().getText();
 
-        Assert.assertEquals(actualErrorMessage, expectedErrorMessage,
+        assertEquals(actualErrorMessage, expectedErrorMessage,
                 "The error message did not match the expected message for reason length: " + longReason.length());
     }
 
 
-    @Then("I should see an error message for institution as {string}")
-    public void iShouldSeeAnErrorMessageForInstitutionAs(String expectedInstitutionErrorMessage) {
+    @Then("User should see an error message for institution as {string}")
+    public void userShouldSeeAnErrorMessageForInstitutionAs(String expectedInstitutionErrorMessage) {
         String actualInstitutionErrorMessage = adminRegistrationPreApplicationPage.getErrorMessageForInstitution().getText();
-        Assert.assertEquals(actualInstitutionErrorMessage, expectedInstitutionErrorMessage,
-                "Error message did not match.");
-
+        Assert.assertEquals(
+                actualInstitutionErrorMessage,
+                expectedInstitutionErrorMessage,
+                "Error message did not match."
+        );
     }
 
     @Then("I should see an error message for reason {string}")
@@ -115,8 +118,8 @@ public class AdminRegistrationPreApplicationCreation {
         Assert.assertEquals(actualReasonErrorMessage, expectedReasonErrorMessage, "Error message did not match.");
     }
 
-    @Then("I should see that the application status is {string}")
-    public void iShouldSeeThatTheApplicationStatusIs(String expectedStatus) {
+    @Then("User should see that the application status is {string}")
+    public void userShouldSeeThatTheApplicationStatusIs(String expectedStatus) {
         pageActions.waitUntilVisible(adminRegistrationApplicationDetailPage.getStatus());
         String actualStatus = adminRegistrationApplicationDetailPage.getStatus().getAttribute("value");
         Assert.assertEquals(actualStatus, expectedStatus);
@@ -143,7 +146,8 @@ public class AdminRegistrationPreApplicationCreation {
         assertEquals(adminRegistrationPreApplicationPage.getInstitutionText().getText(), institutionLabel);
         assertEquals(adminRegistrationPreApplicationPage.getSelectInstitutionText().getText(), selectInstitutionButton);
         assertEquals(adminRegistrationPreApplicationPage.getCreationReasonText().getText(), creationReasonLabel);
-        assertEquals(adminRegistrationPreApplicationPage.getCreate().getText(), createButton);
+        assertEquals(adminRegistrationPreApplicationPage.getCreateButton().getText(), createButton);
 
     }
+
 }

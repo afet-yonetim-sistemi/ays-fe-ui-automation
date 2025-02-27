@@ -36,5 +36,4 @@ public class AysRandomUtil {
         return FAKER.lorem().characters(length, true, true);
     }
 
-
 }

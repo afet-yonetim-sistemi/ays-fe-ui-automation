@@ -182,9 +182,14 @@ public class Login {
 
     @When("Enter super admin email address and password")
     public void enterSuperAdminEmailAddressAndPassword() {
-        pageActions.sendKeysMethod(loginPage.getLoginEmailAddress(), AysConfigurationProperty
-                .TestVolunteerFoundation.SuperAdmin.EMAIL_ADDRESS);
-        pageActions.sendKeysMethod(loginPage.getLoginPassword(), AysConfigurationProperty
-                .TestVolunteerFoundation.SuperAdmin.PASSWORD);
+        pageActions.sendKeysMethod(
+                loginPage.getLoginEmailAddress(),
+                AysConfigurationProperty.TestVolunteerFoundation.SuperAdmin.EMAIL_ADDRESS)
+        ;
+        pageActions.sendKeysMethod(
+                loginPage.getLoginPassword(),
+                AysConfigurationProperty.TestVolunteerFoundation.SuperAdmin.PASSWORD
+        );
     }
+
 }

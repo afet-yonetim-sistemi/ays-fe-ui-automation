@@ -8,10 +8,9 @@ import org.openqa.selenium.support.FindBy;
 public class AdminRegistrationApplicationsPage extends BasePage {
 
     @FindBy(css = "a[href*=\"admin-registration-applications\"]")
-    private WebElement adminRegistrationApplications;
+    private WebElement adminRegistrationApplicationsMenu;
 
     @FindBy(xpath = "//button[contains(text(), 'Create Pre-Application')]")
-    private WebElement createPreApplication;
-
+    private WebElement createPreApplicationButton;
 
 }

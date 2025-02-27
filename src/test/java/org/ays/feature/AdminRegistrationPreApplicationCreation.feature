@@ -26,8 +26,8 @@ Feature: Testing Admin Registration Pre Application Creation
     When Select an institution from the dropdown menu
     And Enter a valid creation reason with text between 40 and 512 characters
     And Click the create button for pre-application form
-    Then I should see a success message confirming the pre-application creation
-    And I should be redirected to the details page after creation
+    Then User should see a success message confirming the pre-application creation
+    And User should be redirected to the details page after creation
 
   @Regression
   Scenario Outline: Admin registration pre-application creation with invalid reasons
@@ -50,7 +50,7 @@ Feature: Testing Admin Registration Pre Application Creation
   Scenario: Attempt to create an admin registration pre-application without selecting an institution
     And Enter a valid creation reason with text between 40 and 512 characters
     When Click the create button for pre-application form
-    Then I should see an error message for institution as "Institution is required."
+    Then User should see an error message for institution as "Institution is required."
 
   Scenario: Attempt to create an admin registration pre-application without providing a creation reason
     When Select an institution from the dropdown menu
@@ -59,19 +59,11 @@ Feature: Testing Admin Registration Pre Application Creation
 
   Scenario: Attempt to create an admin registration pre-application with missing institution and reason
     When Click the create button for pre-application form
-    Then I should see an error message for institution as "Institution is required."
+    Then User should see an error message for institution as "Institution is required."
     And I should see an error message for reason "This field must be at least 40 characters."
 
   Scenario: Verify first-time created pre-application status is WAITING
     When Select an institution from the dropdown menu
     And Enter a valid creation reason with text between 40 and 512 characters
     And Click the create button for pre-application form
-    Then I should see that the application status is "Waiting"
-
-
-
-
-
-
-
-
+    Then User should see that the application status is "Waiting"
