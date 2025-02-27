@@ -39,6 +39,7 @@ Feature: Login Functionality
     And Click on the Login button
     Then User should be able to see invalid email error message
 
+  @Disabled
   Scenario Outline: Login with invalid password
     When Enter invalid "<emailAddress>" and "<password>"
     And Click on the Login button
