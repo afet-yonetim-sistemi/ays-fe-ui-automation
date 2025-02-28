@@ -24,7 +24,7 @@ Feature: Testing Admin Registration Pre Application Creation
   @Smoke
   Scenario: Successfully create an admin registration pre-application with valid inputs
     When Select an institution from the dropdown menu
-    And Enter a valid creation reason with text between 40 and 512 characters
+    And Enter a valid creation reason
     And Click the create button for pre-application form
     Then User should see a success message confirming the pre-application creation
     And User should be redirected to the details page after creation
@@ -48,7 +48,7 @@ Feature: Testing Admin Registration Pre Application Creation
     Then Enter a reason with more than 512 characters and validate the error message
 
   Scenario: Attempt to create an admin registration pre-application without selecting an institution
-    And Enter a valid creation reason with text between 40 and 512 characters
+    And Enter a valid creation reason
     When Click the create button for pre-application form
     Then User should see an error message for institution as "Institution is required."
 
@@ -64,6 +64,6 @@ Feature: Testing Admin Registration Pre Application Creation
 
   Scenario: Verify first-time created pre-application status is WAITING
     When Select an institution from the dropdown menu
-    And Enter a valid creation reason with text between 40 and 512 characters
+    And Enter a valid creation reason
     And Click the create button for pre-application form
     Then User should see that the application status is "Waiting"

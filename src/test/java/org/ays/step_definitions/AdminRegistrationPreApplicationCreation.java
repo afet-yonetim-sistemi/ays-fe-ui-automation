@@ -4,23 +4,26 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.ays.browser.AysPageActions;
+import org.ays.configuration.AysConfigurationProperty;
+import org.ays.enums.AysEndpoints;
 import org.ays.enums.AysLanguage;
 import org.ays.pages.AdminRegistrationApplicationDetailPage;
 import org.ays.pages.AdminRegistrationApplicationsPage;
 import org.ays.pages.AdminRegistrationPreApplicationPage;
+import org.ays.pages.NotFoundPage;
 import org.ays.utilities.AysLocaleStorageUtil;
 import org.ays.utilities.AysLocalizationUtil;
 import org.ays.utilities.AysRandomUtil;
-import org.testng.Assert;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
-import static org.testng.AssertJUnit.assertEquals;
 
 public class AdminRegistrationPreApplicationCreation {
 
     private final AdminRegistrationApplicationsPage adminRegistrationApplicationsPage;
     private final AdminRegistrationApplicationDetailPage adminRegistrationApplicationDetailPage;
     private final AdminRegistrationPreApplicationPage adminRegistrationPreApplicationPage;
+    private final NotFoundPage notFoundPage;
     private final AysLocalizationUtil localizationUtil;
     private final AysPageActions pageActions;
 
@@ -28,6 +31,7 @@ public class AdminRegistrationPreApplicationCreation {
         this.adminRegistrationApplicationsPage = new AdminRegistrationApplicationsPage();
         this.adminRegistrationApplicationDetailPage = new AdminRegistrationApplicationDetailPage();
         this.adminRegistrationPreApplicationPage = new AdminRegistrationPreApplicationPage();
+        this.notFoundPage = new NotFoundPage();
         this.localizationUtil = new AysLocalizationUtil();
         this.pageActions = new AysPageActions();
     }
@@ -48,8 +52,8 @@ public class AdminRegistrationPreApplicationCreation {
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getInstitutionOptions().get(0));
     }
 
-    @And("Enter a valid creation reason with text between {int} and {int} characters")
-    public void enterAValidCreationReasonWithTextBetweenAndCharacters() {
+    @And("Enter a valid creation reason")
+    public void enterAValidCreationReason() {
         String enteredReason = AysRandomUtil.generateReason();
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getReason());
         pageActions.sendKeysMethod(adminRegistrationPreApplicationPage.getReason(), enteredReason);
@@ -76,7 +80,6 @@ public class AdminRegistrationPreApplicationCreation {
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getReason());
         pageActions.sendKeysMethod(adminRegistrationPreApplicationPage.getReason(), invalidReason);
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getCreateButton());
-
 
         String actualErrorMessage = adminRegistrationPreApplicationPage.getErrorMessageForReason().getText();
         localizationUtil.validateElementMessage(
@@ -105,7 +108,7 @@ public class AdminRegistrationPreApplicationCreation {
     @Then("User should see an error message for institution as {string}")
     public void userShouldSeeAnErrorMessageForInstitutionAs(String expectedInstitutionErrorMessage) {
         String actualInstitutionErrorMessage = adminRegistrationPreApplicationPage.getErrorMessageForInstitution().getText();
-        Assert.assertEquals(
+        assertEquals(
                 actualInstitutionErrorMessage,
                 expectedInstitutionErrorMessage,
                 "Error message did not match."
@@ -115,14 +118,14 @@ public class AdminRegistrationPreApplicationCreation {
     @Then("I should see an error message for reason {string}")
     public void iShouldSeeAnErrorMessageForReason(String expectedReasonErrorMessage) {
         String actualReasonErrorMessage = adminRegistrationPreApplicationPage.getErrorMessageForReason().getText();
-        Assert.assertEquals(actualReasonErrorMessage, expectedReasonErrorMessage, "Error message did not match.");
+        assertEquals(actualReasonErrorMessage, expectedReasonErrorMessage, "Error message did not match.");
     }
 
     @Then("User should see that the application status is {string}")
     public void userShouldSeeThatTheApplicationStatusIs(String expectedStatus) {
         pageActions.waitUntilVisible(adminRegistrationApplicationDetailPage.getStatus());
         String actualStatus = adminRegistrationApplicationDetailPage.getStatus().getAttribute("value");
-        Assert.assertEquals(actualStatus, expectedStatus);
+        assertEquals(actualStatus, expectedStatus);
     }
 
     @Then("User should be able to see all texts on admin registration pre-application page compatible with the {string} language")
@@ -148,6 +151,12 @@ public class AdminRegistrationPreApplicationCreation {
         assertEquals(adminRegistrationPreApplicationPage.getCreationReasonText().getText(), creationReasonLabel);
         assertEquals(adminRegistrationPreApplicationPage.getCreateButton().getText(), createButton);
 
+    }
+
+    @Then("User should not be able to access the Admin Registration Pre-Application page")
+    public void userShouldNotBeAbleToAccessTheAdminRegistrationPreApplicationPage() {
+        pageActions.getWebDriver().get(AysConfigurationProperty.Ui.URL + AysEndpoints.ADMIN_REGISTRATION_PRE_APPLICATION_CREATION.getUrl());
+        assertTrue(notFoundPage.getNotFoundText().isDisplayed());
     }
 
 }
