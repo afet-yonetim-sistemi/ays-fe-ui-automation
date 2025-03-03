@@ -128,7 +128,6 @@ public class AdminRegistrationPreApplicationCreation {
 
     @Then("User should be able to see all texts on admin registration pre-application page compatible with the language")
     public void userShouldBeAbleToSeeAllTextsOnAdminRegistrationPreApplicationPageCompatibleWithTheLanguage() {
-        pageActions.waitFor(2);
         localizationUtil.validateElementMessage("admin_reg_pre_application_header",
                 adminRegistrationPreApplicationPage.getPreApplicationPageHeader().getText(),
                 true);
@@ -150,7 +149,11 @@ public class AdminRegistrationPreApplicationCreation {
 
     @Then("User should not be able to access the Admin Registration Pre-Application page")
     public void userShouldNotBeAbleToAccessTheAdminRegistrationPreApplicationPage() {
-        pageActions.getWebDriver().get(AysConfigurationProperty.Ui.URL + AysEndpoints.ADMIN_REGISTRATION_PRE_APPLICATION_CREATION.getUrl());
+        pageActions.waitFor(2);
+        pageActions.getWebDriver().get(
+                AysConfigurationProperty.Ui.URL +
+                AysEndpoints.ADMIN_REGISTRATION_PRE_APPLICATION_CREATION.getUrl());
+        pageActions.waitFor(2);
         assertTrue(notFoundPage.getNotFoundText().isDisplayed());
     }
 
