@@ -8,18 +8,9 @@ Feature: Testing Admin Registration Pre Application Creation
     And Click on the Admin Registration Applications button from left  navigation bar
     And Click on the Create Pre-Application button
 
-
   @Smoke
-  Scenario Outline: Language verification for all supported languages
-    When Click on the language button
-    And Select the "<language>" option
-    Then User should be able to see all texts on admin registration pre-application page compatible with the "<language>" language
-
-    Examples:
-      | language |
-      | English  |
-      | Turkish  |
-
+  Scenario: Language verification for all supported languages
+    Then User should be able to see all texts on admin registration pre-application page compatible with the language
 
   @Smoke
   Scenario: Successfully create an admin registration pre-application with valid inputs

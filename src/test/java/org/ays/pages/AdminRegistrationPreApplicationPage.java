@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 public class AdminRegistrationPreApplicationPage extends BasePage {
 
-    @FindBy(css ="h1.text-2xl.font-medium.mb-5")
+    @FindBy(css ="h1.text-2xl.font-bold")
     private WebElement preApplicationPageHeader;
 
     @FindBy(css = "div.space-y-2.col-span-1 label.text-sm.font-medium.leading-none")

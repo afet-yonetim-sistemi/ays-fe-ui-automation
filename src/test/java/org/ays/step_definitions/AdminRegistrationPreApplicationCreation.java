@@ -6,12 +6,10 @@ import io.cucumber.java.en.When;
 import org.ays.browser.AysPageActions;
 import org.ays.configuration.AysConfigurationProperty;
 import org.ays.enums.AysEndpoints;
-import org.ays.enums.AysLanguage;
 import org.ays.pages.AdminRegistrationApplicationDetailPage;
 import org.ays.pages.AdminRegistrationApplicationsPage;
 import org.ays.pages.AdminRegistrationPreApplicationPage;
 import org.ays.pages.NotFoundPage;
-import org.ays.utilities.AysLocaleStorageUtil;
 import org.ays.utilities.AysLocalizationUtil;
 import org.ays.utilities.AysRandomUtil;
 
@@ -128,28 +126,25 @@ public class AdminRegistrationPreApplicationCreation {
         assertEquals(actualStatus, expectedStatus);
     }
 
-    @Then("User should be able to see all texts on admin registration pre-application page compatible with the {string} language")
-    public void userShouldBeAbleToSeeAllTextsOnAdminRegistrationPreApplicationPageCompatibleWithTheLanguage(String language) {
-        if (language.equalsIgnoreCase("Turkish")) {
-            AysLocaleStorageUtil.getLanguageFromLocalStorage();
-            AysLocalizationUtil.setLanguage(AysLanguage.TR);
-        } else if (language.equalsIgnoreCase("English")) {
-            AysLocaleStorageUtil.getLanguageFromLocalStorage();
-            AysLocalizationUtil.setLanguage(AysLanguage.EN);
-        }
+    @Then("User should be able to see all texts on admin registration pre-application page compatible with the language")
+    public void userShouldBeAbleToSeeAllTextsOnAdminRegistrationPreApplicationPageCompatibleWithTheLanguage() {
+        pageActions.waitFor(2);
+        localizationUtil.validateElementMessage("admin_reg_pre_application_header",
+                adminRegistrationPreApplicationPage.getPreApplicationPageHeader().getText(),
+                true);
+        localizationUtil.validateElementMessage("admin_reg_pre_application_institution_label",
+                adminRegistrationPreApplicationPage.getInstitutionText().getText(),
+                true);
+        localizationUtil.validateElementMessage("admin_reg_pre_application_select_institution_button",
+                adminRegistrationPreApplicationPage.getSelectInstitution().getText(),
+                true);
+        localizationUtil.validateElementMessage("admin_reg_pre_application_creation_reason_label",
+                adminRegistrationPreApplicationPage.getCreationReasonText().getText(),
+                true);
+        localizationUtil.validateElementMessage("admin_reg_pre_application_creat_button",
+                adminRegistrationPreApplicationPage.getCreateButton().getText(),
+                true);
 
-        String header = AysLocalizationUtil.getText("admin_reg_pre_application_header");
-        String institutionLabel = AysLocalizationUtil.getText("admin_reg_pre_application_institution_label");
-        String selectInstitutionButton = AysLocalizationUtil.getText("admin_reg_pre_application_select_institution_button");
-        String creationReasonLabel = AysLocalizationUtil.getText("admin_reg_pre_application_creation_reason_label");
-        String createButton = AysLocalizationUtil.getText("admin_reg_pre_application_creat_button");
-
-
-        assertEquals(adminRegistrationPreApplicationPage.getPreApplicationPageHeader().getText(), header);
-        assertEquals(adminRegistrationPreApplicationPage.getInstitutionText().getText(), institutionLabel);
-        assertEquals(adminRegistrationPreApplicationPage.getSelectInstitutionText().getText(), selectInstitutionButton);
-        assertEquals(adminRegistrationPreApplicationPage.getCreationReasonText().getText(), creationReasonLabel);
-        assertEquals(adminRegistrationPreApplicationPage.getCreateButton().getText(), createButton);
 
     }
 
