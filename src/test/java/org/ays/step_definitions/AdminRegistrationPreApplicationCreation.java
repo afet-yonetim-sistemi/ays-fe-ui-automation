@@ -153,7 +153,7 @@ public class AdminRegistrationPreApplicationCreation {
         pageActions.getWebDriver().get(
                 AysConfigurationProperty.Ui.URL +
                 AysEndpoints.ADMIN_REGISTRATION_PRE_APPLICATION_CREATION.getUrl());
-        pageActions.waitFor(2);
+        pageActions.waitUntilVisible(notFoundPage.getNotFoundText());
         assertTrue(notFoundPage.getNotFoundText().isDisplayed());
     }
 
