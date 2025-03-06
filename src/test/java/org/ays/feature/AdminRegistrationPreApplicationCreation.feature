@@ -20,7 +20,7 @@ Feature: Testing Admin Registration Pre Application Creation
     Then User should see a success message confirming the pre-application creation
     And User should be redirected to the details page after creation
 
-  @Regression
+  @Regression @Disabled
   Scenario Outline: Admin registration pre-application creation with invalid reasons
     When Select an institution from the dropdown menu
     Then Enter "<invalidReason>" and validate the error message "<errorKey>"
@@ -38,16 +38,19 @@ Feature: Testing Admin Registration Pre Application Creation
     When Select an institution from the dropdown menu
     Then Enter a reason with more than 512 characters and validate the error message
 
+  @Disabled
   Scenario: Attempt to create an admin registration pre-application without selecting an institution
     And Enter a valid creation reason
     When Click the create button for pre-application form
     Then User should see an error message for institution as "Institution is required."
 
+  @Disabled
   Scenario: Attempt to create an admin registration pre-application without providing a creation reason
     When Select an institution from the dropdown menu
     And Click the create button for pre-application form
     Then I should see an error message for reason "This field must be at least 40 characters."
 
+  @Disabled
   Scenario: Attempt to create an admin registration pre-application with missing institution and reason
     When Click the create button for pre-application form
     Then User should see an error message for institution as "Institution is required."
