@@ -47,6 +47,7 @@ public class Login {
     @And("Click on the Login button")
     public void clickOnTheLoginButton() {
         pageActions.clickMethod(loginPage.getLoginButton());
+        pageActions.waitFor(2);
     }
 
     @Then("The username should be displayed on the homepage after successful login")
