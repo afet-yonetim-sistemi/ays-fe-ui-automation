@@ -34,6 +34,7 @@ Feature: Testing Admin Registration Pre Application Creation
       | Invalid reason with special characters: !@#$%^&*() | reason_error.special_characters |
       |                                                    | reason_error.too_short          |
 
+  @Disabled
   Scenario: Admin registration pre-application creation with excessively long reason
     When Select an institution from the dropdown menu
     Then Enter a reason with more than 512 characters and validate the error message

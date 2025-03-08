@@ -128,6 +128,7 @@ public class AdminRegistrationPreApplicationCreation {
 
     @Then("User should be able to see all texts on admin registration pre-application page compatible with the language")
     public void userShouldBeAbleToSeeAllTextsOnAdminRegistrationPreApplicationPageCompatibleWithTheLanguage() {
+        pageActions.waitUntilVisible(adminRegistrationPreApplicationPage.getPreApplicationPageHeader());
         localizationUtil.validateElementMessage("admin_reg_pre_application_header",
                 adminRegistrationPreApplicationPage.getPreApplicationPageHeader().getText(),
                 true);
