@@ -46,6 +46,7 @@ public class AdminRegistrationPreApplicationCreation {
     @When("Select an institution from the dropdown menu")
     public void selectAnInstitutionFromTheDropdownMenu() {
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getSelectInstitution());
+        pageActions.waitFor(1);
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getInstitutionOptions().get(0));
     }
 
