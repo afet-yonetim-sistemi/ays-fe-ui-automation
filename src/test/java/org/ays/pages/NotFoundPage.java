@@ -10,6 +10,6 @@ import org.openqa.selenium.support.FindBy;
 public class NotFoundPage extends BasePage {
 
     @FindBy(css = "h1.mt-5")
-    private WebElement notFoundText;
+    private WebElement text;
 
 }

@@ -13,7 +13,6 @@ import org.ays.pages.NotFoundPage;
 import org.ays.utilities.AysLocalizationUtil;
 import org.ays.utilities.AysRandomUtil;
 
-import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class AdminRegistrationPreApplicationCreation {
@@ -72,7 +71,6 @@ public class AdminRegistrationPreApplicationCreation {
         assertTrue(pageActions.isPresent(adminRegistrationApplicationDetailPage.getHeader()));
     }
 
-
     @Then("Enter {string} and validate the error message {string}")
     public void enterAndValidateTheErrorMessage(String invalidReason, String errorKey) {
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getReason());
@@ -90,40 +88,42 @@ public class AdminRegistrationPreApplicationCreation {
     @Then("Enter a reason with more than {int} characters and validate the error message")
     public void enterAReasonWithMoreThanCharactersAndValidateTheErrorMessage(int length) {
         String longReason = AysRandomUtil.generateReason(600);
-        String expectedErrorMessage = "This field must be at most " + length + " characters.";
 
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getReason());
         pageActions.sendKeysMethod(adminRegistrationPreApplicationPage.getReason(), longReason);
         pageActions.clickMethod(adminRegistrationPreApplicationPage.getCreateButton());
 
-        String actualErrorMessage = adminRegistrationPreApplicationPage.getErrorMessageForReason().getText();
-
-        assertEquals(actualErrorMessage, expectedErrorMessage,
-                "The error message did not match the expected message for reason length: " + longReason.length());
+        localizationUtil.validateElementMessage(
+                "reason_error.too_long",
+                adminRegistrationPreApplicationPage.getErrorMessageForReason().getText(),
+                true);
     }
 
+    @Then("User should see an error message for institution")
+    public void userShouldSeeAnErrorMessageForInstitution() {
+        localizationUtil.validateElementMessage(
+                "institution_error",
+                adminRegistrationPreApplicationPage.getErrorMessageForInstitution().getText(),
+                true);
+    }
 
-    @Then("User should see an error message for institution as {string}")
-    public void userShouldSeeAnErrorMessageForInstitutionAs(String expectedInstitutionErrorMessage) {
-        String actualInstitutionErrorMessage = adminRegistrationPreApplicationPage.getErrorMessageForInstitution().getText();
-        assertEquals(
-                actualInstitutionErrorMessage,
-                expectedInstitutionErrorMessage,
-                "Error message did not match."
+    @Then("I should see an error message for reason")
+    public void iShouldSeeAnErrorMessageForReason() {
+        localizationUtil.validateElementMessage(
+                "reason_error.too_short",
+                adminRegistrationPreApplicationPage.getErrorMessageForReason().getText(),
+                true
         );
     }
 
-    @Then("I should see an error message for reason {string}")
-    public void iShouldSeeAnErrorMessageForReason(String expectedReasonErrorMessage) {
-        String actualReasonErrorMessage = adminRegistrationPreApplicationPage.getErrorMessageForReason().getText();
-        assertEquals(actualReasonErrorMessage, expectedReasonErrorMessage, "Error message did not match.");
-    }
-
-    @Then("User should see that the application status is {string}")
-    public void userShouldSeeThatTheApplicationStatusIs(String expectedStatus) {
+    @Then("User should see that the application status is waiting")
+    public void userShouldSeeThatTheApplicationStatusIsWaiting() {
         pageActions.waitUntilVisible(adminRegistrationApplicationDetailPage.getStatus());
-        String actualStatus = adminRegistrationApplicationDetailPage.getStatus().getAttribute("value");
-        assertEquals(actualStatus, expectedStatus);
+        localizationUtil.validateElementMessage(
+                "admin_reg_pre_application_status_waiting",
+                adminRegistrationApplicationDetailPage.getStatus().getAttribute("value"),
+                true
+        );
     }
 
     @Then("User should be able to see all texts on admin registration pre-application page compatible with the language")
@@ -144,8 +144,6 @@ public class AdminRegistrationPreApplicationCreation {
         localizationUtil.validateElementMessage("admin_reg_pre_application_creat_button",
                 adminRegistrationPreApplicationPage.getCreateButton().getText(),
                 true);
-
-
     }
 
     @Then("User should not be able to access the Admin Registration Pre-Application page")
@@ -153,7 +151,7 @@ public class AdminRegistrationPreApplicationCreation {
         pageActions.waitFor(2);
         pageActions.getWebDriver().get(
                 AysConfigurationProperty.Ui.URL +
-                AysEndpoints.ADMIN_REGISTRATION_PRE_APPLICATION_CREATION.getUrl());
+                        AysEndpoints.ADMIN_REGISTRATION_PRE_APPLICATION_CREATION.getUrl());
         pageActions.waitUntilVisible(notFoundPage.getNotFoundText());
         assertTrue(notFoundPage.getNotFoundText().isDisplayed());
     }

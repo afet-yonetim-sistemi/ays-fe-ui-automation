@@ -20,7 +20,7 @@ Feature: Testing Admin Registration Pre Application Creation
     Then User should see a success message confirming the pre-application creation
     And User should be redirected to the details page after creation
 
-  @Regression @Disabled
+  @Regression
   Scenario Outline: Admin registration pre-application creation with invalid reasons
     When Select an institution from the dropdown menu
     Then Enter "<invalidReason>" and validate the error message "<errorKey>"
@@ -34,31 +34,27 @@ Feature: Testing Admin Registration Pre Application Creation
       | Invalid reason with special characters: !@#$%^&*() | reason_error.special_characters |
       |                                                    | reason_error.too_short          |
 
-  @Disabled
   Scenario: Admin registration pre-application creation with excessively long reason
     When Select an institution from the dropdown menu
     Then Enter a reason with more than 512 characters and validate the error message
 
-  @Disabled
   Scenario: Attempt to create an admin registration pre-application without selecting an institution
     And Enter a valid creation reason
     When Click the create button for pre-application form
-    Then User should see an error message for institution as "Institution is required."
+    Then User should see an error message for institution
 
-  @Disabled
   Scenario: Attempt to create an admin registration pre-application without providing a creation reason
     When Select an institution from the dropdown menu
     And Click the create button for pre-application form
-    Then I should see an error message for reason "This field must be at least 40 characters."
+    Then I should see an error message for reason
 
-  @Disabled
   Scenario: Attempt to create an admin registration pre-application with missing institution and reason
     When Click the create button for pre-application form
-    Then User should see an error message for institution as "Institution is required."
-    And I should see an error message for reason "This field must be at least 40 characters."
+    Then User should see an error message for institution
+    And I should see an error message for reason
 
   Scenario: Verify first-time created pre-application status is WAITING
     When Select an institution from the dropdown menu
     And Enter a valid creation reason
     And Click the create button for pre-application form
-    Then User should see that the application status is "Waiting"
+    Then User should see that the application status is waiting
