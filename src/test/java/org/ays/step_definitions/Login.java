@@ -47,6 +47,7 @@ public class Login {
     @And("Click on the Login button")
     public void clickOnTheLoginButton() {
         pageActions.clickMethod(loginPage.getLoginButton());
+        pageActions.waitFor(2);
     }
 
     @Then("The username should be displayed on the homepage after successful login")
@@ -179,5 +180,17 @@ public class Login {
         assertTrue(pageActions.getWebDriver().getCurrentUrl().contains("/dashboard"));
     }
 
+
+    @When("Enter super admin email address and password")
+    public void enterSuperAdminEmailAddressAndPassword() {
+        pageActions.sendKeysMethod(
+                loginPage.getLoginEmailAddress(),
+                AysConfigurationProperty.TestVolunteerFoundation.SuperAdmin.EMAIL_ADDRESS)
+        ;
+        pageActions.sendKeysMethod(
+                loginPage.getLoginPassword(),
+                AysConfigurationProperty.TestVolunteerFoundation.SuperAdmin.PASSWORD
+        );
+    }
 
 }

@@ -1,3 +1,4 @@
+@Regression
 Feature: Testing Logout
 
   Background:
@@ -5,6 +6,7 @@ Feature: Testing Logout
     When Enter the email address and password
     And Click on the Login button
 
+  @Smoke
   Scenario: Validating logout functionality
     When Click on the profile button
     And  Click on the logout button

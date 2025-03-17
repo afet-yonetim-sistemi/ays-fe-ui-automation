@@ -26,4 +26,14 @@ public class AysRandomUtil {
         return phoneNumber.toString();
     }
 
+    public static String generateReason() {
+        String reason = FAKER.lorem().paragraph(3);
+        reason = reason.replaceAll("[^a-zA-Z0-9\\s]", "");
+        return reason.length() > 512 ? reason.substring(0, 512) : reason;
+    }
+
+    public static String generateReason(int length) {
+        return FAKER.lorem().characters(length, true, true);
+    }
+
 }

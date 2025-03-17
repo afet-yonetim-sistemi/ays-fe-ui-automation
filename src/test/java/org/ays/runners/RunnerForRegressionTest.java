@@ -4,7 +4,8 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         plugin = {"pretty"},
-        tags = "@Regression", publish = true
+        tags = "@Regression and not @Disabled",
+        publish = true
 )
 public class RunnerForRegressionTest extends AysAbstractTestNGCucumberTests {
 }

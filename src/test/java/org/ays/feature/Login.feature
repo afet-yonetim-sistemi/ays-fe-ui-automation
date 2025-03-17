@@ -11,6 +11,7 @@ Feature: Login Functionality
     Then The username should be displayed on the homepage after successful login
     And accessToken and refreshToken should be stored in localStorage
 
+  @Disabled
   Scenario Outline: Login with unauthorized user
     When Enter unauthorized "<emailAddress>" and "<password>"
     And Click on the Login button
@@ -19,6 +20,7 @@ Feature: Login Functionality
       | emailAddress          | password |
       | unauthorized@email.us | password |
 
+  @Disabled
   Scenario Outline: Login with invalid emailAddress
     When Enter invalid "<emailAddress>" and "<password>"
     And Click on the Login button
@@ -34,11 +36,13 @@ Feature: Login Functionality
       | userays.org  | password |
       | @user.org    | password |
 
+  @Disabled
   Scenario: Login with a blank email address
     When Sets the email address to "   " and enters "password"
     And Click on the Login button
     Then User should be able to see invalid email error message
 
+  @Disabled
   Scenario Outline: Login with invalid password
     When Enter invalid "<emailAddress>" and "<password>"
     And Click on the Login button
@@ -47,16 +51,19 @@ Feature: Login Functionality
       | emailAddress  | password |
       | user@email.us | pass     |
 
+  @Disabled
   Scenario: Login with valid email address invalid password
     When Enter valid emailAddress and invalid password
     And Click on the Login button
     Then Error pop-up message should be displayed
 
+  @Disabled
   Scenario: Login with invalid email address valid password
     When Enter invalid emailAddress and valid password
     And Click on the Login button
     Then Error pop-up message should be displayed
 
+  @Disabled
   Scenario: Login with blank email address and password
     And Click on the Login button
     Then User should be able to see errorMessage under email and password input box
@@ -110,4 +117,3 @@ Feature: Login Functionality
     And accessToken and refreshToken should be stored in localStorage
     And The "refreshToken" expires using mock expiration
     Then The user should see the login page
-

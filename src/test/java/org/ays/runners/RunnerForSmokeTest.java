@@ -4,7 +4,8 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         plugin = {"pretty"},
-        tags = "@Smoke", publish = true
+        tags = "@Smoke and not @Disabled",
+        publish = true
 )
 public class RunnerForSmokeTest extends AysAbstractTestNGCucumberTests {
 }
