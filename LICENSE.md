@@ -13,8 +13,8 @@ The Software is provided "as is," without warranty of any kind, express or impli
 
 Except as contained in this notice, the name(s) of the above copyright holders shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization.
 
-Redistributions of any form whatsoever must retain the following acknowledgment: "This product includes software developed by the Afet Yönetim Sistemi project (https://github.com/afet-yonetim-sistemi/ays-be-api-automation)."
+Redistributions of any form whatsoever must retain the following acknowledgment: "This product includes software developed by the Afet Yönetim Sistemi project (https://github.com/afet-yonetim-sistemi/ays-be-ui-automation)."
 
 Redistributions of any form whatsoever must also include a copy of this license document in the distribution.
 
-If you have any questions or concerns regarding the licensing of this software, please contact the project team at iletisim@afetyonetimsistemi.com.
+If you have any questions or concerns regarding the licensing of this software, please contact the project team at iletisim@afetyonetimsistemi.org.
