@@ -77,6 +77,29 @@ You can run specific test suites by modifying the testng.xml file under the test
 
 ---
 
+## Running Tests from the Command Line
+
+You can run tests from the command line using Maven. Navigate to the project directory and run the following command:
+
+**Daily Test Execution:**
+
+- Smoke Test
+
+```bash
+mvn clean test -P daily
+```
+
+**Weekly(All) Test Execution:**
+
+- Smoke Test
+- Regression Test
+
+```bash
+mvn clean test -P weekly
+```
+
+---
+
 ## Generating Reports
 
 Test execution reports can be found in the target folder. You can open the HTML report in a web browser to view
