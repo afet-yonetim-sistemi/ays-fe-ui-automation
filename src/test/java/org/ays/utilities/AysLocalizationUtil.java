@@ -48,12 +48,8 @@ public class AysLocalizationUtil {
         List<AysLanguage> languages = AysLanguage.getLanguages();
 
         for (AysLanguage language : languages) {
-            // TODO: Remove this if condition when the bug in AYS-505 is resolved
-            if (language.equals(currentLanguage)) {
                 setLanguage(language);
                 assertEquals(actualText, getText(key));
-                break;
-            }
         }
 
     }
